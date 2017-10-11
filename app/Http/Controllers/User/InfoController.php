@@ -7,5 +7,7 @@ use App\Http\Controllers\Controller;
 
 class InfoController extends Controller
 {
-    //
+    public function viewInfo(){
+    	
+    }
 }

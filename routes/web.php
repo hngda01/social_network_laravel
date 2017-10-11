@@ -27,5 +27,11 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('home','User\PostController@home');
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
+	Route::get('listPost','User\PostController@listPost');
+	Route::get('viewPost/{id}','User\PostController@viewPost');
+	Route::post('writeComment','User\PostController@writeComment');
+	Route::get('deletePost/{id}','User\PostController@deletePost');
+	Route::get('editPost/{id}','User\PostController@editPost');
+	Route::post('editPost','User\PostController@updatePost');
 });
 

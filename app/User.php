@@ -29,4 +29,7 @@ class User extends Authenticatable
     public function category(){
         return $this->hasMany('App\Category','id_user','id');
     }
+    public function diary(){
+        return $this->hasMany('App\diary','id_user','id');
+    }
 }

@@ -13,4 +13,7 @@ class Diary extends Model
     public function privacy(){
     	return $this->hasOne('App\Privacy');
     }
+    public function comment(){
+    	return $this->hasMany('App\Comment','id_diary','id');
+    }
 }

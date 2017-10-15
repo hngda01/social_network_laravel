@@ -1,5 +1,3 @@
-@extends('Layout.index')
-@section('content')
 <form action="createPost" method="POST" role="form" enctype="multipart/form-data">
 {{ csrf_field() }}
 	<legend>new post</legend>
@@ -33,4 +31,3 @@
 
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
-@endsection

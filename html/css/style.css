@@ -1,0 +1,77 @@
+html,body{
+    height: 100%
+}
+nav {
+	background-color: #c7d2c7;
+}
+
+.page-login-01{
+	min-height: 100%;
+}
+.page-login-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+.page-login-02{
+	text-align: center;
+	font-family: Lobster;
+	margin-bottom: 15px;
+	color: #3cb481;
+}
+.page-login-03{
+	color: red;
+	margin: -10px 0px 2px 0px;
+	text-align: center;
+}
+.page-login-04{
+	text-align: center;
+}
+.page-login-05{
+	width: 100%;
+	margin-bottom: 5px;
+}
+.page-login-06{
+	text-align: center;
+}
+
+@media screen and (min-width: 360px) {
+    .page-login-03{
+		text-align: left;
+	}
+	.page-login-04{
+		text-align: left;
+	}
+	.page-login-06{
+		text-align: left;
+	}/*
+	footer {
+		bottom: 0;
+		margin: 0 auto !important;
+		text-align: center !important;
+		width: 100% !important;
+		position: absolute; 
+	}*/
+}
+
+@media screen and (min-width: 768px) {
+	.page-login-01{
+		margin-top:200px;
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.page-login-05{
+		width: 50%;
+	}
+} 
+
+footer {
+    background-color: #68ca79;
+    color: white;
+    padding: 15px;
+  	margin-top: -50px;
+}
+
+footer>p{
+	font-size: 17px;
+}

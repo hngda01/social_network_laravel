@@ -5,6 +5,13 @@ nav {
 	background-color: #c7d2c7;
 }
 
+.page-login-01{
+	min-height: 100%;
+}
+.page-login-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
 .page-login-02{
 	text-align: center;
 	font-family: Lobster;
@@ -36,14 +43,14 @@ nav {
 	}
 	.page-login-06{
 		text-align: left;
-	}
+	}/*
 	footer {
 		bottom: 0;
 		margin: 0 auto !important;
 		text-align: center !important;
 		width: 100% !important;
 		position: absolute; 
-	}
+	}*/
 }
 
 @media screen and (min-width: 768px) {
@@ -62,6 +69,7 @@ footer {
     background-color: #68ca79;
     color: white;
     padding: 15px;
+  	margin-top: -50px;
 }
 
 footer>p{

@@ -9,5 +9,6 @@ hello everyone
 <br><a href="newPost" title="">new Post</a>
 <br><a href="listPost" title="">list Post</a>
 <br><a href="viewInfo" title="">view info</a>
+<br><a href="friend list" title="">friend list</a>
 </body>
 </html>

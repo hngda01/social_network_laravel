@@ -32,4 +32,10 @@ class User extends Authenticatable
     public function diary(){
         return $this->hasMany('App\diary','id_user','id');
     }
+    public function userInfo(){
+        return $this->hasMany('App\UserInfo','id_user','id');
+    }
+    public function friendList(){
+        return $this->hasOne('App\Friend',"user_id","id");
+    }
 }

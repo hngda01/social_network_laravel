@@ -33,6 +33,9 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('deletePost/{id}','User\PostController@deletePost');
 	Route::get('editPost/{id}','User\PostController@editPost');
 	Route::post('editPost','User\PostController@updatePost');
-	Route::get('viewInfo','InfoController@viewInfo');
+	Route::get('viewInfo','User\InfoController@viewInfo');
+	Route::get('editInfo','User\InfoController@editInfo');
+	Route::post('editInfo','User\InfoController@updateInfo');
+	Route::get('friendList','User\FriendController');
 });
 

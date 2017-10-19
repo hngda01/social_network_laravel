@@ -1,0 +1,1 @@
+tất cả các document như đặc tả, cách tổ chức dữ liệu, test bug, fix bug và database để restore ở đây

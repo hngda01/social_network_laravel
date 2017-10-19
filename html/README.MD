@@ -1,0 +1,1 @@
+Folder này chứa các file HTML, CSS, jQuery giao diện của project! Copy các màn .html từ folder này rồi paste vào các file .blade.php và các file .css và .js vào mục assets

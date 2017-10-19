@@ -43,14 +43,7 @@ nav {
 	}
 	.page-login-06{
 		text-align: left;
-	}/*
-	footer {
-		bottom: 0;
-		margin: 0 auto !important;
-		text-align: center !important;
-		width: 100% !important;
-		position: absolute; 
-	}*/
+	}
 }
 
 @media screen and (min-width: 768px) {
@@ -60,6 +53,12 @@ nav {
 }
 
 @media screen and (min-width: 1200px){
+	body{
+		background: url("../img/dairy-diary-background-scenery-birds-bird.jpg");
+	}
+	.page-login-02{
+		text-shadow: 0px 0px 5px #aaa;
+	}
 	.page-login-05{
 		width: 50%;
 	}

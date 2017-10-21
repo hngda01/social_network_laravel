@@ -5,6 +5,7 @@ nav {
 	background-color: #c7d2c7;
 }
 
+/*begin login page*/
 .page-login-01{
 	min-height: 100%;
 }
@@ -33,8 +34,40 @@ nav {
 .page-login-06{
 	text-align: center;
 }
+/*end login page*/
+
+
+.page-register-01{
+	min-height: 100%;
+}
+.page-register-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+.page-register-02{
+	text-align: center;
+	font-family: Lobster;
+	margin-bottom: 15px;
+	color: #3cb481;
+}
+.page-register-03{
+	color: red;
+	margin: -10px 0px 2px 0px;
+	text-align: center;
+}
+.page-register-04{
+	text-align: center;
+}
+.page-register-05{
+	width: 100%;
+	margin-bottom: 5px;
+}
+.page-register-06{
+	text-align: center;
+}
 
 @media screen and (min-width: 360px) {
+	/*begin login page*/
     .page-login-03{
 		text-align: left;
 	}
@@ -44,24 +77,54 @@ nav {
 	.page-login-06{
 		text-align: left;
 	}
+	/*end login page*/
+
+	.page-register-03{
+		text-align: left;
+	}
+	.page-register-04{
+		text-align: left;
+	}
+	.page-register-06{
+		text-align: left;
+	}
 }
 
 @media screen and (min-width: 768px) {
+	/*begin login page*/
 	.page-login-01{
 		margin-top:200px;
 	}
+	/*end login page*/
+
+	/*begin register page*/
+	.page-register-01{
+		margin-top:200px;
+	}
+	/*end register page*/
 }
 
 @media screen and (min-width: 1200px){
 	body{
 		background: url("../img/dairy-diary-background-scenery-birds-bird.jpg");
 	}
+	/*begin login page*/
 	.page-login-02{
 		text-shadow: 0px 0px 5px #aaa;
 	}
 	.page-login-05{
 		width: 50%;
 	}
+	/*end login page*/
+	
+	/*begin register page*/
+	.page-register-02{
+		text-shadow: 0px 0px 5px #aaa;
+	}
+	.page-register-05{
+		width: 50%;
+	}
+	/*end register page*/
 } 
 
 footer {

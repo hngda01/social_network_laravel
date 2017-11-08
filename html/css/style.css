@@ -26,8 +26,15 @@ nav {
 .navbar-nav>li>a{
 	color: rgb(16, 165, 128) !important;
 }
-.search-box{
-	width: 410px;
+.navbar-component{
+	color: rgb(16, 165, 128) !important;
+	padding: 15px;
+}
+.dropdown-menu>li>a{
+	color: #262626 !important;
+}
+.dropdown-menu>li>a>span{
+	margin-right: 10px;
 }
 /*begin login page*/
 .page-login-01{
@@ -141,6 +148,11 @@ nav {
 	/*end register page*/
 }
 
+@media screen and (min-width: 980px){
+	.search-box{
+		width: 410px;
+	}
+}
 @media screen and (min-width: 1200px){
 	body{
 		background: url("../img/dairy-diary-background-scenery-birds-bird.jpg");

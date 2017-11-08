@@ -91,6 +91,16 @@ nav {
 }
 /* end register page */
 
+/* begin newsfeed page */
+.page-newsfeed-01{
+	min-height: 100%;
+}
+.page-newsfeed-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+/* end newsfeed page */
+
 @media screen and (min-width: 360px) {
 	/*begin login page*/
     .page-login-03{
@@ -152,6 +162,12 @@ nav {
 		width: 50%;
 	}
 	/*end register page*/
+
+	/* begin newsfeed page */
+	.page-newsfeed-01-b{
+		background-color: white;
+	}
+	/* end newsfeed page */
 } 
 
 footer {

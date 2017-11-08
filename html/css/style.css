@@ -4,7 +4,31 @@ html,body{
 nav {
 	background-color: #c7d2c7;
 }
-
+.navbar-inverse{
+	background-color: #c7d2c7 !important;
+	border-color: #c7d2c7 !important;
+}
+.navbar-form, .navbar-collapse{
+	border-color: white !important;
+}
+.navbar-toggle{
+	border-color: #3cb481 !important;	
+}
+.navbar-header>button{
+	background-color: #c7d2c7;
+}
+.navbar-toggle:hover{
+	background-color: #4bb9c2 !important;	
+}
+.navbar-toggle:focus{
+	background-color: #4bb9c2 !important;	
+}
+.navbar-nav>li>a{
+	color: rgb(16, 165, 128) !important;
+}
+.search-box{
+	width: 410px;
+}
 /*begin login page*/
 .page-login-01{
 	min-height: 100%;
@@ -36,7 +60,7 @@ nav {
 }
 /*end login page*/
 
-
+/* begin register page */
 .page-register-01{
 	min-height: 100%;
 }
@@ -65,6 +89,17 @@ nav {
 .page-register-06{
 	text-align: center;
 }
+/* end register page */
+
+/* begin newsfeed page */
+.page-newsfeed-01{
+	min-height: 100%;
+}
+.page-newsfeed-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+/* end newsfeed page */
 
 @media screen and (min-width: 360px) {
 	/*begin login page*/
@@ -79,6 +114,7 @@ nav {
 	}
 	/*end login page*/
 
+	/* begin register page */
 	.page-register-03{
 		text-align: left;
 	}
@@ -88,6 +124,7 @@ nav {
 	.page-register-06{
 		text-align: left;
 	}
+	/* end register page */
 }
 
 @media screen and (min-width: 768px) {
@@ -125,6 +162,12 @@ nav {
 		width: 50%;
 	}
 	/*end register page*/
+
+	/* begin newsfeed page */
+	.page-newsfeed-01-b{
+		background-color: white;
+	}
+	/* end newsfeed page */
 } 
 
 footer {

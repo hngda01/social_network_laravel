@@ -35,9 +35,42 @@
         </div>
       </form>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" title="Friend Request"><span class="fa fa-users"></span></a></li>
-        <li><a href="#" title="Notification"><span class="fa fa-bell"></span></a></li>
-        <li><a href="#"><span class="fa fa-user"></span> My Account</a></li>
+
+        <li>
+          <div class="dropdown navbar-component" title="Friend Request">
+            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-users"></span>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="friends">
+              <li><a href="#">Friend Request</a></li>
+              <li><a href="#">Friend Request</a></li>
+              <li><a href="#">Friend Request</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown navbar-component" title="Notification">
+            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="fa fa-bell"></span>
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="noti">
+              <li><a href="#">New Comment on Your Post</a></li>
+              <li><a href="#">New Comment on Your Post</a></li>
+              <li><a href="#">New Comment on Your Post</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown navbar-component" title="Notification">
+            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="fa fa-user"></span> My Account
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="acc">
+              <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
+              <li><a href="#"><span class="fa fa-sign-out"></span> Log Out</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -76,7 +109,7 @@
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
-              <p contenteditable="true">Status: Feeling Blue</p>
+              <p contenteditable="true">There will be a text area here</p>
               <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
               </button>     

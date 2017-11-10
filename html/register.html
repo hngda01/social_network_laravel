@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My Diary</title>
+  <title>Register</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -25,30 +25,32 @@
   </div>
 </nav>
 
-<div class="container page-login-01"> 
-  <div class="page-login-01-b">   
+<div class="container page-register-01"> 
+  <div class="page-register-01-b">   
     <div class="row">
       <div class="col-sm-6">
-        <h1 class="page-login-02">Keep me in your memory</h1>
+        <h1 class="page-register-02">Keep me in your memory</h1>
       </div>
       <div class="col-sm-6">
         <form>
           <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" type="text" name="name">
+          </div>
+          <p class="page-register-03">This field is empty</p>
+          <div class="form-group">
             <label>Username:</label>
             <input class="form-control" type="text" name="username">
           </div>
-          <p class="page-login-03">This field is empty</p>
+          <p class="page-register-03">This field is empty</p>
           <div class="form-group">
             <label>Password:</label>
             <input class="form-control" type="password" name="password">
           </div>
-          <p class="page-login-03">Wrong password</p>        
-          <div class="checkbox page-login-04">
-            <label><input type="checkbox"> Remember me</label>
-          </div>
-          <button type="submit" class="btn btn-primary page-login-05">Login</button>    
+          <p class="page-register-03">This field is empty</p> 
+          <button type="submit" class="btn btn-primary page-register-05">Register</button>    
         </form>
-        <p class="page-login-06"><a href="#">New register?</a></p>
+        <p class="page-register-06"><a href="#">Already have an account? Log in!</a></p>
       </div>
     </div> 
   </div>

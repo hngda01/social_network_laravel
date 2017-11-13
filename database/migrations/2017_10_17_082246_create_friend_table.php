@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFriendList extends Migration
+class CreateFriendTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,6 +22,10 @@ class CreateFriendList extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+            $table->foreign('friend_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 
@@ -32,6 +36,6 @@ class CreateFriendList extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friend_list');
+        DropIfExist("friend_list");
     }
 }

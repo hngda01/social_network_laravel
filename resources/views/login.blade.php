@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+@extends("Layout.index")
+@section("content")
+<div class="container page-login-01"> 
+  <div class="page-login-01-b">   
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 class="page-login-02">Keep me in your memory</h1>
+      </div>
+      <div class="col-sm-6">
+        <form action="" method="POST">
+        {{ csrf_field() }}
+          <div class="form-group">
+            <label>Username:</label>
+            <input class="form-control" type="text" name="user_name">
+          </div>
+          <p class="page-login-03">This field is empty</p>
+          <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" type="password" name="password">
+          </div>
+          <p class="page-login-03">Wrong password</p>        
+          <div class="checkbox page-login-04">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary page-login-05">Login</button>    
+        </form>
+        <p class="page-login-06"><a href="#">New register?</a></p>
+      </div>
+    </div> 
+  </div>
+</div> 
+@endsection
+{{-- <!DOCTYPE html>
 <html>
 <head>
 	<title>login</title>
@@ -24,4 +56,4 @@
 	<button type="submit" class="btn btn-primary">login</button>
 </form>
 </body>
-</html>
+</html> --}}

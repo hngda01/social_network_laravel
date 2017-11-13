@@ -36,6 +36,6 @@ class User extends Authenticatable
         return $this->hasMany('App\UserInfo','id_user','id');
     }
     public function friendList(){
-        return $this->hasOne('App\Friend',"user_id","id");
+        return $this->hasMany('App\Friend',"user_id","id");
     }
 }

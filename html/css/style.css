@@ -1,5 +1,5 @@
 html,body{
-    height: 100%
+    height: 100%;
 }
 nav {
 	background-color: #c7d2c7;
@@ -36,6 +36,18 @@ nav {
 .dropdown-menu>li>a>span{
 	margin-right: 10px;
 }
+
+/* request&noti */
+.friend-request{
+	color: #262626;
+	padding: 3px 20px;
+}
+.dropdown-menu>.view-more>a{
+	color: #23527c !important;
+	font-weight: bold !important;
+}
+/* request&noti end */
+
 /*begin login page*/
 .page-login-01{
 	min-height: 100%;
@@ -135,6 +147,11 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
+	/* request&noti */
+	.friend-request{
+		width: 300px;
+	}
+	/* request&noti end */
 	/*begin login page*/
 	.page-login-01{
 		margin-top:200px;

@@ -32,6 +32,7 @@ nav {
 }
 .dropdown-menu>li>a{
 	color: #262626 !important;
+	padding: 9px 10px 10px !important;
 }
 .dropdown-menu>li>a>span{
 	margin-right: 10px;
@@ -45,6 +46,25 @@ nav {
 .dropdown-menu>.view-more>a{
 	color: #23527c !important;
 	font-weight: bold !important;
+	padding: 3px 20px !important;
+}
+.noti-table{
+	width: 300px;
+}
+.noti-comp>a{
+	height: 80px;
+}
+.dropdown-menu>.noti-comp>a>span{    
+	display: inline-block !important;
+    white-space: normal !important;
+    padding: 2px 0px 10px !important;
+    width: 75%;
+}
+.noti-pic{
+	height: 55px !important;
+	width: 55px !important;
+	float: left;
+	margin: 5px;
 }
 /* request&noti end */
 

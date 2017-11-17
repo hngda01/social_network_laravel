@@ -158,6 +158,12 @@ nav {
 .page-noti-02>a{
 	display: block;
 	white-space: normal;
+	color: rgb(70, 65, 65);
+}
+.page-noti-02>a:hover{
+	display: block;
+	color: rgb(51, 47, 47);
+	background-color: #a5a4a433;
 }
 .page-noti-02>a>span{
 	display: inline-block;
@@ -173,7 +179,7 @@ nav {
 	margin-bottom: 7px;
 }
 .page-noti-read{
-	background-color: #87878733;
+	background-color: #7777771a;
 }
 /* end page noti */
 

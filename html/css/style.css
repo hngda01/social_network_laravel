@@ -140,6 +140,24 @@ nav {
 }
 /* end newsfeed page */
 
+/* begin page noti  */
+.page-noti-01{
+	display: block;
+}
+.page-noti-01>a{
+	display: block;
+	white-space: normal;
+}
+.page-noti-02{
+	display: inline-block;
+	height: 40px;
+	margin-right: 20px;
+}
+.page-noti-read{
+	background-color: #87878733;
+}
+/* end page noti */
+
 @media screen and (min-width: 360px) {
 	/*begin login page*/
     .page-login-03{
@@ -183,6 +201,12 @@ nav {
 		margin-top:200px;
 	}
 	/*end register page*/
+
+	/* begin page noti */
+	.page-noti-02{
+		height: 55px;
+	}
+	/* end page noti */
 }
 
 @media screen and (min-width: 980px){

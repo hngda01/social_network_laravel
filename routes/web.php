@@ -24,7 +24,7 @@ Route::get('register',function(){
 Route::post('register','loginController@register');
 Route::get('logout','loginController@logout');
 Route::group(['middleware'=>'user'],function(){
-	Route::get('home','User\PostController@home');
+	//Route::get('home','User\PostController@home');
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
@@ -42,3 +42,7 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('addFriend','User\FriendController@addFriend');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

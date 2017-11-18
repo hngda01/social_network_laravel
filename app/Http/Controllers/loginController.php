@@ -12,7 +12,7 @@ class loginController extends Controller
     	$userMail= $request['user_name'];
     	$password= $request['password'];
     	if(Auth::attempt(['email'=>$userMail,'password'=>$password]))
-    		return "Hello ".Auth::user()->name;
+    		return view('Profile_with_timeline');
     	else return "sai mat khau";
     }
     public function register(Request $request){

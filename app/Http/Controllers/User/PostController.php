@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
 	public function home(){
-		return view('home');
+		return view('Profile_with_tabs_like_facebook_page');
 	}
 	public function showNewPost(){
 		$user= User::where('id',Auth::user()->id)->first();

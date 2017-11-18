@@ -11,13 +11,13 @@ class InfoController extends Controller
 {
     public function viewInfo(){
     	$user= User::find(Auth::user()->id);
-    	return view('User.viewInfo',[
+    	return view('User.user_personal_information_profile',[
     		'info'=>$user->userInfo
     		]);
     }
     public function editInfo(){
     	$user= User::find(Auth::user()->id);
-    	return view('User.editInfo',[
+    	return view('User.contact_details_page',[
     		'info'=>$user->userInfo
     		]);	
     }

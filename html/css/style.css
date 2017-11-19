@@ -97,6 +97,26 @@ nav {
 .page-login-06{
 	text-align: center;
 }
+.page-login-07{ 
+	width: 100%;
+	color: white;
+	border: none;
+}
+.page-login-07:hover{
+	color: white;
+}
+.page-login-fb{
+	background-color: #3c5a99;
+}
+.page-login-fb:hover{
+	background-color: #304d86;
+}
+.page-login-gg{
+	background-color: #d14836;
+}
+.page-login-gg:hover{
+	background-color: #b63d2f;
+}
 /*end login page*/
 
 /* begin register page */

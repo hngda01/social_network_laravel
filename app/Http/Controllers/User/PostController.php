@@ -8,12 +8,17 @@ use App\User;
 use App\Category;
 use App\Diary;
 use App\Comment;
+use App\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
 	public function home(){
-		return view('Profile_with_tabs_like_facebook_page');
+		$notifications= Notification::where('id_user',Auth::user()->id)
+										->where("seen",0)
+										->get();
+		
+		return view('home',['notifications'=>$notifications]);
 	}
 	public function showNewPost(){
 		$user= User::where('id',Auth::user()->id)->first();

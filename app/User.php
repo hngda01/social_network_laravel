@@ -38,4 +38,7 @@ class User extends Authenticatable
     public function friendList(){
         return $this->hasMany('App\Friend',"user_id","id");
     }
+    public function comment(){
+        return $this->hasMany('App\Comment',"id_user","id");
+    }
 }

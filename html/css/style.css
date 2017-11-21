@@ -82,6 +82,7 @@ nav {
 	width: 26%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-weight: bold;
 }
 .friend-request-buttons{
 	display: block;
@@ -180,6 +181,9 @@ nav {
 }
 .page-newsfeed-02{
 	background-color: white;
+}
+.page-newsfeed-03>ul{
+	text-align: left
 }
 /* end newsfeed page */
 
@@ -322,6 +326,10 @@ nav {
 	/* begin newsfeed page */
 	.page-newsfeed-01-b{
 		background-color: white;
+	}
+	.page-newsfeed-03>ul>li{
+		font-size: 18px;
+		margin-top: 3px;
 	}
 	/* end newsfeed page */
 

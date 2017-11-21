@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Diary</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<style>
+table#t01 {
+    width:100%;
+}
+table#t01, th#t01, td#t01 {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th#t01, td#t01 {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th  {
+
+    background-color: black;
+    color: white;
+}
+</style>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a href="#"><img src="./logo/logo.jpg" height="50"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group input-group search-box">
+            <input type="text" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="fa fa-search"></span>
+              </button>
+            </span>        
+          </div>
+        </form>      
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+            <div class="dropdown navbar-component" title="Friend Request">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="fa fa-users"></span>
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="friends">
+                <li><a href="#">A had send you a friend reques</a></li>
+                <li><a href="#">A had send you a friend reques</a></li>
+                <li><a href="#">A had send you a friend reques</a></li>
+                <!-- đang làm chức năng accept decline ngay tại dropdown này -->
+              <!-- <li><div class="friend-request">A had send you a friend request</div></li>
+              <li><div class="friend-request">A had send you a friend request</div></li>
+              <li><div class="friend-request">A had send you a friend request</div></li> -->
+              <li class="divider"></li>
+              <li class="text-center view-more"><a href="#">View more friend requests</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown navbar-component" title="Notification">
+            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-bell"></span>
+            </div>
+            <ul class="dropdown-menu noti-table" aria-labelledby="noti">
+              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span></a></li>
+              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
+              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
+              <li class="divider"></li>
+              <li class="text-center view-more"><a href="#" class="view-more">View more notification</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown navbar-component" title="Notification">
+            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-user"></span> My Account
+            </div>
+            <ul class="dropdown-menu" aria-labelledby="acc">
+              <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
+              <li><a href="#"><span class="fa fa-sign-out"></span> Log Out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center page-newsfeed-01">    
+  <div class="row page-newsfeed-01-b">
+    <div class="col-sm-2 well">
+      <div >
+
+        <img src="img/avatar/ava1.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        <br><br><p><a href="#">Nguyen Dang Hai</a></p>
+      </div>
+      <hr style="background-color: #000;height: 1px;"> 
+      <div style="margin-left: 5px">
+        <p><a href="#">Menu</a></p>
+        
+        <div align="left"><div class="fa fa-television"></div> New feed</div>
+        <div align="left"><div class="fa fa-pencil-square-o"></div> Write diary</div>
+        <div align="left"><div class="fa fa-address-book-o"></div> Friend list</div>
+        <div align="left"><div class="fa fa-newspaper-o"></div> Your page</div>
+        <div align="left"><div class="fa fa-user-circle"></div> Profile</div>
+        
+      </div>
+      <hr style="background-color: #000;height: 1px;"> 
+      <div style="margin-left: 0px" align="left">
+        <p><a href="#">Recent Friends</a></p>
+        <img src="img/avatar/ava1.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> Dang Nguyet Anh
+        <br><img src="img/avatar/ava5.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> Do Van Lam
+        <br><img src="img/avatar/ava1.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> Tran Van Hoa
+        <br><img src="img/avatar/ava5.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> Hoang Tuan Anh
+        <br><img src="img/avatar/ava1.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> Dang Nguyet Anh
+        
+      </div>
+      
+    </div>
+    <div class="col-sm-7">
+
+      <div class="row">
+        <div class="col-sm-12">
+          Lastest posts by Friends
+          <div class="panel panel-default text-left">
+            <div class="panel-body">            
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class=" well" style="margin-left: 20px; margin-right: 20px">
+          <div align="left">
+            <table>
+              <tr>
+                <td style="padding-right: 20px">
+                  <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+                </td>
+                <td>
+                  Nguyen Dang Hai<br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                  Topic:"Autumn"
+
+                </td>
+              </tr>
+            </table>
+
+          </div>
+          <table>
+            <tr>
+              <td style="padding-top: 10px">
+                <img src="img/ad/ad1.jpg" alt="Paris" width="100" height="100">
+              </td>
+              <td align="left" style="padding-left: 10px">
+                <h4> this is a long title</h4> 
+                <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p> 
+              </td>            
+            </tr>         
+          </table>
+          <hr style="background-color: #000;height: 1px;"> 
+          <table>
+            <tr>
+              <td width="70px">
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
+              </td>
+              <td width="50%">
+                <i class="fa fa-comments-o" aria-hidden="true"></i> 30
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- #### -->
+        <div class=" well" style="margin-left: 20px; margin-right: 20px">
+          <div align="left">
+            <table>
+              <tr>
+                <td style="padding-right: 20px">
+                  <img src="img/avatar/ava1.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+                </td>
+                <td>
+                  Nguyen Dang Hai<br> 3 hours ago&nbsp;&nbsp;&nbsp;
+                  <i class="fa fa-tag" aria-hidden="true"></i> 
+                  Topic:"Autumn"
+                </td>
+              </tr>
+            </table>
+            
+          </div>
+          <table>
+            <tr>
+              <td style="padding-top: 10px">
+                <img src="img/ad/ad1.jpg" alt="Paris" width="100" height="100">
+              </td>
+              <td align="left" style="padding-left: 10px">
+                <h4> this is a long title</h4> 
+                <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p> 
+              </td>            
+            </tr>         
+          </table>
+          <hr style="background-color: #000;height: 1px;"> 
+          <table>
+            <tr>
+              <td width="70px">
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
+              </td>
+              <td width="50%">
+                <i class="fa fa-comments-o" aria-hidden="true"></i> 30
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-3 well">
+      <div class="thumbnail">
+        <p>Upcoming Events:</p>
+        <img src="img/ad/ad1.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div> 
+      
+      <div>
+        <table id="t01" width="100%">
+
+          <th id="t01" >M</th>
+          <th id="t01" >T</th>
+          <th id="t01" >W</th>
+          <th id="t01" >T</th>
+          <th id="t01" >F</th>
+          <th id="t01" >S</th>
+          <th id="t01" >S</th> 
+        </tr>  
+
+        <tr id="t01">
+          <td id="t01" colspan="3" class="pad">&nbsp;</td>
+          <td id="t01">1</td>
+          <td id="t01">2</td>
+          <td id="t01">3</td>
+          <td id="t01">4</td>
+        </tr>
+        <tr id="t01">
+          <td id="t01" id="today">5</td>
+          <td id="t01">6</td>
+          <td id="t01">7</td>
+          <td id="t01">8</td>
+          <td id="t01">9</td>
+          <td id="t01">10</td>
+          <td id="t01">11</td>
+        </tr>
+        <tr id="t01">
+          <td id="t01">12</td>
+          <td id="t01">13</td>
+          <td id="t01">14</td>
+          <td id="t01">15</td>
+          <td id="t01">16</td>
+          <td id="t01">17</td>
+          <td id="t01">18</td>
+        </tr>
+        <tr id="t01">
+          <td id="t01">19</td>
+          <td id="t01">20</td>
+          <td id="t01">21</td>
+          <td id="t01">22</td>
+          <td id="t01">23</td>
+          <td id="t01">24</td>
+          <td id="t01">25</td>
+        </tr>
+        <tr id="t01">
+          <td id="t01">26</td>
+          <td id="t01">27</td>
+          <td id="t01">28</td>
+          <td id="t01">29</td>
+          <td id="t01">30</td>
+          <td id="t01" class="pad" colspan="2">&nbsp;</td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Product by Reinbooru team &copy</p>
+</footer>
+
+</body>
+</html>

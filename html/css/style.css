@@ -176,7 +176,10 @@ nav {
 }
 .page-newsfeed-01-b{
 	padding: 20px;
-  	padding-bottom: 50px;
+	padding-bottom: 50px;
+}
+.page-newsfeed-02{
+	background-color: white;
 }
 /* end newsfeed page */
 
@@ -341,7 +344,7 @@ footer>p{
 }
 
 /* calendar */
-.icon-chevron {
+  .icon-chevron {
 	display: block;
 	width: 15px;
 	height: 22px;
@@ -356,7 +359,8 @@ footer>p{
   .page {
 	width: 100%;
 	text-align: center;
-	padding: 1em;
+	padding: 0.5em;
+	padding-top: 2em;
   }
   
   .responsive-calendar-modal {

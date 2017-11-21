@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Calendar </title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="page">
+    <!-- Responsive calendar - START -->
+    <div class="responsive-calendar">
+      <div class="controls">
+          <a class="pull-left" data-go="prev"><div class="btn"><i class="icon-chevron icon-chevron-rotate"></i></div></a>
+          <h4><span data-head-year></span> <span data-head-month></span></h4>
+          <a class="pull-right" data-go="next"><div class="btn"><i class="icon-chevron"></i></div></a>
+      </div><hr/>
+      <div class="day-headers">
+        <div class="day header">Mon</div>
+        <div class="day header">Tue</div>
+        <div class="day header">Wed</div>
+        <div class="day header">Thu</div>
+        <div class="day header">Fri</div>
+        <div class="day header">Sat</div>
+        <div class="day header">Sun</div>
+      </div>
+      <div class="days" data-group="days">
+        <!-- the place where days will be generated -->
+      </div>
+    </div>
+    <!-- Responsive calendar - END -->
+    <!-- Placeholder -->
+    <div class="responsive-calendar-placeholder">
+    
+    </div>
+  </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

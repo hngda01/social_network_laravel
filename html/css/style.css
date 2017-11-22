@@ -43,6 +43,10 @@ nav {
 	color: #262626;
 	padding: 3px 10px;
 }
+.flexible-show{
+	display: initial;
+	margin-left: 5px;
+}
 .friend-request>a{
 	margin-right: 10px;
 }
@@ -185,6 +189,10 @@ nav {
 .page-newsfeed-03>ul{
 	text-align: left
 }
+.page-newsfeed-04{
+	text-align: left;
+	display: block;
+}
 /* end newsfeed page */
 
 /* begin page noti  */
@@ -274,6 +282,9 @@ nav {
 	/* request&noti */
 	.friend-request{
 		width: 352px;
+	}
+	.flexible-show{
+		display: none;
 	}
 	/* request&noti end */
 

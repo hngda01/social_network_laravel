@@ -197,14 +197,14 @@ nav {
 	display: inherit;
 	padding: 3px;
 	font-weight: bold;
-	color: inherit;
+	color: #1866b1;
 	font-size: 15px;
 }
 .page-newsfeed-05>span{
 	margin-right: 12px;
 }
 .page-newsfeed-05:hover{
-	color: inherit;
+	color: #415fb1;
     text-decoration: none;
 }
 /* end newsfeed page */

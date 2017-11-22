@@ -17,9 +17,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
     	body{
     margin-top:20px;
     background-color: #F5F7FA;
+   
 }
 .bg-grd-red {
     background: linear-gradient(45deg,#cc0576 0,rgba(204,5,118,0) 70%),linear-gradient(135deg,#cf022b 10%,rgba(207,2,43,0) 80%),linear-gradient(225deg,#e91c01 10%,rgba(233,28,1,0) 80%),linear-gradient(315deg,#ca7f07 100%,rgba(202,127,7,0) 70%)!important;
@@ -123,6 +128,8 @@ a.kit-avatar {
     display: block;
     margin: 0;
     padding: 10px 0;
+  
+   
 }
 .timeline:after, .timeline:before {
     content: " ";
@@ -159,18 +166,46 @@ a.kit-avatar {
 .timeline, .timeline>li {
     list-style: none;
 }
-.timeline-line {
+.timeline-line{
     display: inline-block;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
     width: 4px;
+    margin: 0 auto;
+    max-height: 6000px;
+    height: auto;
+    z-index: 1;
     background-color: rgba(22,24,27,.12);
     -webkit-transform: translate(-50%,0);
     -ms-transform: translate(-50%,0);
     transform: translate(-50%,0);
 }
+.timeline .timeline-line{
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    display: block;
+    background: currentColor;
+    top: 0px;
+    bottom: 0px;
+ 
+}
+.timeline .timeline-line::before { top: -4px; }
+.timeline .timeline-line::after { bottom: -4px; }
+.timeline .timeline-line::before,
+.timeline .timeline-line::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    width: 12px;
+    height: 12px;
+    display: block;
+    border-radius: 50%;
+   
+}
+
 .timeline>li:nth-child(even) {
     float: left;
     clear: left;
@@ -557,10 +592,150 @@ p {
     border-right: 12px solid rgba(22,24,27,.12);
     z-index: 1;
 }
+/* ========================================================================
+ * 
+ * ======================================================================== */
+.btn-primary {
+    color: #fff;
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.divider {
+  height: 20px;
+  display: block;
+}
+
+/* ========================================================================
+ * FORM MISC
+ * ======================================================================== */
+.input-group-addon {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  min-width: 39px;
+}
+.input-group-addon .ckbox, .input-group-addon .rdio {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+}
+
+.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn, .input-group-xs > .form-control, .input-group-xs > .input-group-addon, .input-group-xs > .input-group-btn > .btn {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.input-sm, .form-group-sm .form-control {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.form-control {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .form-inner-all [class*="col-"]:last-child .form-control {
+    margin-top: 15px;
+  }
+}
+
+
+/* ========================================================================
+ * PROFILE
+ * ======================================================================== */
+.profile-cover {
+  width: 100%;
+}
+.profile-cover .cover {
+  position: relative;
+  border: 10px solid #FFF;
+}
+.profile-cover .cover .inner-cover {
+  overflow: hidden;
+  height: auto;
+}
+.profile-cover .cover .inner-cover img {
+  border: 1px solid transparent;
+  text-align: center;
+  width: 100%;
+}
+.profile-cover .cover .inner-cover .cover-menu-mobile {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.profile-cover .cover .inner-cover .cover-menu-mobile button i {
+  font-size: 17px;
+}
+.profile-cover .cover ul.cover-menu {
+  padding-left: 150px;
+  position: absolute;
+  overflow: hidden;
+  left: 1px;
+  float: left;
+  bottom: 0px;
+  width: 100%;
+  margin: 0px;
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.24);
+}
+.profile-cover .cover ul.cover-menu li {
+  display: block;
+  float: left;
+  margin-right: 0px;
+  padding: 0px 10px;
+  line-height: 40px;
+  height: 40px;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.profile-cover .cover ul.cover-menu li:hover {
+  background-color: rgba(0, 0, 0, 0.44);
+}
+.profile-cover .cover ul.cover-menu li.active {
+  background-color: rgba(0, 0, 0, 0.64);
+}
+.profile-cover .cover ul.cover-menu li a {
+  color: #FFF;
+  font-weight: bold;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+}
+.profile-cover .cover ul.cover-menu li a i {
+  font-size: 18px;
+}
+.profile-cover .profile-body {
+  margin: 0px auto 10px;
+  position: relative;
+}
+.profile-cover .profile-timeline {
+  padding: 15px;
+}
+.img-post{
+    width:30px;
+    height:30px;
+}
+.img-post2{
+
+    width:25px;
+    height:25px;
+}
 
     </style>
 </head>
-<body>
+<body ng-controller="WelcomeCtrl">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippet">
     <div class="content-hero">
@@ -586,9 +761,11 @@ p {
               </a>
             </div>
             <div class="media-body">
-              <h2 class="display-name media-heading text-red hidden-xs">Hà Minh Đức</h2>
-              <h3 class="display-name media-heading text-red visible-xs">Hà Minh Đức</h3>
+              <h2 class="display-name media-heading text-red hidden-xs">{{ Auth::user()->name }}</h2>
+              <h3 class="display-name media-heading text-red visible-xs">hmd</h3>
               <p class="text-muted"><span class="mr-2x">Since April 21, 2010</span> <span><i class="fa fa-skype fa-fw hidden-xs"></i> (+44) 212 008 5656</span></p>
+              <p class="text-muted">Student at HUST</p>
+              <p class="text-muted">alias: HMD</p>
             </div><!-- /.pull -->
           </div>
         </div><!-- /.cols -->
@@ -623,19 +800,21 @@ p {
       </div><!-- /.row -->
     </div>
     <div class="content-body">
+         @include('includes.message')
         <ul class="timeline">
-            <li class="timeline-line"></li>
+            <li class="timeline-line" ></li>
             <li class="timeline-group">
               <a href="#" class="btn btn-default">Today</a>
             </li>            
         </ul>
-        <ul class="timeline">
-            <li class="timeline-line" style="height:600px;"></li>
+        <ul class="timeline" style="height: 100%" >
+            <li class="timeline timeline-line" style="height: 3700px"></li>
             <li class="timeline-item timeline-poster">
               <div class="timeline-badge">
                 <a class="border-teal" rel="tooltip" title="" data-container="body" href="#" data-original-title="What will you do?"></a>
               </div>
               <div class="timeline-panel panel fade in panel-default panel-fill" data-fill-color="true" data-init-panel="true">
+                <form action="{{route('test')}}" method="post">
                 <div class="panel-body">
                   <ul class="nav nav-tabs nav-contrast-red">
                     <li class=""><a data-toggle="tab" href="#" aria-expanded="false">Status</a></li>
@@ -645,8 +824,11 @@ p {
                   </ul>
                   <div class="tab-content pt-1x">
                     <textarea name="timelinePost" rows="6" class="form-control autogrow no-border no-resize" placeholder="Write in timeline" style="overflow: hidden; min-height: 6em; height: 52px;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; white-space: normal; padding: 6px 12px; width: 461px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">.<br>.</div>
+
                   </div>
                 </div><!-- /.panel-body -->
+            
+
                 <div class="panel-footer">
                   <div class="btn-group">
                     <button type="button" class="btn btn-link"><i class="fa fa-user"></i></button>
@@ -656,12 +838,15 @@ p {
                   </div>
                   <div class="pull-right">
                     <button type="submit" class="btn btn-success">Post</button>
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                   </div>
                 </div><!-- /.panel-footer -->
+                </form>
               </div><!-- /.timeline-panel.panel -->
             </li>
             
-            <li class="timeline-item">
+           @foreach($posts as $post)
+              <li class="timeline-item">
               <div class="timeline-badge">
                 <a class="border-orange" rel="tooltip" title="" data-container="body" href="#" data-original-title="Post"></a>
               </div>
@@ -674,11 +859,13 @@ p {
                       </a>
                     </div><!-- /.media-left -->
                     <div class="media-body">
-                      <p class="media-heading"><strong>Hà Minh Đức</strong> <br><small class="text-muted">30 minutes</small></p>
+                      <p class="media-heading"><strong>{{ Auth::user()->name }}</strong> <br><small class="text-muted">30 minutes</small></p>
                     </div><!-- /.media-body -->
                   </div><!-- /.media -->
             
-                  <p>Assumenda, pariatur repellendus voluptatum eaque sint, quibusdam voluptatem nulla nesciunt placeat sunt tempore ad reiciendis ducimus dicta neque minima debitis delectus ab!</p>
+                 @if(Auth::user()->id == $post->user_id)
+                     <p>{{$post->timelinePost}}</p>
+                 @endif
                 </div><!-- /.panel-body -->
             
                 <div class="panel-body timeline-resume">
@@ -694,9 +881,39 @@ p {
                     </a>
                     <a href="#" class="btn btn-xs btn-default btn-circle">+4</a>
                   </div>
+                  
                   <a href="#" class="btn btn-bordered btn-default btn-sm">+33</a>
                   <a href="#" class="btn btn-bordered btn-default btn-sm"><span class="fa fa-share fa-fw"></span> 7</a>
+                  @if(Auth::user() == $post->user)
+                     <a href="{{route('post.delete',['post_id' => $post->id])}}" class="btn btn-danger btn-sm" ng-click="deleteCnf(article)">Delete</a>
+                     <button type="submit" class="btn btn-bordered btn-primary btn-sm" ng-click="editPost(article.$id)" data-target = "#editModal" data-toggle = "modal">Edit</button>
+                  @endif
                 </div><!-- /.panel-body -->
+
+                <div class="panel-body timeline-resume">
+                    <div id = "editModal" class="modal fade" role = "dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>Edit Post Details</h4>
+                                </div> 
+                                <div class="modal-body">
+                                    <form role = "form">
+                                        <div class="form-group">
+                                            <label for="post">Post</label>
+                                            <textarea name="post" class="form-control" ng-model="editPostData.post"></textarea>
+                                        </div>
+                                    </form>
+                                </div>  
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="updatePost(editPostData.$id)"> Update Post</button>
+                                    <button type="button" class="btn btn-sm btn-default" data-dismiss = "modal"> Cancle</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
             
                 <div class="panel-body timeline-livelines">
                   <p><a href="#"><small><i class="fa fa-comment-o fa-fw"></i> View 4 more comments</small></a></p>
@@ -750,6 +967,8 @@ p {
                 </div><!-- /.panel-footer -->
               </div><!-- /.timeline-panel.panel -->
             </li>
+           @endforeach
+
             <li class="timeline-item">
               <div class="timeline-badge">
                 <a class="border-red" rel="tooltip" title="" data-container="body" href="#" data-original-title="photo"></a>
@@ -779,7 +998,7 @@ p {
                     </div><!-- /.media-body -->
                   </div><!-- /.media -->
 
-                  <p>Quia laboriosam architecto est quisquam cumque obcaecati quasi voluptas saepe minus nam.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum nulla sunt unde est veritatis at. Nihil ipsam ipsa doloribus assumenda ipsum beatae iste dolor incidunt explicabo laborum est, alias, ut, aut mollitia neque quia? Numquam voluptates, officiis voluptatibus cum optio, odio totam pariatur sapiente sequi, perferendis inventore saepe ut quo nobis nostrum quae eum dolor </p>
                 </div><!-- /.panel-body -->
 
                 <a href="#" class="embed-responsive embed-responsive-16by9">
@@ -807,7 +1026,25 @@ p {
                   <a href="#"><small><i class="fa fa-comment-o fa-fw"></i> View all comments (34)</small></a>
                 </div><!-- /.timeline-liveliness -->
               </div><!-- /.timeline-panel -->
-            </li>            
+            </li>     
+
+            <div class="modal fade" tabindex="-1" role="dialog" id = 'edit-modal'>
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit Post</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->       
         </ul>
     </div>
 </div>

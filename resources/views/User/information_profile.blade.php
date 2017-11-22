@@ -355,6 +355,13 @@ body {
     background: #f5f6fa;
     border-top: 1px solid #e6e7ed
 }
+.btn-fixed {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    position: relative;
+    left:130px;
+}
 
 .userActivities .comments li:last-child {
     border-bottom: 0;
@@ -421,11 +428,11 @@ body {
 					</a>
 				</div>
 				<div class="box">
-					<div class="name"><strong>John Doe</strong></div>
+					<div class="name" style="size: 25px"><strong>{{$user->name}}</strong></div>
 					<div class="info">
-						<span><i class="fa fa-fw fa-clock-o"></i> <a href="tel:+4210555888777" title="#">+421 (0) 555 888 777</a></span>
-						<span><i class="fa fa-fw fa-list-alt"></i> <a href="#" title="#">name@example.com</a></span>
-						<span><i class="fa fa-fw fa-usd"></i> Best street No. 554/7A<br>949 01 Florida<br>United States</span>
+						<span><i class="fa fa-fw fa-clock-o"></i> <a href="tel:+4210555888777" title="#"><br></a></span>
+						<span><i class="fa fa-fw fa-list-alt"></i> <a href="#" title="#">{{$user->email}}</a></span>
+						<span><i class="fa fa-fw fa-usd"></i> Best street No. 554/7A<br>{{$user->address}}<br>United States</span>
 					</div>
 					<div class="socialIcons clearfix">
 						<a href="#" title="#" class="fb">
@@ -437,6 +444,7 @@ body {
 						<a href="#" title="#" class="google-plus">
 							<i class="fa fa-google-plus"></i>
 						</a>
+                        <a href="{{route('edit-info',['user_id' => $user->id ])}}" class="btn btn-fixed btn-sm">Edit</a>
 					</div>
 				</div>
 			</div>
@@ -447,8 +455,8 @@ body {
 				<h2 class="boxTitle">Personal information</h2>
 				<!-- Tabs -->
 				<ul class="nav nav-tabs userProfileTabs" role="tablist">
-					<li role="presentation" class=""><a href="#tab-item-1" aria-controls="tab-item-1" role="tab" data-toggle="tab" aria-expanded="false">About</a></li>
-					<li role="presentation" class="active"><a href="#tab-item-2" aria-controls="tab-item-2" role="tab" data-toggle="tab" aria-expanded="true">Activities</a></li>
+					<li role="presentation" class=""><a href="#tab-item-1" aria-controls="tab-item-1" role="tab" data-toggle="tab" aria-expanded="true">About</a></li>
+					
 					<li role="presentation" class=""><a href="#tab-item-3" aria-controls="tab-item-3" role="tab" data-toggle="tab" aria-expanded="false">Photos</a></li>
 					<li role="presentation" class=""><a href="#tab-item-4" aria-controls="tab-item-4" role="tab" data-toggle="tab" aria-expanded="false">Friends</a></li>
 				</ul>
@@ -458,8 +466,8 @@ body {
 					<div role="tabpanel" class="tab-pane fade" id="tab-item-1">
 						<div class="userProfileContent">
 							<div class="i">
-								<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-								<h2 class="boxHeadline">Brief</h2>
+								<i class="fa fa-cog"></i>
+								<h2 class="boxHeadline">{{$user->name}}</h2>
 								<a href="conan.jpg">CONAN</a>
 							</div>
 
@@ -497,142 +505,6 @@ body {
 							</div>
 						</div>
 					</div>
-
-					<!-- Activities -->
-					<div role="tabpanel" class="tab-pane fade active in" id="tab-item-2">
-						<div class="userActivities">
-							<div class="i">
-								<a href="#" title="#" class="image">
-									<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-								</a>
-								<div class="activityContent">
-									<ul class="simpleListings status">
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<div class="title">
-												<a href="#" title="#">Alicia Vouptates</a>
-											</div>
-											<div class="info">6 hours ago</div>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sapien at risus commodo varius vel ut sapien. Aenean sodales non ex et venenatis. In hac habitasse platea dictumst. Donec vitae tellus non erat dapibus hendrerit. Class aptent taciti <strong>bold text lorem ipsum</strong> per conubia nostra, per inceptos himenaeos.</p>
-											<div class="share">
-												<a href="#" title="#"><i class="fa fa-thumbs-up"></i> 26 likes</a>
-												<a href="#" title="#"><i class="fa fa-comments"></i> 14 comments</a>
-												<a href="#" title="#"><i class="fa fa-share"></i> 10 shares</a>
-											</div>
-										</li>
-									</ul>
-									
-
-									<!-- Comments -->
-									<ul class="simpleListings comments">
-										<li class="showComments">
-											<a href="#" title="#"><i class="fa fa-comments"></i> Show <strong>all 21 comments</strong></a>
-										</li>
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<div class="title"><a href="#" title="#">Jessica Whore</a></div>
-												<div class="info">4 hours ago</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sapien at risus commodo varius vel ut sapien. Aenean sodales non ex et venenatis. In hac habitasse platea dictumst. Donec vitae tellus non erat dapibus hendrerit. Class aptent taciti bold text lorem ipsum per conubia nostra, per inceptos.</p>
-											</div>
-										</li>
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<div class="title"><a href="#" title="#">Muhammad Motherfucker II.</a></div>
-												<div class="info">3 hours ago</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-											</div>
-										</li>
-										<li>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<form>
-													<textarea rows="1" placeholder="Start typing here..." class="form-control js-autogrow" style="overflow: hidden; word-wrap: break-word; height: 42px;"></textarea>
-													<button type="submit" class="btn btn-sm btn-gray">Post Comment</button>
-												</form>
-											</div>
-										</li>
-									</ul> 
-								</div>
-							</div>
-
-							<div class="i">
-								<a href="#" title="#" class="image">
-									<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-								</a>
-								<div class="activityContent">
-									<ul class="simpleListings status">
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<div class="title">
-												<a href="#" title="#">Hedviga Malinová</a>
-											</div>
-											<div class="info">6 hours ago</div>
-											<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="150" height="212" class="img-responsive">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-											<div class="share">
-												<a href="#" title="#"><i class="fa fa-thumbs-up"></i> 26 likes</a>
-												<a href="#" title="#"><i class="fa fa-comments"></i> 14 comments</a>
-												<a href="#" title="#"><i class="fa fa-share"></i> 10 shares</a>
-											</div>
-										</li>
-									</ul>
-									
-									<!-- Comments -->
-									<ul class="simpleListings comments">
-										<li class="showComments">
-											<a href="#" title="#"><i class="fa fa-comments"></i> Show <strong>all 21 comments</strong></a>
-										</li>
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<div class="title"><a href="#" title="#">Jessica Whore</a></div>
-												<div class="info">4 hours ago</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sapien at risus commodo varius vel ut sapien. Aenean sodales non ex et venenatis. In hac habitasse platea dictumst. Donec vitae tellus non erat dapibus hendrerit. Class aptent taciti bold text lorem ipsum per conubia nostra, per inceptos.</p>
-											</div>
-										</li>
-										<li>
-											<a href="#" title="#" class="itemOptions"><i class="fa fa-cog"></i></a>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<div class="title"><a href="#" title="#">Muhammad Motherfucker II.</a></div>
-												<div class="info">3 hours ago</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-											</div>
-										</li>
-										<li>
-											<a href="#" title="#" class="image">
-												<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" width="44" height="44">
-											</a>
-											<div class="c">
-												<form>
-													<textarea rows="1" placeholder="Start typing here..." class="form-control js-autogrow" style="overflow: hidden; word-wrap: break-word; height: 42px;"></textarea>
-													<button type="submit" class="btn btn-sm btn-gray">Post Comment</button>
-												</form>
-											</div>
-										</li>
-									</ul> 
-								</div>
-							</div>
-						</div>
-						<!-- Show more -->
-						<a href="#" title="#" class="btn btn-primary showMore"><i class="fa fa-refresh"></i> Show more</a>
-					</div>
-
 					<!-- Photos -->
 					<div role="tabpanel" class="tab-pane fade" id="tab-item-3">
 						<img src="conan.jpg" style="height:100px;">

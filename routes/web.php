@@ -40,6 +40,8 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('searchPage','User\FriendController@showSearchPage');
 	Route::post('searchFriend','User\FriendController@searchFriend');
 	Route::get('addFriend','User\FriendController@addFriend');
+	Route::get('notifications','NotificationController@show');
+	Route::get('test','User\PostController@test');
 });
 
 

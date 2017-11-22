@@ -41,7 +41,10 @@ nav {
 /* request&noti */
 .friend-request{
 	color: #262626;
-	padding: 3px 20px;
+	padding: 3px 10px;
+}
+.friend-request>a{
+	margin-right: 10px;
 }
 .dropdown-menu>.view-more>a{
 	color: #23527c !important;
@@ -65,6 +68,23 @@ nav {
 	width: 55px !important;
 	float: left;
 	margin: 5px;
+}
+.add-friend-pic{
+	display: inline-block;
+	height: 55px !important;
+	width: 55px !important;
+	margin: 5px;
+	margin-right: 10px; 
+}
+.friend-request-profile{
+	display: inline-block;
+	white-space: nowrap;
+	width: 26%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.friend-request-buttons{
+	display: block;
 }
 /* request&noti end */
 
@@ -96,6 +116,26 @@ nav {
 }
 .page-login-06{
 	text-align: center;
+}
+.page-login-07{ 
+	width: 100%;
+	color: white;
+	border: none;
+}
+.page-login-07:hover{
+	color: white;
+}
+.page-login-fb{
+	background-color: #3c5a99;
+}
+.page-login-fb:hover{
+	background-color: #304d86;
+}
+.page-login-gg{
+	background-color: #d14836;
+}
+.page-login-gg:hover{
+	background-color: #b63d2f;
 }
 /*end login page*/
 
@@ -215,10 +255,18 @@ nav {
 	/* end noti page */
 }
 
+@media screen and (min-width: 368px){	
+	/* begin request&noti */
+	.friend-request-buttons{
+		display: inline;
+	}
+	/* end request&noti */
+}
+
 @media screen and (min-width: 768px) {
 	/* request&noti */
 	.friend-request{
-		width: 300px;
+		width: 352px;
 	}
 	/* request&noti end */
 
@@ -291,3 +339,4 @@ footer {
 footer>p{
 	font-size: 17px;
 }
+

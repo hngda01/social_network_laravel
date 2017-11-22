@@ -2,7 +2,8 @@
 <!-- HTML by Gryqhon -->
 <html lang="en">
 <head>
-  <title>My Diary</title>
+  <title>Notifications</title>
+  <base href="{{asset('')}}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -11,8 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/style.css">
-</head>
-<style>
+  <style>
 table#t01 {
     width:100%;
 }
@@ -35,47 +35,40 @@ table#t01 th  {
     background-color: black;
     color: white;
 }
+#clock {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border: 1px solid #000;
+    }
 </style>
+</head>
 <body>
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-        <a href="#"><img src="./logo/logo.jpg" height="50"></a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group input-group search-box">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="fa fa-search"></span>
-              </button>
-            </span>        
-          </div>
-        </form>      
-        <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a href="#"><img src="./logo/logo.jpg" height="50"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group input-group search-box">
+          <input type="text" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="fa fa-search"></span>
+            </button>
+          </span>        
+        </div>
+      </form>      
+      <ul class="nav navbar-nav navbar-right">
 
-<<<<<<< HEAD
-          <li>
-            <div class="dropdown navbar-component" title="Friend Request">
-              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="fa fa-users"></span>
-              </div>
-              <ul class="dropdown-menu" aria-labelledby="friends">
-                <li><a href="#">A had send you a friend reques</a></li>
-                <li><a href="#">A had send you a friend reques</a></li>
-                <li><a href="#">A had send you a friend reques</a></li>
-                <!-- đang làm chức năng accept decline ngay tại dropdown này -->
-              <!-- <li><div class="friend-request">A had send you a friend request</div></li>
-              <li><div class="friend-request">A had send you a friend request</div></li>
-              <li><div class="friend-request">A had send you a friend request</div></li> -->
-=======
         <li>
           <div class="dropdown navbar-component" title="Friend Request">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -118,7 +111,6 @@ table#t01 th  {
                   </span>
                 </div>
               </li>
->>>>>>> 7227c97b6ad8608c50c5612701b5547d4cf0f976
               <li class="divider"></li>
               <li class="text-center view-more"><a href="#">View more friend requests</a></li>
             </ul>
@@ -127,12 +119,26 @@ table#t01 th  {
         <li>
           <div class="dropdown navbar-component" title="Notification">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-bell"></span>
+                <span class="fa fa-bell"></span>
             </div>
             <ul class="dropdown-menu noti-table" aria-labelledby="noti">
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span></a></li>
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
+              <li class="noti-comp">
+                <a href="#">
+                  <img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg">
+                  <span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span>
+                </a>
+              </li>
+              <li class="noti-comp">
+                <a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg">
+                  <span> A has comment on Your Post</span>
+                </a>
+              </li>
+              <li class="noti-comp">
+                <a href="#">
+                  <img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg">
+                  <span> A has comment on Your Post</span>
+                </a>
+              </li>
               <li class="divider"></li>
               <li class="text-center view-more"><a href="#" class="view-more">View more notification</a></li>
             </ul>
@@ -141,7 +147,7 @@ table#t01 th  {
         <li>
           <div class="dropdown navbar-component" title="Notification">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-user"></span> My Account
+                <span class="fa fa-user"></span> My Account
             </div>
             <ul class="dropdown-menu" aria-labelledby="acc">
               <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
@@ -200,86 +206,36 @@ table#t01 th  {
       
       <div class="row">
         <div class=" well" style="margin-left: 20px; margin-right: 20px">
-          <div align="left">
-            <table>
-              <tr>
-                <td style="padding-right: 20px">
-                  <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-                </td>
-                <td>
-                  Nguyen Dang Hai<br> 3 hours ago &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-tag" aria-hidden="true"></i>
-                  Topic:"Autumn"
-
-                </td>
-              </tr>
-            </table>
-
+        <form action="createPost" method="POST" role="form" enctype="multipart/form-data">
+        {{ csrf_field() }}
+          <div id="clock">
+              <img src=""alt="" id ='image1' style="height: 250px;width: 603px" >
           </div>
-          <table>
-            <tr>
-              <td style="padding-top: 10px">
-                <img src="img/ad/ad1.jpg" alt="Paris" width="100" height="100">
-              </td>
-              <td align="left" style="padding-left: 10px">
-                <h4> this is a long title</h4> 
-                <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p> 
-              </td>            
-            </tr>         
-          </table>
-          <hr style="background-color: #000;height: 1px;"> 
-          <table>
-            <tr>
-              <td width="70px">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
-              </td>
-              <td width="50%">
-                <i class="fa fa-comments-o" aria-hidden="true"></i> 30
-              </td>
-            </tr>
-          </table>
+          <div class="form-group">
+            <label for="telephone">Ảnh :</label>
+            <input type="file" id='getval' name="image">
+          </div>
+          <div class="form-group">
+              <label for="">title</label>
+              <input type="text" class="form-control" name="title" placeholder="Input field">
+            </div>
+            <div class="form-group">
+              <label for="">category</label>
+              <input type="text" class="form-control" name="category" placeholder="Input field">
+              <br>
+              <select name="category_select">
+                @foreach($category as $cat)
+                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                @endforeach
+              </select>
+            </div>
+            <textarea name="content" cols="90" rows="10"></textarea>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
         </div>
 
-        <!-- #### -->
-        <div class=" well" style="margin-left: 20px; margin-right: 20px">
-          <div align="left">
-            <table>
-              <tr>
-                <td style="padding-right: 20px">
-                  <img src="img/avatar/ava1.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-                </td>
-                <td>
-                  Nguyen Dang Hai<br> 3 hours ago&nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-tag" aria-hidden="true"></i> 
-                  Topic:"Autumn"
-                </td>
-              </tr>
-            </table>
-            
-          </div>
-          <table>
-            <tr>
-              <td style="padding-top: 10px">
-                <img src="img/ad/ad1.jpg" alt="Paris" width="100" height="100">
-              </td>
-              <td align="left" style="padding-left: 10px">
-                <h4> this is a long title</h4> 
-                <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p> 
-              </td>            
-            </tr>         
-          </table>
-          <hr style="background-color: #000;height: 1px;"> 
-          <table>
-            <tr>
-              <td width="70px">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
-              </td>
-              <td width="50%">
-                <i class="fa fa-comments-o" aria-hidden="true"></i> 30
-              </td>
-            </tr>
-          </table>
-        </div>
+        
 
       </div>
 
@@ -359,6 +315,21 @@ table#t01 th  {
 <footer class="container-fluid text-center">
   <p>Product by Reinbooru team &copy</p>
 </footer>
-
+<script>
+    $(document).ready(function () {
+        $('#image1').attr('src');
+        console.log($('#image1').attr('src'));
+        $('input[name=image]').on('change',function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
+    })
+</script>
+</script>
 </body>
 </html>

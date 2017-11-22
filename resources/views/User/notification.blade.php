@@ -133,22 +133,12 @@
     <h2>Notifications</h2>       
       <ul>
         <!--unread noti-->
+        @foreach($notifications as $notification)
         <li class="page-noti-02">
-            <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> Anna has comment on your post</span></a>    
+            <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> {{$notification->noti}}</span></a>    
         </li>
-        <li class="page-noti-02">
-            <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> Anna has comment on your post</span></a>    
-        </li>
-        <li class="page-noti-02">
-            <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> Anna has comment on your post</span></a>    
-        </li>
-        <!--read noti-->
-        <li class="page-noti-02 page-noti-read">
-          <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> Anna has comment on your post</span></a>
-        </li>
-        <li class="page-noti-02 page-noti-read">
-          <a href="#"><img src="img/avatar/ava1.jpg" class="img-responsive page-noti-03"><span> Anna has comment on your post</span></a>
-        </li>
+        @endforeach
+        
       </ul>
   </div>
 </div>

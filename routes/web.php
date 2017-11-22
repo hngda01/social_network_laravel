@@ -42,6 +42,10 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('addFriend','User\FriendController@addFriend');
 	Route::get('notifications','NotificationController@show');
 	Route::get('test','User\PostController@test');
+	Route::get('newEvent','EventController@newEvent');
+	Route::get('editEvent/{id}','EventController@editEvent');
+	Route::post('createEvent','EventController@createEvent');
+	Route::post('editEventPost','EventController@postEventEdit');
 });
 
 

@@ -1,29 +1,6 @@
 
 @extends("Layout.index")
-<style>
-table#t01 {
-    width:100%;
-}
-table#t01, th#t01, td#t01 {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th#t01, td#t01 {
-    padding: 5px;
-    text-align: left;
-}
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#t01 th  {
 
-    background-color: black;
-    color: white;
-}
-</style>
 @section("content")
 
   
@@ -125,71 +102,59 @@ table#t01 th  {
 
 
     <div class="col-sm-3 well">
-      <div class="thumbnail">
-        <p>Upcoming Events:</p>
-        <img src="img/ad/ad1.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Fri. 27 November 2015</p>
-        <button class="btn btn-primary">Info</button>
+    <p>Upcoming Events:</p>
+      <div align="left">        
+        <table width="100%">
+            <tr>
+                <td width="50" height="50">
+                  <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
+                </td>
+                <td >
+                   <b>Hop lop 12 20/11/2017</b><br>10:00
+                </td>
+            </tr>
+            <tr>
+                <td width="50" height="50">
+                  <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
+                </td>
+                <td >
+                   <b>Hop lop 12 20/11/2017</b><br>10:00
+                </td>
+            </tr>
+            
+            
+        </table>
+         
+
+      </div> 
+    <div class="page">
+        <!-- Responsive calendar - START -->
+        <div class="responsive-calendar">
+          <div class="controls">
+            <a class="pull-left" data-go="prev"><div class="btn"><i class="icon-chevron icon-chevron-rotate"></i></div></a>
+            <h4><span data-head-year></span> <span data-head-month></span></h4>
+            <a class="pull-right" data-go="next"><div class="btn"><i class="icon-chevron"></i></div></a>
+          </div><hr/>
+          <div class="day-headers">
+            <div class="day header">Mon</div>
+            <div class="day header">Tue</div>
+            <div class="day header">Wed</div>
+            <div class="day header">Thu</div>
+            <div class="day header">Fri</div>
+            <div class="day header">Sat</div>
+            <div class="day header">Sun</div>
+          </div>
+          <div class="days" data-group="days">
+            <!-- the place where days will be generated -->
+          </div>
+        </div>
+            <!-- Responsive calendar - END -->
+            <!-- Placeholder -->
+        <div class="responsive-calendar-placeholder">
+              
+        </div>
       </div> 
       
-      <div>
-        <table id="t01" width="100%">
-
-          <th id="t01" >M</th>
-          <th id="t01" >T</th>
-          <th id="t01" >W</th>
-          <th id="t01" >T</th>
-          <th id="t01" >F</th>
-          <th id="t01" >S</th>
-          <th id="t01" >S</th> 
-        </tr>  
-
-        <tr id="t01">
-          <td id="t01" colspan="3" class="pad">&nbsp;</td>
-          <td id="t01">1</td>
-          <td id="t01">2</td>
-          <td id="t01">3</td>
-          <td id="t01">4</td>
-        </tr>
-        <tr id="t01">
-          <td id="t01" id="today">5</td>
-          <td id="t01">6</td>
-          <td id="t01">7</td>
-          <td id="t01">8</td>
-          <td id="t01">9</td>
-          <td id="t01">10</td>
-          <td id="t01">11</td>
-        </tr>
-        <tr id="t01">
-          <td id="t01">12</td>
-          <td id="t01">13</td>
-          <td id="t01">14</td>
-          <td id="t01">15</td>
-          <td id="t01">16</td>
-          <td id="t01">17</td>
-          <td id="t01">18</td>
-        </tr>
-        <tr id="t01">
-          <td id="t01">19</td>
-          <td id="t01">20</td>
-          <td id="t01">21</td>
-          <td id="t01">22</td>
-          <td id="t01">23</td>
-          <td id="t01">24</td>
-          <td id="t01">25</td>
-        </tr>
-        <tr id="t01">
-          <td id="t01">26</td>
-          <td id="t01">27</td>
-          <td id="t01">28</td>
-          <td id="t01">29</td>
-          <td id="t01">30</td>
-          <td id="t01" class="pad" colspan="2">&nbsp;</td>
-        </tr>
-
-      </table>
-    </div>
   </div>
 </div>
 </div>

@@ -1,33 +1,28 @@
 <form action="createPost" method="POST" role="form" enctype="multipart/form-data">
 {{ csrf_field() }}
-	<legend>new post</legend>
+	<legend>user info</legend>
 
 	<div class="form-group">
-		<label for="">title</label>
-		<input type="text" class="form-control" name="title" placeholder="Input field">
+		<label for="">id</label>
+		<input type="text" class="form-control" name="title" value="{{$info[0]->id}}">
 	</div>
 	<div class="form-group">
-		<label for="">category</label>
-		<input type="text" class="form-control" name="category" placeholder="Input field">
-		<br>
-		<select name="category_select">
-			@foreach($category as $cat)
-			<option value="{{$cat->id}}">{{$cat->name}}</option>
-			@endforeach
-		</select>
-	</div>
-	<hr>
-	<div class="form-group">
-		<label for="">content</label>
-		<br>
-		<textarea name="content" cols="60" rows="5"></textarea>
+		<label for="">date of birth</label>
+		<input type="text" class="form-control" name="title" value="{{$info[0]->date_of_birth}}">
 	</div>
 	<div class="form-group">
-		<label for="">upload image</label>
-		<br>
-		<input type="file" name="image">
+		<label for="">school</label>
+		<input type="text" class="form-control" name="title" value="{{$info[0]->school}}">
+	</div>
+	<div class="form-group">
+		<label for="">address</label>
+		<input type="text" class="form-control" name="title" value="{{$info[0]->address}}">
+	</div>
+	<div class="form-group">
+		<label for="">hobby</label>
+		<input type="text" class="form-control" name="title" value="{{$info[0]->hobby}}">
 	</div>
 	
-
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<br>
+	<a href="editInfo" title="">edit info</a>
 </form>

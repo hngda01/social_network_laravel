@@ -24,7 +24,7 @@ Route::get('register',function(){
 Route::post('register','loginController@register');
 Route::get('logout','loginController@logout');
 Route::group(['middleware'=>'user'],function(){
-	Route::get('home','User\PostController@home');
+	//Route::get('home','User\PostController@home');
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
@@ -33,5 +33,16 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('deletePost/{id}','User\PostController@deletePost');
 	Route::get('editPost/{id}','User\PostController@editPost');
 	Route::post('editPost','User\PostController@updatePost');
+	Route::get('viewInfo','User\InfoController@viewInfo');
+	Route::get('editInfo','User\InfoController@editInfo');
+	Route::post('editInfo','User\InfoController@updateInfo');
+	Route::get('friendList','User\FriendController@friendList');
+	Route::get('searchPage','User\FriendController@showSearchPage');
+	Route::post('searchFriend','User\FriendController@searchFriend');
+	Route::get('addFriend','User\FriendController@addFriend');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

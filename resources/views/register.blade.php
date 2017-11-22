@@ -1,4 +1,39 @@
-<!DOCTYPE html>
+@extends("Layout.index")
+@section("content")
+<div class="container page-register-01"> 
+  <div class="page-register-01-b">   
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 class="page-register-02">Keep me in your memory</h1>
+      </div>
+      <div class="col-sm-6">
+        <form action="register" method="POST" role="form">
+		{{ csrf_field() }}
+          <div class="form-group">
+            <label>User Name:</label>
+            <input class="form-control" type="text" name="name">
+          </div>
+          <p class="page-register-03">This field is empty</p>
+          <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control" type="text" name="email">
+          </div>
+          <p class="page-register-03">This field is empty</p>
+          <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" type="password" name="password">
+          </div>
+          <p class="page-register-03">This field is empty</p> 
+          <button type="submit" class="btn btn-primary page-register-05">Register</button>    
+        </form>
+        <p class="page-register-06"><a href="#">Already have an account? Log in!</a></p>
+      </div>
+    </div> 
+  </div>
+</div> 
+
+@endsection
+{{-- <!DOCTYPE html>
 <html>
 <head>
 	<title>register</title>
@@ -27,4 +62,4 @@
 		<button type="submit" class="btn btn-primary">register</button>
 	</form>
 </body>
-</html>
+</html> --}}

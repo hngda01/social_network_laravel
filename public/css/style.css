@@ -1,0 +1,194 @@
+html,body{
+    height: 100%
+}
+nav {
+	background-color: #c7d2c7;
+}
+.navbar-inverse{
+	background-color: #c7d2c7 !important;
+	border-color: #c7d2c7 !important;
+}
+.navbar-form, .navbar-collapse{
+	border-color: white !important;
+}
+.navbar-toggle{
+	border-color: #3cb481 !important;	
+}
+.navbar-header>button{
+	background-color: #c7d2c7;
+}
+.navbar-toggle:hover{
+	background-color: #4bb9c2 !important;	
+}
+.navbar-toggle:focus{
+	background-color: #4bb9c2 !important;	
+}
+.navbar-nav>li>a{
+	color: rgb(16, 165, 128) !important;
+}
+.navbar-component{
+	color: rgb(16, 165, 128) !important;
+	padding: 15px;
+}
+.dropdown-menu>li>a{
+	color: #262626 !important;
+}
+.dropdown-menu>li>a>span{
+	margin-right: 10px;
+}
+/*begin login page*/
+.page-login-01{
+	min-height: 100%;
+}
+.page-login-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+.page-login-02{
+	text-align: center;
+	font-family: Lobster;
+	margin-bottom: 15px;
+	color: #3cb481;
+}
+.page-login-03{
+	color: red;
+	margin: -10px 0px 2px 0px;
+	text-align: center;
+}
+.page-login-04{
+	text-align: center;
+}
+.page-login-05{
+	width: 100%;
+	margin-bottom: 5px;
+}
+.page-login-06{
+	text-align: center;
+}
+/*end login page*/
+
+/* begin register page */
+.page-register-01{
+	min-height: 100%;
+}
+.page-register-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+.page-register-02{
+	text-align: center;
+	font-family: Lobster;
+	margin-bottom: 15px;
+	color: #3cb481;
+}
+.page-register-03{
+	color: red;
+	margin: -10px 0px 2px 0px;
+	text-align: center;
+}
+.page-register-04{
+	text-align: center;
+}
+.page-register-05{
+	width: 100%;
+	margin-bottom: 5px;
+}
+.page-register-06{
+	text-align: center;
+}
+/* end register page */
+
+/* begin newsfeed page */
+.page-newsfeed-01{
+	min-height: 100%;
+}
+.page-newsfeed-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+/* end newsfeed page */
+
+@media screen and (min-width: 360px) {
+	/*begin login page*/
+    .page-login-03{
+		text-align: left;
+	}
+	.page-login-04{
+		text-align: left;
+	}
+	.page-login-06{
+		text-align: left;
+	}
+	/*end login page*/
+
+	/* begin register page */
+	.page-register-03{
+		text-align: left;
+	}
+	.page-register-04{
+		text-align: left;
+	}
+	.page-register-06{
+		text-align: left;
+	}
+	/* end register page */
+}
+
+@media screen and (min-width: 768px) {
+	/*begin login page*/
+	.page-login-01{
+		margin-top:200px;
+	}
+	/*end login page*/
+
+	/*begin register page*/
+	.page-register-01{
+		margin-top:200px;
+	}
+	/*end register page*/
+}
+
+@media screen and (min-width: 980px){
+	.search-box{
+		width: 410px;
+	}
+}
+@media screen and (min-width: 1200px){
+	body{
+		background: url("../img/dairy-diary-background-scenery-birds-bird.jpg");
+	}
+	/*begin login page*/
+	.page-login-02{
+		text-shadow: 0px 0px 5px #aaa;
+	}
+	.page-login-05{
+		width: 50%;
+	}
+	/*end login page*/
+	
+	/*begin register page*/
+	.page-register-02{
+		text-shadow: 0px 0px 5px #aaa;
+	}
+	.page-register-05{
+		width: 50%;
+	}
+	/*end register page*/
+
+	/* begin newsfeed page */
+	.page-newsfeed-01-b{
+		background-color: white;
+	}
+	/* end newsfeed page */
+} 
+
+footer {
+    background-color: #68ca79;
+    color: white;
+    padding: 15px;
+/*  	margin-bottom:  50px;*/
+}
+
+footer>p{
+	font-size: 17px;
+}

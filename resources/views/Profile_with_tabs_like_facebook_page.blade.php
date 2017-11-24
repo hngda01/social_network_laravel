@@ -244,11 +244,12 @@ background:#eee;
     </div><!-- /.profile-cover -->
     <div class="divider"></div>
     <div class="panel rounded shadow">
-        <form action="...">
-            <textarea class="form-control input-lg no-border" rows="2" placeholder="What are you doing?..."></textarea>
+        <form action="{{route('test')}}" method="post">
+            <textarea class="form-control input-lg no-border" rows="2" name = "timelinePost" placeholder="What are you doing?..."></textarea>
         </form>
         <div class="panel-footer">
-            <button class="btn btn-primary pull-right mt-5" >POST</button>
+            <button class="btn btn-primary pull-right mt-5 submit" >POST</button>
+            <input type="hidden" name="_token" value="{{Session::token()}}">
             <ul class="nav nav-pills">
                 <li><a href="#"><i class="fa fa-user"></i></a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i></a></li>
@@ -256,6 +257,7 @@ background:#eee;
                 <li><a href="#"><i class="fa fa-smile-o"></i></a></li>
             </ul><!-- /.nav nav-pills -->
         </div><!-- /.panel-footer -->
+        
     </div><!-- /.panel -->
     <div class="row">
         <div class="col-md-6">

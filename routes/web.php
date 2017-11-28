@@ -53,9 +53,9 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('addFriend','User\FriendController@addFriend');
 });
 
-Route::post('taonhatki',[
+Route::post('taonhatki/{user_id}',[
 	'uses' => 'PostControler@createPost',
-	'as' => 'test'
+	'as' => 'post.taonhatki'
 ]);
 
 Route::post('insertComment',[
@@ -65,7 +65,7 @@ Route::post('insertComment',[
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{user_id}', 'HomeController@index')->name('home');
 
 Route::get('delete-post/{post_id}',[
 	'uses' => 'PostControler@getDeletePost',
@@ -76,4 +76,17 @@ Route::get('delete-post/{post_id}',[
 Route::post('edit',[
 	'uses' => 'PostControler@postEditPost',
 	'as' => 'edit'
+]);
+
+//Search
+
+Route::get('search',[
+	'uses' => 'SearchController@getResults',
+	'as' => 'search.results',
+
+]);
+
+Route::get('friends',[
+	'uses' => 'FriendController@getIndex',
+	'as' => 'friends.page',
 ]);

@@ -33,7 +33,7 @@ class User extends Authenticatable
         return $this->hasMany('App\diary','id_user','id');
     }
     public function post() {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post','user_id');
     }
     public function userInfo(){
         return $this->hasMany('App\UserInfo','id_user','id');
@@ -44,4 +44,14 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany('App\Comment');
     }
+    public function friendofMine() {
+        return $this->belongsToMany('App\User','friend_list','user_id','friend_id');
+    } 
+    public function friendOf() {
+        return $this->belongsToMany('App\User','friend_list','friend_id','user_id');
+    } 
+    public function friends() {
+        return $this->friendofMine()->wherePivot('accepted',true)->get()->merge($this->friendOf()->wherePivot('accepted',true)->get());
+    } 
+
 }

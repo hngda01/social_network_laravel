@@ -279,6 +279,33 @@ nav {
 }
 /* end page friend request */
 
+/* begin page schedule */
+.page-schedule-title{
+	margin-bottom: 15px;
+}
+.table-responsive{
+	border-radius: 3px;
+}
+.page-schedule-01{
+	background-color: rgb(135, 216, 135);
+	border: solid 1px #ddd;
+}
+.page-schedule-01>tr>th{
+	border-right: solid 1px #ddd;
+	text-align: center;
+}
+.page-schedule-02>tr>td{
+	border: solid 1px #ddd;
+	text-align: center;
+}
+.page-schedule-02>tr>td>a{
+	margin: 3px;
+}
+.page-schedule-03{
+	white-space: normal !important;
+}
+/* end page schedule */
+
 @media screen and (min-width: 360px) {
 	/*begin login page*/
     .page-login-03{
@@ -349,6 +376,7 @@ nav {
 		margin-right: 20px;
 	}
 	/* end noti page */
+	
 }
 
 @media screen and (min-width: 980px){
@@ -399,6 +427,12 @@ nav {
 		width: 70%;
 	}
 	/* end page friend request */
+
+	/* begin page schedule */
+	.page-schedule-03{
+		width: 300px;
+	}
+	/* end page schedule */
 } 
 
 footer {

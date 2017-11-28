@@ -13,4 +13,7 @@ class Comment extends Model
     	return User::find($fid)->name;
     }
     
+    public function postcomment() {
+    	return $this->belongsTo('App\Post');
+    }
 }

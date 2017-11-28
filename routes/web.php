@@ -33,9 +33,20 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('deletePost/{id}','User\PostController@deletePost');
 	Route::get('editPost/{id}','User\PostController@editPost');
 	Route::post('editPost','User\PostController@updatePost');
-	Route::get('viewInfo','User\InfoController@viewInfo');
-	Route::get('editInfo','User\InfoController@editInfo');
-	Route::post('editInfo','User\InfoController@updateInfo');
+	Route::get('viewInfo/{user_id}',[
+			'uses' => 'User\InfoController@viewInfo',
+			'as' => 'view-info',
+		    'middleware'=> 'auth'
+	]);
+	Route::get('editInfo/{user_id}',[
+		'uses' => 'User\InfoController@editInfo',
+		'as' => 'edit-info',
+		'middleware'=> 'auth'
+	]);
+	Route::post('updateInfo/{user_id}',[
+		'uses' => 'User\InfoController@updateInfo',
+		'as' => 'update-info',
+	]);
 	Route::get('friendList','User\FriendController@friendList');
 	Route::get('searchPage','User\FriendController@showSearchPage');
 	Route::post('searchFriend','User\FriendController@searchFriend');
@@ -46,9 +57,28 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('editEvent/{id}','EventController@editEvent');
 	Route::post('createEvent','EventController@createEvent');
 	Route::post('editEventPost','EventController@postEventEdit');
+	Route::get('delete-post/{post_id}',[
+	'uses' => 'PostControler@getDeletePost',
+	'as' => 'post.delete',
+	'middleware' => 'auth',
+]);
+
+Route::post('edit',[
+	'uses' => 'PostControler@postEditPost',
+	'as' => 'edit'
+]);
 });
 
+Route::post('taonhatki',[
+	'uses' => 'PostControler@createPost',
+	'as' => 'test'
+]);
+
+Route::post('insertComment',[
+	'uses' => 'CommentController@createCommennt',
+	'as' => 'createcomment'
+]);
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+

@@ -1,20 +1,5 @@
-<?php
-    session_start();
-    $_SESSION["editInfo"] = Auth::user()->name;
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Profile with timeline - Bootdey.com</title>
-    <meta name="_token" content="{{ csrf_token() }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body ng-controller="WelcomeCtrl">
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+@extends('layouts.app')
+@section('content')
 <div class="container bootstrap snippet">
     <div class="content-hero">
       <img class="content-hero-embed" src="https://lorempixel.com/250/250/nature/8/" alt="">
@@ -39,11 +24,11 @@
               </a>
             </div>
             <div class="media-body">
-              <h2 class="display-name media-heading text-red hidden-xs">{{ Auth::user()->name }}</h2>
+              <h2 class="display-name media-heading text-red hidden-xs">{{ $user->name }}</h2>
               <h3 class="display-name media-heading text-red visible-xs">hmd</h3>
-              <p class="text-muted"><span class="mr-2x">Since April 21, 2010</span> <span><i class="fa fa-skype fa-fw hidden-xs"></i> (+44) 212 008 5656</span></p>
-              <p class="text-muted">Student at HUST</p>
-              <p class="text-muted">alias: HMD</p>
+              <p class="text-muted"><span class="mr-2x">Since April 21, 2010</span> <span><i class="fa fa-skype fa-fw hidden-xs"></i> {{  $user->phonenumber }}</span></p>
+              <p class="text-muted">Live at {{$user->address}}</p>
+              <p class="text-muted">alias: </p>
             </div><!-- /.pull -->
           </div>
         </div><!-- /.cols -->
@@ -92,7 +77,7 @@
                 <a class="border-teal" rel="tooltip" title="" data-container="body" href="#" data-original-title="What will you do?"></a>
               </div>
               <div class="timeline-panel panel fade in panel-default panel-fill" data-fill-color="true" data-init-panel="true">
-                <form action="{{route('test')}}" method="post">
+                <form action="{{ route('post.taonhatki',['user' => $user->id]) }}" method="post">
                 <div class="panel-body">
                   <ul class="nav nav-tabs nav-contrast-red">
                     <li class=""><a data-toggle="tab" href="#" aria-expanded="false">Status</a></li>
@@ -125,11 +110,12 @@
             </li>
             
            @foreach($posts as $post)
+             @if($user->id == $post->user_id)
               <li class="timeline-item">
               <div class="timeline-badge">
                 <a class="border-orange" rel="tooltip" title="" data-container="body" href="#" data-original-title="Post"></a>
               </div>
-              <div class="timeline-panel panel fade in panel-default panel-fill" data-fill-color="true" data-init-panel="true" data-postid={{$post->id }}>
+              <div class="timeline-panel panel fade in panel-default panel-fill" data-fill-color="true" data-init-panel="true" data-postid={{ $post->id }}>
                 <div class="panel-body">
                   <div class="media mb-2x">
                     <div class="media-left">
@@ -138,13 +124,11 @@
                       </a>
                     </div><!-- /.media-left -->
                     <div class="media-body">
-                      <p class="media-heading"><strong>{{ Auth::user()->name }}</strong> <br><small class="text-muted">30 minutes</small></p>
+                      <p class="media-heading"><strong>{{ $post->user->name }}</strong> <br><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
                     </div> 
                   </div>
                   <div>
-                     @if(Auth::user()->id == $post->user_id)
-                         <p>{{$post->timelinePost}}</p>
-                     @endif
+                     <p>{{$post->timelinePost}}</p>
                   </div>  
                 </div><!-- /.panel-body -->
                 
@@ -197,7 +181,6 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-                            
                
                 <div class="panel-body timeline-livelines">
                   <p><a href="#"><small><i class="fa fa-comment-o fa-fw"></i> View 4 more comments</small></a></p>
@@ -231,16 +214,10 @@
                 </div><!-- /.panel-footer -->
               </div><!-- /.timeline-panel.panel -->
             </li>
+             @endif
            @endforeach     
         </ul>
     </div>
 </div>
 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="{{URL::to('src/js/app.js')}}"></script>
-<script>
-        var token = '{{ Session::token() }}';
-        var url = '{{route('edit')}}';
-</script>
-</body>
-</html>
+@endsection

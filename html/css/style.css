@@ -191,6 +191,7 @@ nav {
 }
 .page-newsfeed-04{
 	display: inherit;
+	margin-top: 5px;
 }
 .page-newsfeed-05{
 	text-align: left;
@@ -206,6 +207,12 @@ nav {
 .page-newsfeed-05:hover{
 	color: #415fb1;
     text-decoration: none;
+}
+.recent-friend{
+	display: inline-block;
+	height: 30px !important;
+	width: 30px !important;
+	margin: 5px;
 }
 /* end newsfeed page */
 

@@ -83,7 +83,7 @@ nav {
 .friend-request-profile{
 	display: inline-block;
 	white-space: nowrap;
-	width: 26%;
+	width: 60%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
@@ -197,14 +197,14 @@ nav {
 	display: inherit;
 	padding: 3px;
 	font-weight: bold;
-	color: inherit;
+	color: #1866b1;
 	font-size: 15px;
 }
 .page-newsfeed-05>span{
 	margin-right: 12px;
 }
 .page-newsfeed-05:hover{
-	color: inherit;
+	color: #415fb1;
     text-decoration: none;
 }
 /* end newsfeed page */
@@ -252,6 +252,26 @@ nav {
 }
 /* end page noti */
 
+/* begin page friend request */
+.page-friend-request-01{
+	display: block;
+}
+.page-friend-request-accepted{
+	background-color: rgb(252, 252, 206);
+}
+.page-friend-request-02{
+	display: inline-block;
+	white-space: nowrap;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+.page-friend-request-03{
+	color: rgb(126, 122, 122);
+}
+/* end page friend request */
+
 @media screen and (min-width: 360px) {
 	/*begin login page*/
     .page-login-03{
@@ -296,6 +316,9 @@ nav {
 	/* request&noti */
 	.friend-request{
 		width: 352px;
+	}
+	.friend-request-profile{
+		width: 26%;
 	}
 	.flexible-show{
 		display: none;
@@ -363,6 +386,12 @@ nav {
 		background-color: white;
 	}
 	/* end page noti */
+	
+	/* begin page friend request */
+	.page-friend-request-02{
+		width: 70%;
+	}
+	/* end page friend request */
 } 
 
 footer {

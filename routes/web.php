@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('login',function(){
-	return view("login");
+	return "dcm";
 });
 Route::post('login',"loginController@checkLogin");
 Route::get('register',function(){
@@ -62,6 +62,7 @@ Route::group(['middleware'=>'user'],function(){
 	'as' => 'post.delete',
 	'middleware' => 'auth',
 ]);
+	Route::get('profile','HomeController@index');
 
 Route::post('edit',[
 	'uses' => 'PostControler@postEditPost',

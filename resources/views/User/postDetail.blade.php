@@ -186,16 +186,7 @@ table#t01 th  {
     </div>
     <div class="col-sm-7">
 
-      <div class="row">
-        <div class="col-sm-12">
-          Lastest posts by Friends
-          <div class="panel panel-default text-left">
-            <div class="panel-body">            
-
-            </div>
-          </div>
-        </div>
-      </div>
+      
       
       <div class="row">
         <div class=" well" style="margin-left: 20px; margin-right: 20px">
@@ -206,9 +197,23 @@ table#t01 th  {
                   <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td>
-                  Nguyen Dang Hai<br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  <span class="page-newsfeed-06">
+                    <a href="" title="">{{$diary->userName($diary->id_user)}}</a>
+                  </span>
+                  <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  @if($diary->id_privacy == 0)
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                  @elseif($diary->id_privacy == 1)
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                  @elseif($diary->id_privacy == 2)
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  @else
+                    <i class="fa fa-globe " ></i>
+                  @endif
+                  
+                  &nbsp;&nbsp;&nbsp;
                   <i class="fa fa-tag" aria-hidden="true"></i>
-                  Topic:"Autumn"
+                  Topic: <a href="/tags/nodejs" class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
 
                 </td>
               </tr>
@@ -218,7 +223,7 @@ table#t01 th  {
           
                 <img src="images/{{$diary->image}}.png" alt="Paris" width="100%" height="300">
              
-                <h4> {{$diary->title}}</h4> 
+                <h4 class="page-newsfeed-06"> {{$diary->title}}</h4> 
                 <p>{{$diary->content}}</p> 
               
           <hr style="background-color: #000;height: 1px;"> 
@@ -234,13 +239,18 @@ table#t01 th  {
           </table>
           {{-- comment --}}
           @foreach($comment as $cmt)
-          <table style="background-color: #FFF;width: 100%;">
+          <table style="width: 100%;">
               <tr>
                 <td style="padding-right: 20px" width="100">
                   <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td align="left">
-                  {{$cmt->userName($cmt->id_user)}}<br> 3 hours ago                
+                  <span class="page-newsfeed-06">
+                    <a href="" title="">{{$cmt->userName($cmt->id_user)}}</a>
+                  </span>
+                  <span class="font-custom-01">
+                    <br> 3 hours ago 
+                  </span>               
                 </td>
               </tr>
               <tr>

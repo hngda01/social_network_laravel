@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+
 	public function home(){
 		$notifications= Notification::where('id_user',Auth::user()->id)
 										->where("seen",0)
@@ -26,9 +27,11 @@ class PostController extends Controller
 							]);
 	}
 	public function test(){
-		$f= Friend::find(4);
-		echo $f->userName($f->friend_id);
+		$d= Diary::find(7);
+		if(count($d->specificFriends->where("user_id",2))!=0) echo "co";
+		else echo "khong";
 	}
+
 	public function showNewPost(){
 		$user= User::where('id',Auth::user()->id)->first();
     	//echo $user;
@@ -56,7 +59,7 @@ class PostController extends Controller
 		$diary->title= $request['title'];
 		$diary->id_category= $id_category;
 		$diary->content= $request['content'];
-		$diary->id_privacy=1;
+		$diary->id_privacy=$request['privacy_select'];
 		$diary->image= "a";
 		$diary->save();		
 		$image_name="id".$diary->id."user".$user_id;
@@ -80,17 +83,19 @@ class PostController extends Controller
 		//echo $user->diary;
 		return view('User.listPost',['diary'=>$user->diary,'notifications'=>$notifications]);
 	}
-	public function viewPost($id){
-		$user= User::find(Auth::user()->id);
-		$diary= Diary::where("id",$id)
-		->where("id_user",Auth::user()->id)->first();
-		
+	public function viewPost($id){		
+		$diary= Diary::where("id",$id)->first();
+		if($diary->checkPrivacy(Auth::user()->id,$diary)==1)
+		{
+			$user= User::find($diary->id_user);
 		//echo $diary;
 		return view('User.postDetail',[
 			"diary"=>$diary,
 			"comment"=>$diary->comment,
 			"user"=>$user
 			]);
+		}
+		else echo "<center><h4>You are no allowed to see this post</h4></center>";
 	}
 	public function writeComment(Request $request){
 		$comment= new Comment();

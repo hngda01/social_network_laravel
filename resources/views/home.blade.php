@@ -3,7 +3,7 @@
 
 @section("content")
 
-  
+
 
 <div class="container text-center page-newsfeed-01">    
   <div class="row page-newsfeed-01-b">
@@ -14,23 +14,26 @@
         <br><br><p><a href="#">Nguyen Dang Hai</a></p>
       </div>
       <hr style="background-color: #000;height: 1px;"> 
-      <div style="margin-left: 5px">
-        <p><a href="#">Menu</a></p>
-        
-        <div align="left"><div class="fa fa-television"></div> New feed</div>
-        <div align="left"><div class="fa fa-pencil-square-o"></div> Write diary</div>
-        <div align="left"><div class="fa fa-address-book-o"></div> Friend list</div>
-        <div align="left"><div class="fa fa-newspaper-o"></div> Your page</div>
-        <div align="left"><div class="fa fa-user-circle"></div> Profile</div>
+      <div style="margin-left: 5px">       
+        <div>
+          <p>
+            <a class="btn page-newsfeed-05"><span class="fa fa-newspaper-o"></span>Newsfeed</a>
+            <a href="newPost" class="btn page-newsfeed-05"><span class="fa fa-pencil-square-o"></span>Write Post</a>
+            <a class="btn page-newsfeed-05" href="profile"></span><span class="fa fa-star"></span>Your page</a>
+            <a class="btn page-newsfeed-05" href="viewInfo/{{Auth::user()->id}}"><span class="fa fa-user-circle"></span>Profile</a>
+            <a class="btn page-newsfeed-05"><span class="fa fa-address-book-o"></span>Friendlist</a>
+          </p>
+        </div>
         
       </div>
       <hr style="background-color: #000;height: 1px;"> 
       <div style="margin-left: 0px" align="left">
-        <p><a href="#">Recent Friends</a></p>
-        @foreach($friends as $friend)
-        <img src="img/avatar/ava1.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> {{$friend->userName($friend->friend_id)}}<br>
-        @endforeach
-        
+        <p><center><a >Recent Friends</a></center></p>
+        <div class="btn page-newsfeed-05">
+          @foreach($friends as $friend)
+          <img src="img/avatar/ava1.jpg" style="border-radius: 50%" height="30" width="30" alt="Avatar"> {{$friend->userName($friend->friend_id)}}<br>
+          @endforeach
+        </div>
       </div>
       
     </div>
@@ -39,28 +42,41 @@
       <div class="row">
         <div class="col-sm-12">
           Lastest posts by Friends
-          <div class="panel panel-default text-left">
-            <div class="panel-body">            
-
-            </div>
-          </div>
+          <hr style="background-color: #000;height: 1px;"> 
         </div>
       </div>
       
       <div class="row">
-      @foreach($friends as $friend)
-        @foreach($friend->diaries as $diary)           
-            <div class=" well" style="margin-left: 20px; margin-right: 20px">
+        @foreach($friends as $friend)
+        @foreach($friend->diaries as $diary) 
+        @if($diary->checkPrivacy(Auth::user()->id,$diary)==1)
+          <div class=" well" style="margin-left: 20px; margin-right: 20px">
           <div align="left">
             <table>
               <tr>
                 <td style="padding-right: 20px">
                   <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
-                <td>
-                  {{$friend->userName($friend->friend_id)}}<br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                <td >
+                  <a class="page-newsfeed-06">
+                    {{$friend->userName($friend->friend_id)}}
+                  </a>
+                  
+                  
+                  
+                  <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  @if($diary->id_privacy == 0)
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                  @elseif($diary->id_privacy == 1)
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  @elseif($diary->id_privacy == 2)
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  @else
+                  <i class="fa fa-globe " ></i>
+                  @endif
+                  &nbsp;&nbsp;&nbsp;
                   <i class="fa fa-tag" aria-hidden="true"></i>
-                  Topic:"Autumn"
+                  Topic: <a href="/tags/nodejs" class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
 
                 </td>
               </tr>
@@ -73,7 +89,8 @@
                 <img src="img/ad/ad1.jpg" alt="Paris" width="100" height="100">
               </td>
               <td align="left" style="padding-left: 10px">
-                <h4> {{$diary->title}}</h4> 
+                <a href="viewPost/{{$diary->id}}" title=""><h4 class="page-newsfeed-06"> {{$diary->title}}</h4>
+                </a> 
                 <p>{{$diary->content}}</p> 
               </td>            
             </tr>         
@@ -90,8 +107,10 @@
             </tr>
           </table>
         </div>
+        @endif          
+
         @endforeach
-      @endforeach
+        @endforeach
 
         
         
@@ -102,60 +121,64 @@
 
 
     <div class="col-sm-3 well">
-    <p>Upcoming Events:</p>
-      <div align="left">        
-        <table width="100%">
-            <tr>
-                <td width="50" height="50">
-                  <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
-                </td>
-                <td >
-                   <b>Hop lop 12 20/11/2017</b><br>10:00
-                </td>
-            </tr>
-            <tr>
-                <td width="50" height="50">
-                  <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
-                </td>
-                <td >
-                   <b>Hop lop 12 20/11/2017</b><br>10:00
-                </td>
-            </tr>
-            
-            
-        </table>
-         
 
-      </div> 
-    <div class="page">
-        <!-- Responsive calendar - START -->
-        <div class="responsive-calendar">
-          <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn"><i class="icon-chevron icon-chevron-rotate"></i></div></a>
-            <h4><span data-head-year></span> <span data-head-month></span></h4>
-            <a class="pull-right" data-go="next"><div class="btn"><i class="icon-chevron"></i></div></a>
-          </div><hr/>
-          <div class="day-headers">
-            <div class="day header">Mon</div>
-            <div class="day header">Tue</div>
-            <div class="day header">Wed</div>
-            <div class="day header">Thu</div>
-            <div class="day header">Fri</div>
-            <div class="day header">Sat</div>
-            <div class="day header">Sun</div>
-          </div>
-          <div class="days" data-group="days">
-            <!-- the place where days will be generated -->
-          </div>
-        </div>
-            <!-- Responsive calendar - END -->
-            <!-- Placeholder -->
-        <div class="responsive-calendar-placeholder">
-              
-        </div>
-      </div> 
-      
-  </div>
+      <div class="page-newsfeed-03">
+        <h3><img src="img/icon/calendar.png" height="20">Your Schedule</h3>
+        <div align="left">        
+          <table width="100%">
+            <tr>
+              <td width="50" height="50">
+                <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
+              </td>
+              <td >
+               <span class="page-newsfeed-06">Hop lop 12 20/11/2017</span><br>10:00
+             </td>
+           </tr>
+           <tr>
+            <td width="50" height="50">
+              <img src="img/avatar/ava1.jpg"  height="40" width="40" alt="Avatar">  
+            </td>
+            <td >
+             <span class="page-newsfeed-06">Hop lop 12 20/11/2017</span><br>10:00
+           </td>
+         </tr>
+
+
+       </table>
+
+
+     </div>
+   </div>
+   <a href="#" >View more</a>
+   <div class="page">
+    <!-- Responsive calendar - START -->
+    <div class="responsive-calendar">
+      <div class="controls">
+        <a class="pull-left" data-go="prev"><div class="btn"><i class="icon-chevron icon-chevron-rotate"></i></div></a>
+        <h4><span data-head-year></span> <span data-head-month></span></h4>
+        <a class="pull-right" data-go="next"><div class="btn"><i class="icon-chevron"></i></div></a>
+      </div><hr/>
+      <div class="day-headers">
+        <div class="day header">Mon</div>
+        <div class="day header">Tue</div>
+        <div class="day header">Wed</div>
+        <div class="day header">Thu</div>
+        <div class="day header">Fri</div>
+        <div class="day header">Sat</div>
+        <div class="day header">Sun</div>
+      </div>
+      <div class="days" data-group="days">
+        <!-- the place where days will be generated -->
+      </div>
+    </div>
+    <!-- Responsive calendar - END -->
+    <!-- Placeholder -->
+    <div class="responsive-calendar-placeholder">
+
+    </div>
+  </div> 
+
+</div>
 </div>
 </div>
 @endsection

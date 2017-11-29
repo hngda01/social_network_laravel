@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -22,11 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $posts = Post::orderBy('created_at','desc')->get();
         $comments = Comment::orderBy('created_at','ASC')->get();
+        $user = User::find($id);
         return view('home.Profile_with_timeline',[
+            'user' => $user,
             'posts' => $posts,
             'comments' => $comments,
         ]);       

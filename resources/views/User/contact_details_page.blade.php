@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
-    <!-- 
-    	The codes are free, but we require linking to our web site.
-    	Why to Link?
-    	A true story: one girl didn't set a link and had no decent date for two years, and another guy set a link and got a top ranking in Google! 
-    	Where to Put the Link?
-    	home, about, credits... or in a good page that you want
-    	THANK YOU MY FRIEND!
-    -->
-    <title>contact details page - Bootdey.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-    	body{
-    margin-top:20px;
-    background:#f5f7fa;
-}
-.panel.panel-default {
-    border-top-width: 3px;
-}
-.panel {
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
-    border: 0;
-    border-radius: 4px;
-    margin-bottom: 16px;
-}
-.thumb96 {
-    width: 96px!important;
-    height: 96px!important;
-}
-.thumb48 {
-    width: 48px!important;
-    height: 48px!important;
-}
-    </style>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
 <div class="container bootstrap snippet">
 <div class="row ng-scope">
     <div class="col-md-4">
@@ -55,9 +14,6 @@
             </div>
         </div>
         <div class="panel panel-default hidden-xs hidden-sm">
-            <div class="panel-heading">
-                <div class="panel-title text-center">Recent contacts</div>
-            </div>
            
         </div>
     </div>
@@ -104,6 +60,10 @@
                                     <input name="edit_company" class="form-control" id="inputContact8" type="text" placeholder="No Company">
                                 </div>
                             </div>
+                            <div class="form-group pull-right">
+                                <input type="checkbox" name="vehicle" value="man"> Man
+                                <input type="checkbox" name="vehicle" value="girl" checked>Girl<br>
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button  class="btn btn-info">Update</button>
@@ -119,10 +79,4 @@
     </div>
 </div>
 </div>
-
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-</script>
-</body>
-</html>
+@endsection

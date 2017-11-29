@@ -9,7 +9,7 @@ use Validator;
 use Auth;
 class PostControler extends Controller
 {
-    public function createPost(Request $request) {
+    public function createPost($user,Request $request) {
     	$v = Validator::make($request->all(),[
     		'timelinePost' => 'required|max:50',
     	],
@@ -25,7 +25,7 @@ class PostControler extends Controller
     	$mess = 'error';
     	if($request->user()->post()->save($post))
     		$mess = 'Success';
-    	return redirect()->route('home')->with(['message' => $mess]);
+    	return redirect()->back()->with(['mess' => $mess]);
     }
 
     public function getDeletePost($post_id) {
@@ -34,7 +34,7 @@ class PostControler extends Controller
     		return redirect()->back();
     	}
         $post->delete();
-    	return redirect()->route('home')->with(['mess' => 'Success']);
+    	return redirect()->back()->with(['mess' => 'Success']);
     }
 
     public function postEditPost(Request $request)

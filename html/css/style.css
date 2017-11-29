@@ -307,10 +307,28 @@ nav {
 .page-schedule-delete-box{
 	margin-top: 206px;
 }
-.btn-event-delete-confirm{
+.modal-edit-head{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: white;
+	background-color: #337ab7;
+}
+.modal-detail-head{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: white;
+	background-color: rgb(135, 216, 135)
+}
+.img-event{
+	width: 100%;
+}
+.event-detail{
+	text-align: left;
+}
+.btn-event-confirm{
 	margin-right: 10px;
 }
-.btn-event-delete-cancel{
+.btn-event-cancel{
 	margin-left: 10px;
 }
 .alert-danger{
@@ -391,10 +409,10 @@ nav {
 	/* end noti page */
 	
 	/* begin page schedule */	
-	.btn-event-delete-confirm{
+	.btn-event-confirm{
 		margin-right: 100px;
 	}
-	.btn-event-delete-cancel{
+	.btn-event-cancel{
 		margin-left: 100px;
 	}
 	/* end page schedule */

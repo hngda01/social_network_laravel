@@ -210,6 +210,31 @@ nav {
 }
 .page-newsfeed-06{
 	background-color: #fff;
+	text-align: left;
+}
+.img-ava{
+	display: inline-block;
+}
+.post-user{
+	display: inline-block;
+	text-align: left;
+}
+.post-user>p{
+	padding-top: 8px;
+}
+.post-time{
+	font-size: 11px;
+	color: rgb(194, 194, 194); 
+}
+.post-content{
+	margin-top: 8px;
+}
+.post-divide{
+	height: 1px;
+	background-color: rgb(124, 124, 124);
+}
+.post-reaction:focus{
+	color: #23527c;
 }
 .new-post>form>input{
 	border-radius: 0px; 
@@ -385,6 +410,12 @@ nav {
 	padding-bottom: 50px;
 }
 @media screen and (min-width: 360px) {
+	/* begin page newsfeed  */
+	.img-ava{
+		margin-top:-15px;
+	}
+	/* end page newsfeed */
+
 	/*begin login page*/
     .page-login-03{
 		text-align: left;

@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Auth;
+use App\User;
 class LoginController extends Controller
 {
     /*
@@ -17,16 +16,20 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
     use AuthenticatesUsers;
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home/';
-
+    //protected $redirectTo = '/home/'.Auth::id();
+   protected $redirectTo = '/home';
+     //protected $redirectPath = '/home/'.Auth::user()->id;
+   /* protected function redirectTo()
+    {    
+        return redirect()->route('home',['id' => 1]);
+    }*/
+       
     /**
      * Create a new controller instance.
      *

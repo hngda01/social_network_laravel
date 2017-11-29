@@ -68,11 +68,12 @@ Route::post('edit',[
 	'uses' => 'PostControler@postEditPost',
 	'as' => 'edit'
 ]);
+Route::get('/profile/{user_id}', 'HomeController@index')->name('home');
 });
 
-Route::post('taonhatki',[
+Route::post('taonhatki/{user_id}',[
 	'uses' => 'PostControler@createPost',
-	'as' => 'test'
+	'as' => 'post.taonhatki'
 ]);
 
 Route::post('insertComment',[
@@ -83,3 +84,27 @@ Route::post('insertComment',[
 Auth::routes();
 
 
+
+Route::get('delete-post/{post_id}',[
+	'uses' => 'PostControler@getDeletePost',
+	'as' => 'post.delete',
+	'middleware' => 'auth',
+]);
+
+Route::post('edit',[
+	'uses' => 'PostControler@postEditPost',
+	'as' => 'edit'
+]);
+
+//Search
+
+Route::get('search',[
+	'uses' => 'SearchController@getResults',
+	'as' => 'search.results',
+
+]);
+
+Route::get('friends',[
+	'uses' => 'FriendController@getIndex',
+	'as' => 'friends.page',
+]);

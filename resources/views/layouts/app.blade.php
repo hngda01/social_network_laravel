@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body ">
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: #286090">
             <div class="container">
                 <div class="navbar-header">
 
@@ -29,9 +31,16 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="/home/{{Auth::id()}}" style="color: white;font-size: 35px;" >
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    <a class="navbar-brand" style="color: white" href="{{route('friends.page')}}">friends</a>
+                    <form class="navbar-form navbar-left" action="{{ route('search.results') }}">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Find people" name="query">
+                      </div>
+                      <button type="submit" class="btn btn-default">Search</button>
+                    </form>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -48,11 +57,24 @@
                             <li><a href="{{ route('register') }}"></a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: white">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="/home/{{Auth::id()}}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/viewInfo/{{ Auth::user()->id }}">My Profile</a>
+                                    </li>
+                                    <hr>
+                                    <li>
+                                        <a href="/post/create"> Create Post</a>
+                                    </li>
+                                    <li>
+                                        <a href="/post">Feed</a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -64,6 +86,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
                         @endif
@@ -76,6 +99,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{{URL::to('src/js/app.js')}}"></script>
+    <script>
+            var token = '{{ Session::token() }}';
+            var url = '{{route('edit')}}';
+    </script>
+   
 </body>
 </html>

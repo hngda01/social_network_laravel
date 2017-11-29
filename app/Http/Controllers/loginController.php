@@ -12,7 +12,7 @@ class loginController extends Controller
     	$userMail= $request['user_name'];
     	$password= $request['password'];
     	if(Auth::attempt(['email'=>$userMail,'password'=>$password]))
-    		return view('Profile_with_tabs_like_facebook_page');
+    		return view('welcome');
     	else return "sai mat khau";
     }
     public function register(Request $request){

@@ -23,7 +23,8 @@ class PostController extends Controller
 		$friend= $user->friendList;
 		
 		return view('home',['notifications'=>$notifications,
-							'friends'=>$friend
+							'friends'=>$friend,
+							'user'=>$user
 							]);
 	}
 	public function test(){

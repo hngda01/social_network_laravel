@@ -13,12 +13,18 @@
 		</div>
 	</div>
 @endif
-
 @if(Session::has('mess'))
 	<div class="row">
 		<div class="col-md-4 col-md-offset -4">
 			{{Session::get('mess')}}
 		</div>
+	</div>
+@endif
+
+
+@if(Session::has('mess'))
+	<div class="alert alert-info" role = "alert">
+		{{Session::get('mess')}}
 	</div>
 @endif
 

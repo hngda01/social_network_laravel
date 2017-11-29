@@ -1,5 +1,5 @@
 html,body{
-    height: 100%
+    height: 100%;
 }
 nav {
 	background-color: #c7d2c7;
@@ -32,10 +32,67 @@ nav {
 }
 .dropdown-menu>li>a{
 	color: #262626 !important;
+	padding: 9px 10px 10px !important;
 }
 .dropdown-menu>li>a>span{
 	margin-right: 10px;
 }
+
+/* request&noti */
+.friend-request{
+	color: #262626;
+	padding: 3px 10px;
+}
+.flexible-show{
+	display: initial;
+	margin-left: 5px;
+}
+.friend-request>a{
+	margin-right: 10px;
+}
+.dropdown-menu>.view-more>a{
+	color: #23527c !important;
+	font-weight: bold !important;
+	padding: 3px 20px !important;
+}
+.noti-table{
+	width: 300px;
+}
+.noti-comp>a{
+	height: 80px;
+}
+.dropdown-menu>.noti-comp>a>span{    
+	display: inline-block !important;
+    white-space: normal !important;
+    padding: 2px 0px 10px !important;
+    width: 75%;
+}
+.noti-pic{
+	height: 55px !important;
+	width: 55px !important;
+	float: left;
+	margin: 5px;
+}
+.add-friend-pic{
+	display: inline-block;
+	height: 55px !important;
+	width: 55px !important;
+	margin: 5px;
+	margin-right: 10px; 
+}
+.friend-request-profile{
+	display: inline-block;
+	white-space: nowrap;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+.friend-request-buttons{
+	display: block;
+}
+/* request&noti end */
+
 /*begin login page*/
 .page-login-01{
 	min-height: 100%;
@@ -64,6 +121,26 @@ nav {
 }
 .page-login-06{
 	text-align: center;
+}
+.page-login-07{ 
+	width: 100%;
+	color: white;
+	border: none;
+}
+.page-login-07:hover{
+	color: white;
+}
+.page-login-fb{
+	background-color: #3c5a99;
+}
+.page-login-fb:hover{
+	background-color: #304d86;
+}
+.page-login-gg{
+	background-color: #d14836;
+}
+.page-login-gg:hover{
+	background-color: #b63d2f;
 }
 /*end login page*/
 
@@ -104,9 +181,103 @@ nav {
 }
 .page-newsfeed-01-b{
 	padding: 20px;
-  	padding-bottom: 50px;
+	padding-bottom: 50px;
+}
+.page-newsfeed-02{
+	background-color: white;
+}
+.page-newsfeed-03>ul{
+	text-align: left
+}
+.page-newsfeed-04{
+	display: inherit;
+}
+.page-newsfeed-05{
+	text-align: left;
+	display: inherit;
+	padding: 3px;
+	font-weight: bold;
+	color: #1866b1;
+	font-size: 15px;
+}
+.page-newsfeed-06{
+	font-weight: bold;
+	color: #1866b1;
+}
+.font-custom-01{
+	color: #90949c;
+}
+.page-newsfeed-05>span{
+	margin-right: 12px;
+}
+.page-newsfeed-05:hover{
+	color: #415fb1;
+    text-decoration: none;
 }
 /* end newsfeed page */
+
+/* begin page noti  */
+.page-noti-01{
+	min-height: 100%;
+}
+.page-noti-01-b{
+	padding: 20px;
+  	padding-bottom: 50px;
+}
+.page-noti-01-b>ul{
+	padding-left: 0px;
+}
+.page-noti-02{
+	display: block;
+	margin-bottom: 1px;
+}
+.page-noti-02>a{
+	display: block;
+	white-space: normal;
+	color: rgb(70, 65, 65);
+}
+.page-noti-02>a:hover{
+	display: block;
+	color: rgb(51, 47, 47);
+	background-color: #a5a4a433;
+}
+.page-noti-02>a>span{
+	display: inline-block;
+    white-space: normal;
+	width: 75%;
+	padding-top: 7px;
+}
+.page-noti-03{
+	display: inline-block;
+	padding-top: -5px;
+	height: 55px;margin-right: 5px;
+	margin-left: 6px;
+	margin-bottom: 7px;
+}
+.page-noti-read{
+	background-color: #7777771a;
+}
+/* end page noti */
+
+/* begin page friend request */
+.page-friend-request-01{
+	display: block;
+}
+.page-friend-request-accepted{
+	background-color: rgb(252, 252, 206);
+}
+.page-friend-request-02{
+	display: inline-block;
+	white-space: nowrap;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+.page-friend-request-03{
+	color: rgb(126, 122, 122);
+}
+/* end page friend request */
 
 @media screen and (min-width: 360px) {
 	/*begin login page*/
@@ -132,9 +303,35 @@ nav {
 		text-align: left;
 	}
 	/* end register page */
+
+	/* begin noti page */
+	.page-noti-03{
+		margin-top: 8px;
+	}
+	/* end noti page */
+}
+
+@media screen and (min-width: 368px){	
+	/* begin request&noti */
+	.friend-request-buttons{
+		display: inline;
+	}
+	/* end request&noti */
 }
 
 @media screen and (min-width: 768px) {
+	/* request&noti */
+	.friend-request{
+		width: 352px;
+	}
+	.friend-request-profile{
+		width: 26%;
+	}
+	.flexible-show{
+		display: none;
+	}
+	/* request&noti end */
+
 	/*begin login page*/
 	.page-login-01{
 		margin-top:200px;
@@ -146,6 +343,12 @@ nav {
 		margin-top:200px;
 	}
 	/*end register page*/
+
+	/* begin noti page */
+	.page-noti-03{
+		margin-right: 20px;
+	}
+	/* end noti page */
 }
 
 @media screen and (min-width: 980px){
@@ -179,16 +382,129 @@ nav {
 	.page-newsfeed-01-b{
 		background-color: white;
 	}
+	.page-newsfeed-03>ul>li{
+		font-size: 18px;
+		margin-top: 3px;
+	}
 	/* end newsfeed page */
+
+	/* begin page noti */
+	.page-noti-01-b{
+		background-color: white;
+	}
+	/* end page noti */
+	
+	/* begin page friend request */
+	.page-friend-request-02{
+		width: 70%;
+	}
+	/* end page friend request */
 } 
 
 footer {
     background-color: #68ca79;
     color: white;
     padding: 15px;
-/*  	margin-bottom:  50px;*/
+  	margin-top: -50px;
 }
 
 footer>p{
 	font-size: 17px;
+}
+
+/* calendar */
+  .icon-chevron {
+	display: block;
+	width: 15px;
+	height: 22px;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAMAAAAo0TYrAAAAElBMVEX///8AAAAAAAAAAAAAAAAAAABknMCaAAAABXRSTlMAEHCg0O5XV0MAAAAzSURBVHgBYwACJkYGZMDMysKIwmUFCyC4KAIsrKgCjPQQQPCpzUX4B9O/mOGBGV7o4QkA5zcCv3HiEZgAAAAASUVORK5CYII=);
+  }
+  
+  .icon-chevron-rotate {
+	-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+  }
+  
+  .page {
+	width: 100%;
+	text-align: center;
+	padding: 0.5em;
+	padding-top: 2em;
+  }
+  
+  .responsive-calendar-modal {
+	background-color: #1d86c8;
+	color: white;
+	padding: 1em;
+  }
+  
+  .responsive-calendar .controls {
+	text-align: center;
+  }
+  
+  .responsive-calendar .controls a {
+	cursor: pointer;
+	color: red;
+  }
+  
+  .responsive-calendar .controls h4 {
+	display: inline;
+  }
+  
+  .responsive-calendar .day-headers,
+  .responsive-calendar .days {
+	font-size: 0;
+  }
+  
+  .responsive-calendar .day {
+	display: inline-block;
+	position: relative;
+	font-size: 14px;
+	width: 14.285714285714286%;
+	text-align: center;
+  }
+  
+  .responsive-calendar .day a {
+	color: #000000;
+	display: block;
+	cursor: pointer;
+	padding: 20% 0 20% 0;
+  }
+  
+  .responsive-calendar .day a:hover {
+	background-color: #eee;
+	text-decoration: none;
+  }
+  
+  .responsive-calendar .day.header {
+	border-bottom: 1px gray solid;
+  }
+  
+  .responsive-calendar .day.active a {
+	background-color: #1d86c8;
+	color: #ffffff;
+  }
+  
+  .responsive-calendar .day.active a:hover {
+	background-color: #36a0e2;
+  }
+  
+  .responsive-calendar .day.active .not-current {
+	background-color: #8fcaef;
+	color: #ffffff;
+  }
+  
+  .responsive-calendar .day.active .not-current:hover {
+	background-color: #bcdff5;
+  }
+  
+  .responsive-calendar .day.not-current a {
+	color: #ddd;
+  }
+  
+  .responsive-calendar .day .badge {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	z-index: 1;
 }

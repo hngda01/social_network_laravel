@@ -10,4 +10,5 @@ class Category extends Model
     public function user(){
     	return belongsTo('App\User','id_user','id');
     }
+
 }

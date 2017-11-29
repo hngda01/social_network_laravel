@@ -208,6 +208,27 @@ nav {
 	color: #415fb1;
     text-decoration: none;
 }
+.page-newsfeed-06{
+	background-color: #fff;
+}
+.new-post>form>input{
+	border-radius: 0px; 
+}
+.new-post>form>textarea{
+	border-radius: 0px;
+}
+.btn-post{
+	background-color: #2ecc71;
+	color: #fff;
+}
+.btn-post:hover{
+	background-color: #2eb466;
+	color: #fff;
+}
+.btn-post:focus{
+	background-color: #2eb466;
+	color: #fff;
+}
 .recent-friend{
 	display: inline-block;
 	height: 30px !important;
@@ -356,7 +377,13 @@ nav {
 	border-top-right-radius: 5px;
 }
 /* end page schedule */
-
+.page-not-available{
+	min-height: 100%;
+}
+.page-not-available>div{
+	padding: 20px;
+	padding-bottom: 50px;
+}
 @media screen and (min-width: 360px) {
 	/*begin login page*/
     .page-login-03{
@@ -492,6 +519,10 @@ nav {
 		width: 300px;
 	}
 	/* end page schedule */
+	.page-not-available>div{
+		background-color: #fff;
+		height: 650px;
+	}
 } 
 
 footer {

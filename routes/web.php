@@ -84,6 +84,7 @@ Route::post('insertComment',[
 Auth::routes();
 
 
+Route::get('/profile/{user_id}', 'HomeController@index')->name('home');
 
 Route::get('delete-post/{post_id}',[
 	'uses' => 'PostControler@getDeletePost',

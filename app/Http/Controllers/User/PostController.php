@@ -9,6 +9,7 @@ use App\Category;
 use App\Diary;
 use App\Comment;
 use App\Friend;
+use App\SpecificFriend;
 use App\Notification;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +39,9 @@ class PostController extends Controller
     	//echo $user;
 		$category= $user->category;
     	//echo $category;
-		return view('User.writePost',['category'=>$category]);
+		return view('User.writePost',['category'=>$category,
+									  'user'=>$user
+										]);
 	}
 	public function createPost(Request $request){
 		$user_id=Auth::user()->id;
@@ -54,7 +57,7 @@ class PostController extends Controller
 		else {
 			$id_category= $request['category_select'];
 		}
-		
+
 		$diary= new Diary();
 		$diary->id_user= $user_id;
 		$diary->title= $request['title'];
@@ -73,7 +76,18 @@ class PostController extends Controller
 				);
 		}
 		else echo "chua co file";
-
+		//check privacy
+		if($request['privacy_select']==2){
+			$friends= explode("-", $request['danhsach']);
+			for($i=1;$i<count($friends);$i++){
+				$specificFriend= new SpecificFriend;
+				$specificFriend->diary_id= $diary->id;
+				$specificFriend->user_id= $friends[$i];
+				$specificFriend->save();
+			}
+			
+		}
+		//
 
 	}
 	public function listPost(){

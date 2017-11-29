@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
@@ -25,7 +25,7 @@ class Diary extends Model
         return $this->hasMany("App\SpecificFriend","diary_id","id");
     }
     public function checkPrivacy($userId,$diary){
-
+        if($userId== Auth::user()->id) return 1;
         switch($diary->id_privacy){
             case 0: {
                 return 0;

@@ -2,7 +2,7 @@
 <!-- HTML by Gryqhon -->
 <html lang="en">
 <head>
-  <title>My Diary</title>
+  <title>My Schedule</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -200,7 +200,7 @@
       <button class="btn btn-success" data-toggle="modal" data-target="#eventCreate">Create New Event</button>
     </div>
         
-    <!-- Modal edit-->
+    <!-- Modal add-->
     <div class="modal fade" id="eventCreate" role="dialog">
       <div class="modal-dialog">
           
@@ -215,6 +215,12 @@
                       <div class="col-sm-12 create-event-1">
                         <b>Event:</b>
                         <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-sm-12 create-event-1">
+                        <b>Event Detail:</b>
+                        <textarea class="form-control" rows="5"></textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -279,12 +285,6 @@
                         </select>
                       </div>
                   </div>
-                  <div class="row"> 
-                    <div class="col-sm-12 create-event-1">
-                      <b>Event Detail:</b>
-                      <textarea class="form-control" rows="5"></textarea>
-                    </div>
-                  </div>
                   </div>
                   <button type="button" class="btn btn-primary btn-event-confirm" data-dismiss="modal">Add</button>
                   <button type="button" class="btn btn-default btn-event-cancel" data-dismiss="modal">Cancel</button>
@@ -332,6 +332,12 @@
                 <div class="col-sm-12 edit-event-1">
                   <b>Event:</b>
                   <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row"> 
+                <div class="col-sm-12 create-event-1">
+                  <b>Event Detail:</b>
+                  <textarea class="form-control" rows="5"></textarea>
                 </div>
               </div>
               <div class="row">
@@ -395,12 +401,6 @@
                     <option>4</option>
                   </select>
                 </div>
-            </div>
-            <div class="row"> 
-              <div class="col-sm-12 edit-event-1">
-                <b>Event Detail:</b>
-                <textarea class="form-control" rows="5"></textarea>
-              </div>
             </div>
             </div>
             <button type="button" class="btn btn-primary btn-event-confirm" data-dismiss="modal">Save Changes</button>

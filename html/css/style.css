@@ -317,7 +317,13 @@ nav {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	color: white;
-	background-color: rgb(135, 216, 135)
+	background-color: rgb(135, 216, 135);
+}
+.modal-create-head{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: white;
+	background-color: #337ab7;
 }
 .img-event{
 	width: 100%;
@@ -329,6 +335,13 @@ nav {
 	margin-bottom: 15px;
 }
 .edit-event-1{
+	margin-top: 10px;
+	text-align: left;
+}
+.create-event-form{
+	margin-bottom: 15px;
+}
+.create-event-1{
 	margin-top: 10px;
 	text-align: left;
 }

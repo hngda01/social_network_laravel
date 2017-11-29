@@ -325,6 +325,13 @@ nav {
 .event-detail{
 	text-align: left;
 }
+.edit-event-form{
+	margin-bottom: 15px;
+}
+.edit-event-1{
+	margin-top: 10px;
+	text-align: left;
+}
 .btn-event-confirm{
 	margin-right: 10px;
 }

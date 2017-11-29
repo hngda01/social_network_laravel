@@ -10,8 +10,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/clockpicker.js"></script>
+  <script src="js/datepicker.js"></script>
   <script src="js/index.js"></script>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/clockpicker.css">
 </head>
 <body>
 
@@ -222,7 +225,98 @@
       </div>
     </div>
 
+    <!-- Modal edit-->
+    <div class="modal fade" id="eventEdit" role="dialog">
+      <div class="modal-dialog">
     
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header modal-edit-head">
+            <h4 class="modal-title">Edit Event</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid edit-event-form">
+              <div class="row">
+                <div class="col-sm-12 edit-event-1">
+                  <b>Event:</b>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 edit-event-1">
+                    <b>Begin date:</b> 
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 edit-event-1">
+                    <b>Time:</b> 
+                    <div class="input-group clockpicker">
+                      <input type="text" class="form-control">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 edit-event-1">
+                    <b>End date:</b> 
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 edit-event-1">
+                    <b>Time:</b> 
+                    <div class="input-group clockpicker">
+                      <input type="text" class="form-control">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 edit-event-1">
+                  <b>Place:</b>
+                  <input type="text" class="form-control">
+                </div>               
+              </div>
+              <div class="row"> 
+                <div class="col-sm-7 edit-event-1">
+                  <b>Select image</b>
+                  <input type="file" name="pic" accept="image/*">
+                  <img src="img/event/blank.jpg" class="img-event">
+                </div>
+                <div class="col-sm-5 edit-event-1">
+                  <b>Priority</b>
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+            </div>
+            <div class="row"> 
+              <div class="col-sm-12 edit-event-1">
+                <b>Event Detail:</b>
+                <textarea class="form-control" rows="5"></textarea>
+              </div>
+            </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-event-confirm" data-dismiss="modal">Save Changes</button>
+            <button type="button" class="btn btn-default btn-event-cancel" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>      
+      </div>
+    </div>
 
     <!-- Modal delete-->
     <div class="modal fade page-schedule-delete-box" id="eventDelete" role="dialog">

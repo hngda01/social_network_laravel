@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container bootstrap snippet">
-    <div class="content-hero">
-      <img class="content-hero-embed" src="https://lorempixel.com/250/250/nature/8/" alt="">
+<div class="container bootstrap snippet" >
+    <div class="content-hero" ">
+      <img class="content-hero-embed" src="http://images6.fanpop.com/image/photos/39500000/Detective-Conan-detective-conan-39597749-500-268.jpg" alt="" >
       <div class="content-hero-overlay bg-grd-red"></div>
       <div class="content-hero-body">
         <div class="pull-right" role="group">

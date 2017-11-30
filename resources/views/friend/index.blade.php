@@ -56,7 +56,7 @@
                 @if(!$requests->count())
                     <p>You have no friend request</p>
                 @else
-                @foreach($friends as $user)
+                @foreach($requests as $user)
                 <div class="member-entry pull-right" style="width: 25%;"> 
                     <a href="/home/{{ $user->id}}" class="member-img"> 
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-rounded" style="height: 40px;"> 

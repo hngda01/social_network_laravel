@@ -89,4 +89,17 @@ Route::get('search',[
 Route::get('friends',[
 	'uses' => 'FriendController@getIndex',
 	'as' => 'friends.page',
+	'middleware'=>'auth',
+]);
+
+Route::get('friends/add/{username}',[
+	'uses' => 'FriendController@getAdd',
+	'as' => 'friends.add',
+	'middleware'=>'auth',
+]);
+
+Route::get('friends/accept/{username}',[
+	'uses' => 'FriendController@getAccept',
+	'as' => 'friends.accept',
+	'middleware'=>'auth',
 ]);

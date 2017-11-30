@@ -17,104 +17,108 @@
 
 <!-- navbar chuẩn -->
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="#"><img src="./logo/logo.jpg" height="50"></a><!--click vào đây thì dẫn về trang chủ-->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><!--bắt đầu phần chỉ hiển thị khi đã đăng nhập thành công-->
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#"><img src="./logo/logo.jpg" height="50"></a><!--click vào đây thì dẫn về trang chủ-->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><!--bắt đầu phần chỉ hiển thị khi đã đăng nhập thành công-->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group input-group search-box">
+            <input type="text" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="fa fa-search"></span>
+              </button>
+            </span>        
+          </div>
+        </form>      
+        <ul class="nav navbar-nav navbar-right">
+  
+          <li>
+            <div class="dropdown navbar-component" title="Friend Request">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="fa fa-users"></span>
+                <span class="button__badge">4</span>
+                <p class="flexible-show">Friend Request</p>
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="friends">
+                <li>
+                  <div class="friend-request">
+                    <a href="#">
+                      <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
+                      <span class="friend-request-profile"> John Connor</span>
+                    </a>
+                    <span class="friend-request-buttons">
+                      <a href="#" class="btn btn-primary">Accept</a>
+                      <a href="#" class="btn btn-default">Decline</a>
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div class="friend-request">
+                    <a href="#">
+                      <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg">                     
+                      <span class="friend-request-profile"> Tom Riddle Marvolo</span>
+                    </a>
+                    <span class="friend-request-buttons">
+                      <a href="#" class="btn btn-primary">Accept</a>
+                      <a href="#" class="btn btn-default">Decline</a>
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div class="friend-request">
+                    <a href="#">
+                      <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
+                      <span class="friend-request-profile"> John Connor</span>
+                    </a>
+                    <span class="friend-request-buttons">
+                      <a href="#" class="btn btn-primary">Accept</a>
+                      <a href="#" class="btn btn-default">Decline</a>
+                    </span>
+                  </div>
+                </li>
+                <li class="divider"></li>
+                <li class="text-center view-more"><a href="#">View more friend requests</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown navbar-component" title="Notification">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="fa fa-bell"></span>
+                  <span class="button__badge">4</span>
+                  <p class="flexible-show">Notification</p>
+              </div>
+              <ul class="dropdown-menu noti-table" aria-labelledby="noti">
+                <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span></a></li>
+                <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
+                <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
+                <li class="divider"></li>
+                <li class="text-center view-more"><a href="#" class="view-more">View more notification</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown navbar-component">
+              <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="fa fa-user"></span> My Account
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="acc">
+                <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
+                <li><a href="#"><span class="fa fa-sign-out"></span> Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!--kết thúc phần chỉ hiển thị khi đã đăng nhập thành công-->
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group input-group search-box">
-          <input type="text" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="fa fa-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>      
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <div class="dropdown navbar-component" title="Friend Request">
-            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-users"></span><p class="flexible-show">Friend Request</p>
-            </div>
-            <ul class="dropdown-menu" aria-labelledby="friends">
-              <li>
-                <div class="friend-request">
-                  <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
-                    <span class="friend-request-profile"> John Connor</span>
-                  </a>
-                  <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div class="friend-request">
-                  <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg">                     
-                    <span class="friend-request-profile"> Tom Riddle Marvolo</span>
-                  </a>
-                  <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div class="friend-request">
-                  <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
-                    <span class="friend-request-profile"> John Connor</span>
-                  </a>
-                  <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
-                  </span>
-                </div>
-              </li>
-              <li class="divider"></li>
-              <li class="text-center view-more"><a href="#">View more friend requests</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown navbar-component" title="Notification">
-            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="fa fa-bell"></span><p class="flexible-show">Notification</p>
-            </div>
-            <ul class="dropdown-menu noti-table" aria-labelledby="noti">
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span></a></li>
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
-              <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post</span></a></li>
-              <li class="divider"></li>
-              <li class="text-center view-more"><a href="#" class="view-more">View more notification</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown navbar-component">
-            <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="fa fa-user"></span> My Account
-            </div>
-            <ul class="dropdown-menu" aria-labelledby="acc">
-              <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-              <li><a href="#"><span class="fa fa-sign-out"></span> Log Out</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div><!--kết thúc phần chỉ hiển thị khi đã đăng nhập thành công-->
-  </div>
-</nav>
+  </nav>
 
 <div class="container text-center page-newsfeed-01">    
   <div class="row page-newsfeed-01-b">
@@ -287,13 +291,25 @@
             <img src="img/post/blank.jpg" class="img-event">
             <input class="form-control input-lg" type="text" name="title" placeholder="Enter Title">
             <textarea class="form-control no-border" rows="5" placeholder="Write Post"></textarea>
+            <input type="file" accept="image/*" id="upload-area">
+            <input class="form-control" type="text" name="title" placeholder="Enter Topic" id="topic">
+            <div class="dropdown" id="privacy">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Private</a></li>
+                <li><a href="#">Protect 1</a></li>
+                <li><a href="#">Protect 2</a></li>
+                <li><a href="#">Public</a></li>
+              </ul>
+            </div>
           </form>
           <div class="panel-footer">
               <button class="btn btn-post pull-right mt-5" >POST</button>
               <ul class="nav nav-pills">
-                  <li><a href="#"><i class="fa fa-camera"></i></a></li>
-                  <li><a href="#"><i class="fa fa-tag"></i></a></li>
-                  <li><a href="#"><i class="fa fa-user"></i></a></li>
+                <li><a href="#" class="btn-option" id="upload-picture"><i class="fa fa-camera"></i></a></li>
+                <li><a href="#" class="btn-option" id="add-topic"><i class="fa fa-tag"></i></a></li>
+                <li><a href="#" class="btn-option" id="set-privacy"><i class="fa fa-user"></i></a></li>
               </ul><!-- /.nav nav-pills -->
           </div><!-- /.panel-footer -->
         </div><!-- /.panel -->
@@ -302,6 +318,26 @@
   </div>
 </div>
 
+          <script>
+            $('#topic').hide();
+            $('#upload-area').hide();
+            $('#privacy').hide();
+            $('#upload-picture').click(function() {
+              $('#privacy').hide();
+              $('#topic').hide();
+              $('#upload-area').show();
+            });
+            $('#add-topic').click(function(){
+              $('#privacy').hide();
+              $('#upload-area').hide();
+              $('#topic').show();
+            });
+            $('#set-privacy').click(function(){
+              $('#topic').hide();
+              $('#upload-area').hide();
+              $('#privacy').show();
+            });
+          </script>
 <footer class="container-fluid text-center">
   <p>Product by Reinbooru team &copy</p>
 </footer>

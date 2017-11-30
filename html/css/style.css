@@ -239,6 +239,9 @@ nav {
 .post-reaction:focus{
 	color: #23527c;
 }
+.new-post{
+	text-align: left;
+}
 .new-post>form>input{
 	border-radius: 0px; 
 }

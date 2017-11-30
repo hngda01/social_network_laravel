@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('login',function(){
-	return view("login");
+	return "dcm";
 });
 Route::post('login',"loginController@checkLogin");
 Route::get('register',function(){
@@ -24,7 +24,7 @@ Route::get('register',function(){
 Route::post('register','loginController@register');
 Route::get('logout','loginController@logout');
 Route::group(['middleware'=>'user'],function(){
-	//Route::get('home','User\PostController@home');
+	Route::get('home','User\PostController@home');
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
@@ -51,6 +51,23 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('searchPage','User\FriendController@showSearchPage');
 	Route::post('searchFriend','User\FriendController@searchFriend');
 	Route::get('addFriend','User\FriendController@addFriend');
+	Route::get('notifications','NotificationController@show');
+	Route::get('test','User\PostController@test');
+	Route::get('newEvent','EventController@newEvent');
+	Route::get('editEvent/{id}','EventController@editEvent');
+	Route::post('createEvent','EventController@createEvent');
+	Route::post('editEventPost','EventController@postEventEdit');
+	Route::get('delete-post/{post_id}',[
+	'uses' => 'PostControler@getDeletePost',
+	'as' => 'post.delete',
+	'middleware' => 'auth',
+]);
+	Route::get('profile','HomeController@index');
+
+Route::post('edit',[
+	'uses' => 'PostControler@postEditPost',
+	'as' => 'edit'
+]);
 });
 
 Route::post('taonhatki/{user_id}',[
@@ -64,6 +81,7 @@ Route::post('insertComment',[
 ]);
 
 Auth::routes();
+
 
 Route::get('/home/{user_id}', 'HomeController@index')->name('home');
 

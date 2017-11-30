@@ -26,6 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+
     //protected $redirectTo = '/home/'.Auth::id();
    protected $redirectTo = '/home';
      //protected $redirectPath = '/home/'.Auth::user()->id;
@@ -33,7 +34,7 @@ class LoginController extends Controller
     {    
         return redirect()->route('home',['id' => 1]);
     }*/
-       
+
     /**
      * Create a new controller instance.
      *

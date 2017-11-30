@@ -42,7 +42,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Friend',"user_id","id");
     }
     public function comment(){
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment',"id_user","id");
+    }
+    public function notifications(){
+        return $this->hasMany('App\Notification','id_user','id');
     }
     public function friendofMine() {
         return $this->belongsToMany('App\User','friend_list','user_id','friend_id');

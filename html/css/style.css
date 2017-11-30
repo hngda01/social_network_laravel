@@ -91,6 +91,9 @@ nav {
 .friend-request-buttons{
 	display: block;
 }
+.button__badge {
+  display: none;
+}
 /* request&noti end */
 
 /*begin login page*/
@@ -253,6 +256,15 @@ nav {
 .btn-post:focus{
 	background-color: #2eb466;
 	color: #fff;
+}
+.btn-option{
+	color: #2ecc71;
+}
+.btn-option:hover{
+	color: #2eb466;
+}
+.btn-option:focus{
+	color: #2eb466;
 }
 .recent-friend{
 	display: inline-block;
@@ -465,6 +477,19 @@ nav {
 	}
 	.flexible-show{
 		display: none;
+	}
+	.button__badge {
+		display: inherit;
+		background-color: #fa3e3e;
+		border-radius: 2px;
+		color: white;
+		
+		padding: 1px 3px;
+		font-size: 10px;
+		
+		position: absolute; /* Position the badge within the relatively positioned button */
+		top: 7px;
+		right: 7px;
 	}
 	/* request&noti end */
 

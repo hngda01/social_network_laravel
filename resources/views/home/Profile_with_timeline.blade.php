@@ -163,7 +163,7 @@
                                         <textarea class="form-control" name="post-title" id="posttitle" rows="1"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="post-body">Edit the Post</label>
+                                        <label for="post-body">Edit the Post :</label>
                                         <textarea class="form-control" name="post-body" id="postcontent" rows="5"></textarea>
                                     </div>  
                                     <div class="form-group">

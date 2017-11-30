@@ -2,7 +2,7 @@
 <!-- HTML by Gryqhon -->
 <html lang="en">
 <head>
-  <title>My Diary</title>
+  <title>My Schedule</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -129,6 +129,7 @@
       <div>
         <p>
           <a class="btn page-newsfeed-05"><span class="fa fa-newspaper-o"></span>Newsfeed</a>
+          <a class="btn page-newsfeed-05"><span class="fa fa-pencil-square-o"></span>Write Post</a>
           <a class="btn page-newsfeed-05"></span><span class="fa fa-star"></span>Your page</a>
           <a class="btn page-newsfeed-05"><span class="fa fa-user-circle"></span>Profile</a>
           <a class="btn page-newsfeed-05"><span class="fa fa-address-book-o"></span>Friendlist</a>
@@ -200,7 +201,7 @@
       <button class="btn btn-success" data-toggle="modal" data-target="#eventCreate">Create New Event</button>
     </div>
         
-    <!-- Modal edit-->
+    <!-- Modal add-->
     <div class="modal fade" id="eventCreate" role="dialog">
       <div class="modal-dialog">
           
@@ -215,6 +216,12 @@
                       <div class="col-sm-12 create-event-1">
                         <b>Event:</b>
                         <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-sm-12 create-event-1">
+                        <b>Event Detail:</b>
+                        <textarea class="form-control" rows="5"></textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -279,19 +286,14 @@
                         </select>
                       </div>
                   </div>
-                  <div class="row"> 
-                    <div class="col-sm-12 create-event-1">
-                      <b>Event Detail:</b>
-                      <textarea class="form-control" rows="5"></textarea>
-                    </div>
-                  </div>
                   </div>
                   <button type="button" class="btn btn-primary btn-event-confirm" data-dismiss="modal">Add</button>
                   <button type="button" class="btn btn-default btn-event-cancel" data-dismiss="modal">Cancel</button>
                 </div>
               </div>      
             </div>
-          </div>
+    </div>
+    
     <!-- Modal detail-->
     <div class="modal fade" id="eventDetails" role="dialog">
       <div class="modal-dialog">
@@ -332,6 +334,12 @@
                 <div class="col-sm-12 edit-event-1">
                   <b>Event:</b>
                   <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row"> 
+                <div class="col-sm-12 create-event-1">
+                  <b>Event Detail:</b>
+                  <textarea class="form-control" rows="5"></textarea>
                 </div>
               </div>
               <div class="row">
@@ -395,12 +403,6 @@
                     <option>4</option>
                   </select>
                 </div>
-            </div>
-            <div class="row"> 
-              <div class="col-sm-12 edit-event-1">
-                <b>Event Detail:</b>
-                <textarea class="form-control" rows="5"></textarea>
-              </div>
             </div>
             </div>
             <button type="button" class="btn btn-primary btn-event-confirm" data-dismiss="modal">Save Changes</button>

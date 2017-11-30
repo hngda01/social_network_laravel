@@ -28,6 +28,7 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
+	Route::get('listEvent','EventController@listEvent');
 	Route::get('viewPost/{id}','User\PostController@viewPost');
 	Route::post('writeComment','User\PostController@writeComment');
 	Route::get('deletePost/{id}','User\PostController@deletePost');
@@ -55,6 +56,8 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('test','User\PostController@test');
 	Route::get('newEvent','EventController@newEvent');
 	Route::get('editEvent/{id}','EventController@editEvent');
+	Route::get('showEvent/{id}','EventController@showEvent');
+	Route::get('deleteEvent/{id}','EventController@deleteEvent');
 	Route::post('createEvent','EventController@createEvent');
 	Route::post('editEventPost','EventController@postEventEdit');
 	Route::get('delete-post/{post_id}',[

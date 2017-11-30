@@ -21,6 +21,10 @@ class Diary extends Model
 
         return User::find($fid)->name;
     }
+    public function categoryName($id)
+    {
+        return Category::find($id)->name;
+    }
     public function specificFriends(){
         return $this->hasMany("App\SpecificFriend","diary_id","id");
     }

@@ -15,15 +15,16 @@
 </head>
 <body>
 
+<!-- navbar chuẩn -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <a href="#"><img src="./logo/logo.jpg" height="50"></a><!--click vào đây thì dẫn về trang chủ-->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><!--bắt đầu phần chỉ hiển thị khi đã đăng nhập thành công-->
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="#"><img src="./logo/logo.jpg" height="50"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <form class="navbar-form navbar-left" role="search">
@@ -41,7 +42,7 @@
         <li>
           <div class="dropdown navbar-component" title="Friend Request">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-users"></span>
+              <span class="fa fa-users"></span><p class="flexible-show">Friend Request</p>
             </div>
             <ul class="dropdown-menu" aria-labelledby="friends">
               <li>
@@ -88,7 +89,7 @@
         <li>
           <div class="dropdown navbar-component" title="Notification">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="fa fa-bell"></span>
+                <span class="fa fa-bell"></span><p class="flexible-show">Notification</p>
             </div>
             <ul class="dropdown-menu noti-table" aria-labelledby="noti">
               <li class="noti-comp"><a href="#"><img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg"><span> A has comment on Your Post Lorem ababaabaannnnnnnnnnnn</span></a></li>
@@ -100,7 +101,7 @@
           </div>
         </li>
         <li>
-          <div class="dropdown navbar-component" title="Notification">
+          <div class="dropdown navbar-component">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <span class="fa fa-user"></span> My Account
             </div>
@@ -111,34 +112,45 @@
           </div>
         </li>
       </ul>
-    </div>
+    </div><!--kết thúc phần chỉ hiển thị khi đã đăng nhập thành công-->
   </div>
 </nav>
 
 <div class="container text-center page-newsfeed-01">    
   <div class="row page-newsfeed-01-b">
-    <div class="col-sm-2 well">
+    <div class="col-sm-2 well page-newsfeed-02">
       <div class="well">
-        <img src="img/avatar/ava1.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-        <a href="#">Gryqhon</a>
+        <img src="img/avatar/ava1.jpg" class="img-circle" height="85" width="85" alt="Avatar">
+        <a href="#" class="page-newsfeed-04">Gryqhon</a>
       </div>
-      <div class="well">
-        <p><a href="#">Menu</a></p>
+      <div>
         <p>
-          <p>Newsfeed</p>
-          <p>Your page</p>
-          <p>Friendlist</p>
-          <p>Profile</p>
+          <a class="btn page-newsfeed-05"><span class="fa fa-newspaper-o"></span>Newsfeed</a>
+          <a class="btn page-newsfeed-05"></span><span class="fa fa-star"></span>Your page</a>
+          <a class="btn page-newsfeed-05"><span class="fa fa-user-circle"></span>Profile</a>
+          <a class="btn page-newsfeed-05"><span class="fa fa-address-book-o"></span>Friendlist</a>
         </p>
       </div>
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <hr>
+      <p><b>Recently Add</b></p>
+      <p>
+        <a href="#">
+          <img class="img-responsive img-circle recent-friend" src="img/avatar/ava1.jpg">                     
+          <span class="page-friend-request-02"> Tom Riddle Marvolo</span>
+        </a>
+      </p>
+      <p>
+        <a href="#">
+          <img class="img-responsive img-circle recent-friend" src="img/avatar/ava1.jpg">                     
+          <span class="page-friend-request-02"> Tom Riddle Marvolo</span>
+        </a>
+      </p>
+      <p>
+        <a href="#">
+          <img class="img-responsive img-circle recent-friend" src="img/avatar/ava1.jpg">                     
+          <span class="page-friend-request-02"> Tom Riddle Marvolo</span>
+        </a>
+      </p>
     </div>
     <div class="col-sm-7">
     
@@ -212,13 +224,14 @@
     <div class="col-sm-3 well page-newsfeed-02">
       <div class="page-newsfeed-03">
         <h3><img src="img/icon/calendar.png" height="20">Your Schedule</h3>
+        <!-- <p><i>No events today</i></p> --><!--Khi ko có sự kiện thì hiển thị-->
         <ul>
           <li>23:55 - Dealine</li>
           <li>23:55 - Dealine</li>
           <li>23:55 - Dealine</li>
         </ul>
       </div>
-      <button class="btn btn-primary">Arrange your schedule</button>
+      <a href="#" class="btn btn-primary">Arrange your schedule</a>
       <div class="page">
         <!-- Responsive calendar - START -->
         <div class="responsive-calendar">

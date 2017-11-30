@@ -9,26 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class InfoController extends Controller
 {
-    public function viewInfo(){
-    	$user= User::find(Auth::user()->id);
-    	return view('User.user_personal_information_profile',[
-    		'info'=>$user->userInfo
-    		]);
+    public function viewInfo($user_id){
+    	$user= User::find($user_id);
+    	return view('User.information_profile',compact('user'));
     }
-    public function editInfo(){
-    	$user= User::find(Auth::user()->id);
-    	return view('User.contact_details_page',[
-    		'info'=>$user->userInfo
-    		]);	
+    public function editInfo($user_id){
+    	$user= User::find($user_id);
+        return view('User.contact_details_page',compact('user'));	
     }
-    public function updateInfo(Request $request){
-    	$user= User::where("id",Auth::user()->id)->first();
-    	$userInfo= $user->userInfo[0];
-    	//echo $userInfo;
-    	$userInfo->date_of_birth= $request["birth_day"];
-    	$userInfo->school= $request['school'];
-    	$userInfo->address= $request["address"];
-    	$userInfo->hobby= $request["hobby"];
-    	$userInfo->save();
+    public function updateInfo($user_id,Request $request){
+    	$user= User::find($user_id);
+    	$user ->name = $request["edit_name"];
+    	$user->phonenumber= $request['edit_mobile'];
+    	$user->address= $request["edit_address"];
+    	$user->update();
+        return redirect('home');
     }
 }

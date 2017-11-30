@@ -1,23 +1,18 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@extends("Layout.index")
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@section("content")
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+<div class="container text-center page-newsfeed-01">    
+  <div class="row page-newsfeed-01-b">
+    @include("User._left_col")
+    @include("User._home_center_col")
+    @include("User._right_col")
+
+    
 </div>
+</div>
+@include("User._baimoi")
 @endsection

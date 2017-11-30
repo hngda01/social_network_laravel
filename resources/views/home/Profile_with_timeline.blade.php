@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container bootstrap snippet">
-    <div class="content-hero">
-      <img class="content-hero-embed" src="https://lorempixel.com/250/250/nature/8/" alt="">
+<div class="container bootstrap snippet" >
+    <div class="content-hero" ">
+      <img class="content-hero-embed" src="http://images6.fanpop.com/image/photos/39500000/Detective-Conan-detective-conan-39597749-500-268.jpg" alt="" >
       <div class="content-hero-overlay bg-grd-red"></div>
       <div class="content-hero-body">
         <div class="pull-right" role="group">
@@ -34,24 +34,23 @@
         </div><!-- /.cols -->
     
         <div class="col-md-2 col-xs-4 col-md-push-4 text-right">
+          @if(Auth::user()->hasFriendRequestsPending($user))
+            <button class="btn btn-default" style="padding: 6px 6px;">Waiting for {{ $user->name }}</button>
+          @elseif(Auth::user()->hasFriendRequestsReceived($user))
+            <a href="{{route('friends.accept',['name'=> $user->name])}}" class="btn btn-primary">Accept</a>
+          @elseif(Auth::user()->isFriendWith($user)) 
+            <button class="btn btn-default">Is Friend</button>
+          @else
+              @if(Auth::user()->id !== $user->id)
+             <a href="{{route('friends.add',['name'=> $user->name])}}" class="btn btn-primary">Add friend</a>
+             @endif
+          @endif
           <a href="#" rel="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" aria-label="Poke" data-original-title="Jawil sitik"><i class="fa fa-thumbs-o-up"></i></a>
-          <a href="#" rel="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="" aria-label="Send a Messege" data-original-title="Send a Messege"><i class="fa fa-envelope-o"></i></a>
+          
         </div><!-- /.cols -->
     
         <div class="col-md-4 col-xs-12 col-md-pull-2 text-center">
           <div class="row">
-            <div class="col-xs-4">
-              <div class="p-1x">
-                <span class="headline"><strong>1,5K</strong></span>
-                <p>Activities</p>
-              </div>
-            </div><!-- /.cols -->
-            <div class="col-xs-4">
-              <div class="p-1x">
-                <span class="headline"><strong>23</strong></span>
-                <p>Events</p>
-              </div>
-            </div><!-- /.cols -->
             <div class="col-xs-4">
               <div class="p-1x">
                 <span class="headline"><strong>2,4K</strong></span>

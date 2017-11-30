@@ -34,7 +34,7 @@
                     <a class="navbar-brand" href="/home/{{Auth::id()}}" style="color: white;font-size: 35px;" >
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                    <a class="navbar-brand" style="color: white" href="{{route('friends.page')}}">friends</a>
+                   
                     <form class="navbar-form navbar-left" action="{{ route('search.results') }}">
                       <div class="form-group">
                         <input type="text" class="form-control" placeholder="Find people" name="query">
@@ -70,7 +70,10 @@
                                     </li>
                                     <hr>
                                     <li>
-                                        <a href="/post/create"> Create Post</a>
+                                        <a href="{{route('friends.page')}}"> Friend</a>
+                                    </li>
+                                    <li>
+                                         <a href="/post/create"> Create Post</a>
                                     </li>
                                     <li>
                                         <a href="/post">Feed</a>

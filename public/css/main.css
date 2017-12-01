@@ -140,6 +140,7 @@ a.kit-avatar {
 .btn {
     font-weight: 500;
     line-height: 20px;
+    padding: 6px 6px;
 }
 .btn-default {
     color: rgba(22,24,27,.87);

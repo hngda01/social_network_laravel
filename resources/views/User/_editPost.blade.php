@@ -75,10 +75,10 @@
                 }
               </script>
               <script>
-                var dropdown = document.getElementById('drop_down2');
+                var dropdown2 = document.getElementById('drop_down2');
 
-                dropdown.onchange = function() {
-                  var selected = dropdown.options[dropdown.selectedIndex].value;
+                dropdown2.onchange = function() {
+                  var selected = dropdown2.options[dropdown2.selectedIndex].value;
 
                   switch(selected) {
                     case "2":

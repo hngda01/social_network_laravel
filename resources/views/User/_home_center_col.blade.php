@@ -3,8 +3,7 @@
       
       
       <div class="row">
-        @foreach($friends as $friend)
-        @foreach($friend->diaries as $diary) 
+        @foreach($diaries->reverse() as $diary) 
         @if($diary->checkPrivacy(Auth::user()->id,$diary)==1)
         <div class=" well" style="margin-left: 20px; margin-right: 20px">
           <div align="left">
@@ -14,11 +13,11 @@
                   <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td >
-                  <a class="page-newsfeed-06" href="profile/{{$friend->friend_id}}">
+                  <a class="page-newsfeed-06" href="profile/{{$diary->id_user}}">
 
-                    {{$friend->userName($friend->friend_id)}}
+                    {{$diary->userName($diary->id_user)}}
                   </a>      
-                  <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  <br> {{$diary->updated_at->diffForHumans()}} &nbsp;&nbsp;&nbsp;
                   @if($diary->id_privacy == 0)
                   <i class="fa fa-lock" aria-hidden="true"></i>
                   @elseif($diary->id_privacy == 1)
@@ -44,24 +43,36 @@
               <td align="left" style="padding-left: 10px">
                 <a href="viewPost/{{$diary->id}}" title=""><h4 class="page-newsfeed-06"> {{$diary->title}}</h4>
                 </a> 
-                <p>{{$diary->content}}</p> 
+                <p>
+                @php
+                  $maxLen=300;
+                  if(strlen($diary->content)< $maxLen)
+                    echo $diary->content;
+                  else {
+                    $content=substr($diary->content, 0,$maxLen);
+                    echo $content." ....";
+                  }
+                @endphp
+                </p> 
               </td>            
             </tr>         
           </table>
           <hr style="background-color: #000;height: 1px;"> 
+          <div class="page-newsfeed-06">
           <table>
             <tr>
               <td width="70px">
                 <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
               </td>
               <td width="50%">
-                <i class="fa fa-comments-o" aria-hidden="true"></i> 30
+                <i class="fa fa-comments-o" aria-hidden="true"></i> 
+                {{count($diary->comment)}}
               </td>
             </tr>
           </table>
+          </div>
         </div>
         @endif        
-        @endforeach
         @endforeach
       </div>
     </div>

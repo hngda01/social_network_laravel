@@ -1,6 +1,6 @@
 <div class="col-sm-7">  
   <div class="row">
-    <div class=" well" style="margin-left: 20px; margin-right: 20px">
+    <div class=" well2" style="margin-left: 20px; margin-right: 20px">
       <div align="left">
         <table>
           <tr>
@@ -9,9 +9,9 @@
             </td>
             <td>
               <span class="page-newsfeed-06">
-                <a href="" title="">{{$diary->userName($diary->id_user)}}</a>
+                <a href="profile/{{$diary->id_user}}" title="">{{$diary->userName($diary->id_user)}}</a>
               </span>
-              <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+              <br> {{$diary->updated_at->diffForHumans()}} &nbsp;&nbsp;&nbsp;
               @if($diary->id_privacy == 0)
               <i class="fa fa-lock" aria-hidden="true"></i>
               @elseif($diary->id_privacy == 1)
@@ -38,18 +38,23 @@
       <img src="images/{{$diary->image}}.png" alt="Paris" width="100%" height="300">
       <h4 class="page-newsfeed-06"> {{$diary->title}}</h4> 
       <p>{{$diary->content}}</p> 
-      <hr style="background-color: #000;height: 1px;"> 
-      <table>
-        <tr>
-          <td width="70px">
-            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
-          </td>
-          <td width="50%">
-            <i class="fa fa-comments-o" aria-hidden="true"></i> 30
-          </td>
-        </tr>
-      </table>
+      <br>
+      {{-- <hr style="background-color: #000;height: 1px;"> 
+      <div class="page-newsfeed-06">
+          <table>
+            <tr>
+              <td width="70px">
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
+              </td>
+              <td width="50%">
+                <i class="fa fa-comments-o" aria-hidden="true"></i> 
+                {{count($diary->comment)}}
+              </td>
+            </tr>
+          </table>
+          </div> --}}
       {{-- comment --}}
+      <div style="background-color: #f6f7f1">
       @foreach($comment as $cmt)
       <table style="width: 100%;">
         <tr>
@@ -58,10 +63,10 @@
           </td>
           <td align="left">
             <span class="page-newsfeed-06">
-              <a href="" title="">{{$cmt->userName($cmt->id_user)}}</a>
+              <a href="profile/{{$cmt->id_user}}" title="" >{{$cmt->userName($cmt->id_user)}}</a>
             </span>
             <span class="font-custom-01">
-              <br> 3 hours ago 
+              <br> {{$cmt->updated_at->diffForHumans()}}
             </span>               
           </td>
         </tr>
@@ -77,29 +82,33 @@
       {{-- write comment --}}
       <form action="writeComment" method="POST" role="form" >
         {{ csrf_field() }}
-        <label for="">write comment</label>
-        <table style="background-color: #FFF;width: 100%;">
+        {{-- <label for="">write comment</label> --}}
+        <table style="width: 100%;">
           <tr>
             <td style="padding-right: 20px" width="100">
               <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
             </td>
             <td align="left">
-              {{$user->name}}            
+            <a href="profile/{{Auth::user()->id}} title="" class="page-newsfeed-06">{{$user->name}} </a>  
+            <input type="hidden" name="diary_id" value='{{ $diary->id }}' />
+              <input type="text" class="form-control" style="width: 100%" name="comment" placeholder="input comment">
+              
+              <br>                       
+            </td>
+            <td width="80px">
+              <button type="submit" class="btn btn-primary" style="height: 33px">Submit</button>
             </td>
           </tr>
           <tr>
             <td></td>
             <td align="left">
               {{-- comment --}}
-              <input type="hidden" name="diary_id" value='{{ $diary->id }}' />
-              <input type="text" class="form-control" name="comment" placeholder="input comment">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <br>
+              
             </td>
           </tr>
         </table><br>
       </form>
-
+      </div>
     </div>
 
 

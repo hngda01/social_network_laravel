@@ -1,18 +1,23 @@
 <div class="col-sm-3 well">
 
       <div class="page-newsfeed-03">
+      @php
+        $allEvent=$user->events->reverse();
+        $firstEvent= $allEvent[count($allEvent)-1];
+      @endphp
       <div class="thumbnail">
-          <p>Upcoming Events:</p>
-          <img src="img/ad/ad1.jpg" alt="Paris" width="400" height="300">
-          <p><strong>Paris</strong></p>
-          <p>Fri. 27 November 2015</p>
-          <button class="btn btn-primary">Info</button>
+          <p><b>newest Event :</b></p>
+          <img src="images/{{$firstEvent->image}}.png" alt="Paris" width="400" height="300">
+          <br>
+          <a href="showEvent/{{$firstEvent->id}}" class="page-newsfeed-06" data-toggle="modal" data-target="#eventCreate"><span class="fa fa-calendar-check-o"></span> {{$firstEvent->title}}</a>
+          <p>{{$firstEvent->start_date."  ".$firstEvent->time}}</p>
+          
         </div>
         <h3><img src="img/icon/calendar.png" height="20">Your Schedule</h3>
         <div align="left">        
           <table width="100%">
-            @foreach($user->events->reverse() as $key => $event)
-            @if(count($user->events)-$key<=3)
+            @foreach($allEvent as $key => $event)            
+            @if(count($user->events)-$key<=4 &&count($user->events)-$key>=2)
             <tr>
               <td width="50" height="50">
                 <img src="images/{{$event->image}}.png" class="img-circle" height="40" width="40" alt="Avatar">  

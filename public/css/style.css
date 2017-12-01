@@ -474,7 +474,17 @@ nav {
 
 	/* begin newsfeed page */
 	.page-newsfeed-01-b{
-		background-color: white;
+		background-color: #e9ebee;
+	}
+	.well{
+		background-color: #FFF;
+		border: 1px solid #FFF;
+	}
+	.well2{
+		background-color: #FFF;
+		border: 1px solid #FFF;
+		padding: 0px;
+		border-radius: 4px;
 	}
 	.page-newsfeed-03>ul>li{
 		font-size: 18px;

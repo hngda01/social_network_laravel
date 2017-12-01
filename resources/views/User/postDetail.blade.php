@@ -14,5 +14,5 @@
     
 </div>
 </div>
-@include("User._baimoi")
+{{-- @include("User._baimoi") --}}
 @endsection

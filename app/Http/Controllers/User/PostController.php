@@ -22,11 +22,13 @@ class PostController extends Controller
 		->where("seen",0)
 		->get();
 		$user= User::find(Auth::user()->id);
+		$diaries= Diary::all();
 		$friend= $user->friendList;
 		$category= $user->category;
 		return view('home',['notifications'=>$notifications,
 			'friends'=>$friend,
 			'category'=>$category,
+			'diaries'=>$diaries,
 			'user'=>$user
 			]);
 	}
@@ -90,6 +92,7 @@ class PostController extends Controller
 			}
 			
 		}
+		return redirect()->back();
 		//
 
 	}
@@ -150,12 +153,25 @@ class PostController extends Controller
 			$noti->seen=0;
 			$noti->save();
 		}
+		return redirect()->back();
 		
 	}
 	public function deletePost($id){
 		$diary= Diary::find($id);
 		$diary->delete();
-		return "delete successful";
+		$notifications= Notification::where('id_user',Auth::user()->id)
+		->where("seen",0)
+		->get();
+		$user= User::find(Auth::user()->id);
+		$diaries= Diary::all();
+		$friend= $user->friendList;
+		$category= $user->category;
+		return view('home',['notifications'=>$notifications,
+			'friends'=>$friend,
+			'category'=>$category,
+			'diaries'=>$diaries,
+			'user'=>$user
+			]);
 	}
 	public function editPost($id){
 		$diary= Diary::find($id);
@@ -174,8 +190,21 @@ class PostController extends Controller
 	}
 	public function updatePost(Request $request){
 		$user_id=Auth::user()->id;
+		$str="".$request['category'];
+		$id_category=0;
+		if(strlen($str)!=0){
+			$category= new Category();
+			$category->name= $request['category'];
+			$category->id_user=$user_id;
+			$category->save();
+			$id_category=$category->id;
+		}
+		else {
+			$id_category= $request['category_select'];
+		}
 		$diary= Diary::find($request['id_post']);
 		$diary->title= $request['title'];
+		$diary->id_category= $id_category;
 		$diary->content= $request['content'];
 		$diary->id_privacy=$request['privacy_select'];
 		$diary->save();
@@ -198,5 +227,6 @@ class PostController extends Controller
 			}
 			
 		}
+		return redirect()->back();
 	}
 }

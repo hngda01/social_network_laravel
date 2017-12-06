@@ -1,4 +1,4 @@
-<div style="background-color: #e9ebee;"  class="col-sm-9">
+<div style="background-color: #e9ebee;"  class="col-sm-12">
 					<br>
 						@foreach($diaries->reverse() as $diary) 
 						@if($diary->checkPrivacy(Auth::user()->id,$diary)==1)

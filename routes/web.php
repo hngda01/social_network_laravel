@@ -26,6 +26,10 @@ Route::get('logout','loginController@logout');
 Route::group(['middleware'=>'user'],function(){
 	Route::get('home','User\PostController@home')->name('home');
 	Route::get('newPost','User\PostController@showNewPost');
+	Route::get('addFriends/{friend_id}','User\InfoController@addFriend');
+	Route::get('declineFriendRequest/{friend_id}','User\InfoController@declineFriendRequest');
+	Route::get('unfriend/{friend_id}','User\InfoController@unfriend');
+	Route::get('acceptFriendRequest/{friend_id}','User\InfoController@acceptFriendRequest');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
 	Route::get('listEvent','EventController@listEvent');

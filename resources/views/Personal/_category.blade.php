@@ -1,4 +1,4 @@
-<div class="col-sm-3 well" style="height: 1000px;">
+<div class="col-sm-2 well" style="height: 1000px;">
       <div >
         <a  class="page-newsfeed-06">Topic: </a></p>
       </div>

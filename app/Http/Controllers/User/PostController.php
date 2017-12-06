@@ -21,12 +21,16 @@ class PostController extends Controller
 		$notifications= Notification::where('id_user',Auth::user()->id)
 		->where("seen",0)
 		->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
 		$user= User::find(Auth::user()->id);
 		$diaries= Diary::all();
 		$friend= $user->friendList;
 		$category= $user->category;
 		return view('home',['notifications'=>$notifications,
 			'friends'=>$friend,
+			'friendRequests'=>$friendRequests,
 			'category'=>$category,
 			'diaries'=>$diaries,
 			'user'=>$user

@@ -6,20 +6,19 @@
 		<div class="box">
 			<div class="name" style="size: 25px;"><center><strong>{{$user->name}}</strong>
 			<br>
-				@if(Auth::user()->hasFriendRequestsPending($user))
-				<button class="btn btn-default" style="padding: 6px 6px;">Waiting for {{ $user->name }}</button>
-				@elseif(Auth::user()->hasFriendRequestsReceived($user))
-				<a href="{{route('friends.accept',['name'=> $user->name])}}" class="btn btn-primary">Accept</a>
-				@elseif(Auth::user()->isFriendWith($user)) 
-				<button class="btn btn-default">Is Friend</button>
+				@if(Auth::user()->isFriend(Auth::user()->id,$user->id)==0)
+					@if(Auth::user()->id!= $user->id)
+					<a href="addFriends/{{$user->id}}" class="btn btn-primary">Add friend</a>
+					@endif
+				@elseif(Auth::user()->isFriend(Auth::user()->id,$user->id)==-1)
+					<a class="btn btn-primary">Request sent</a>
 				@else
-				@if(Auth::user()->id !== $user->id)
-				<a href="{{route('friends.add',['name'=> $user->name])}}" class="btn btn-primary">Add friend</a>
-				@endif
+					<a href="unfriend/{{$user->id}}" class="btn btn-primary">Unfriend</a>
 				@endif
 			
 
 			</center></div>
+			@if(count($user->info)!=0)
 			@foreach($user->info as $info)
 			<div class="info">
 				<span><i class="fa fa-envelope-o"></i> {{$user->email}}</span>
@@ -29,9 +28,16 @@
 				<span><i class="fa fa-futbol-o"></i> {{$info->hobby}}</span>
 			</div>
 			@endforeach
-			<div class="socialIcons clearfix">
+			@elseif($user->id == Auth::user()->id)
+			<center>Plese update your information</center>
+			@else
+			<center>information is empty</center>
+			@endif
+			<div >
 
-				<a href="{{route('edit-info',['user_id' => $user->id ])}}" class="btn btn-fixed btn-sm">Edit</a>
+			@if($user->id == Auth::user()->id)
+			<center><a href="{{route('edit-info',['user_id' => $user->id ])}}" class="btn btn-primary">Update</a></center>
+			@endif	
 			</div>
 			<br><br><br><br><br><br>
 		</div>

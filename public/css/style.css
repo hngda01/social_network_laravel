@@ -419,11 +419,8 @@ nav {
 
 @media screen and (min-width: 768px) {
 	/* request&noti */
-	.friend-request{
-		width: 352px;
-	}
 	.friend-request-profile{
-		width: 26%;
+		width: 35%;
 	}
 	.flexible-show{
 		display: none;
@@ -528,7 +525,7 @@ footer {
     background-color: #68ca79;
     color: white;
     padding: 15px;
-  	margin-top: -50px;
+  	margin-top: 50px;
 }
 
 footer>p{

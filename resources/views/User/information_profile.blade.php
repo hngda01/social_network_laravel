@@ -4,7 +4,7 @@
 <div class="row">
 	@include("Personal._left_col_info")
 
-	<div class="col-xs-12 col-md-8 col-lg-9">
+	<div class="col-sm-7">
 		<div >
 			<!-- Tabs -->
 			<ul class="nav nav-tabs userProfileTabs" role="tablist">
@@ -16,14 +16,13 @@
 				<!-- About -->
 
 				<!-- post -->
-				<div role="tabpanel" class="tab-pane fade" id="tab-item-3">
+				<div role="tabpanel" class="tab-pane fade active in" id="tab-item-3">
 					@include("Personal._post")
-					@include("Personal._category")
+					
 				</div>
 				@foreach($category as $cat)
 					<div role="tabpanel" class="tab-pane fade" id="tab_category{{$cat->id}}">
 					@include("Personal._cat_post")
-					@include("Personal._category")
 					</div>
 				@endforeach
 
@@ -44,6 +43,6 @@
 			</div>
 		</div>
 	</div>
-
+	@include("Personal._category")
 </div>
 @endsection

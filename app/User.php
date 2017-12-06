@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use App\Friend;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -85,6 +86,15 @@ class User extends Authenticatable
     }
     public function info(){
         return $this->hasMany('App\UserInfo',"id_user","id");
+    }
+    public function isFriend($user_id,$friend_id){
+        $result= Friend::where("user_id",$user_id)
+                         ->where("friend_id",$friend_id)->get();
+        if(count($result)==0) return 0;
+        else {
+            if($result[0]->accepted==0) return -1; // chua accept
+            else return 1;
+        }
     }
 
 }

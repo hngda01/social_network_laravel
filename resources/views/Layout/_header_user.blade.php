@@ -9,11 +9,11 @@
       </button>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left" action="{{ route('search.results') }}" >
         <div class="form-group input-group search-box">
-          <input type="text" class="form-control" placeholder="Search...">
+          <input type="text" class="form-control" placeholder="Search..." name="query">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
+            <button class="btn btn-default" type="submit">
               <span class="fa fa-search"></span>
             </button>
           </span>        
@@ -25,48 +25,29 @@
           <div class="dropdown navbar-component" title="Friend Request">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <span class="fa fa-users"></span>
-              <span class="button__badge">4</span>
+              @if(count($friendRequests) !=0)
+              <span class="button__badge">{{count($friendRequests)}}</span>
+              @endif
               <p class="flexible-show">Friend Request</p>
             </div>
-            <ul class="dropdown-menu" aria-labelledby="friends">
+            <ul class="dropdown-menu" aria-labelledby="friends" style="width: 400px;">
+              @foreach($friendRequests as $friendRequest)
               <li>
                 <div class="friend-request">
                   <a href="#">
                     <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
-                    <span class="friend-request-profile"> John Connor</span>
+                    <span class="friend-request-profile"> {{$friendRequest->userName($friendRequest->user_id)}}</span>
                   </a>
                   <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
+                    <a href="acceptFriendRequest/{{$friendRequest->user_id}}" class="btn btn-primary">Accept</a>
+                    <a href="declineFriendRequest/{{$friendRequest->user_id}}" class="btn btn-default">Decline</a>
                   </span>
                 </div>
               </li>
-              <li>
-                <div class="friend-request">
-                  <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg">                     
-                    <span class="friend-request-profile"> Tom Riddle Marvolo</span>
-                  </a>
-                  <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div class="friend-request">
-                  <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
-                    <span class="friend-request-profile"> John Connor</span>
-                  </a>
-                  <span class="friend-request-buttons">
-                    <a href="#" class="btn btn-primary">Accept</a>
-                    <a href="#" class="btn btn-default">Decline</a>
-                  </span>
-                </div>
-              </li>
+              @endforeach
+              
               <li class="divider"></li>
-              <li class="text-center view-more"><a href="#">View more friend requests</a></li>
+              
             </ul>
           </div>
         </li>
@@ -75,7 +56,9 @@
           <div class="dropdown navbar-component" title="Notification">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <span class="fa fa-bell"></span>
+                @if(count($notifications))
                 <span class="button__badge">{{count($notifications)}}</span>
+                @endif
                 <p class="flexible-show">Notification</p>
             </div>
             <ul class="dropdown-menu noti-table" aria-labelledby="noti">

@@ -9,6 +9,14 @@
 		@if($user->email)
 			<p>{{$user->email}}</p>
 		@endif
-		<a href="" > unfriend</a>
+		@if(Auth::user()->isFriend(Auth::user()->id,$user->id)==0)
+					@if(Auth::user()->id!= $user->id)
+					<a href="addFriends/{{$user->id}}" >Add friend</a>
+					@endif
+				@elseif(Auth::user()->isFriend(Auth::user()->id,$user->id)==-1)
+					<a >Request sent</a>
+				@else
+					<a href="unfriend/{{$user->id}}" >Unfriend</a>
+				@endif
 	</div>
 </div>

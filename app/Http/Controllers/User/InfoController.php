@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Friend;
 use App\UserInfo;
 use App\Notification;
 use App\Category;
@@ -17,11 +18,15 @@ class InfoController extends Controller
         $notifications= Notification::where('id_user',Auth::user()->id)
         ->where("seen",0)
         ->get();
+        $friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
         $diaries= Diary::where("id_user",$user_id)->get();
     	$user= User::find($user_id);
         $friend= $user->friendList;
         $category= $user->category;
     	return view('User.information_profile',["user"=>$user,
+                                                'friendRequests'=>$friendRequests,
                                                 'notifications'=>$notifications,
                                                 'category'=>$category,
                                                 'friends'=>$friend,
@@ -36,6 +41,42 @@ class InfoController extends Controller
         return view('User.contact_details_page',["user"=>$user,
                                                 'notifications'=>$notifications
                                                     ]);	
+    }
+    public function addFriend($friend_id){
+        $relation= new Friend();
+        $relation->user_id= Auth::user()->id;
+        $relation->friend_id= $friend_id;
+        $relation->accepted= 0;
+        $relation->save();
+        return redirect()->back();
+    }
+    public function acceptFriendRequest($friend_id){
+        $relation= Friend::where("user_id",$friend_id)
+                        ->where("friend_id",Auth::user()->id)->first();
+        $relation->accepted=1;
+        $relation->save();
+        
+        $newRelation= new Friend();
+        $newRelation->user_id= Auth::user()->id;
+        $newRelation->friend_id= $friend_id;
+        $newRelation->accepted= 1;
+        $newRelation->save();
+        return redirect()->back();
+    }
+    public function declineFriendRequest($friend_id){
+        $relation= Friend::where("user_id",$friend_id)
+                        ->where("friend_id",Auth::user()->id)->first();
+        $relation->delete();
+        return redirect()->back();
+    }
+    public function unfriend($friend_id){
+        $relation= Friend::where("user_id",$friend_id)
+                        ->where("friend_id",Auth::user()->id)->first();
+        $relation->delete();
+        $relation= Friend::where("user_id",Auth::user()->id)
+                        ->where("friend_id",$friend_id)->first();
+        $relation->delete();
+        return redirect()->back();
     }
     public function updateInfo($user_id,Request $request){
     	$user= User::find($user_id);

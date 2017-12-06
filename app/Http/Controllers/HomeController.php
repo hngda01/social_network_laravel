@@ -26,8 +26,8 @@ class HomeController extends Controller
     public function index($id)
     {
         $posts = Post::orderBy('created_at','desc')->get();
-        $comments = Comment::orderBy('created_at','ASC')->get();
         $user = User::find($id);
+        $comments = Comment::orderBy('created_at','ASC')->get();
         return view('home.Profile_with_timeline',[
             'user' => $user,
             'posts' => $posts,

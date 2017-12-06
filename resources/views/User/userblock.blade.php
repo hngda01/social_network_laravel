@@ -9,5 +9,6 @@
 		@if($user->email)
 			<p>{{$user->email}}</p>
 		@endif
+		<a href="" > unfriend</a>
 	</div>
 </div>

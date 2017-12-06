@@ -12,7 +12,7 @@
             <a class="btn page-newsfeed-05" data-toggle="modal" data-target="#eventCreate"><span class="fa fa-calendar"></span>New event</a>            
             <a class="btn page-newsfeed-05" href="profile/{{Auth::user()->id}}"><span class="fa fa-star"></span>Your page</a>
             <a class="btn page-newsfeed-05" href="viewInfo/{{Auth::user()->id}}"><span class="fa fa-user-circle"></span>Profile</a>
-            {{-- <a class="btn page-newsfeed-05"><span class="fa fa-address-book-o"></span>Friendlist</a> --}}
+            <a class="btn page-newsfeed-05"><span class="fa fa-address-book-o"></span>Friendlist</a>
           </p>
         </div>
         

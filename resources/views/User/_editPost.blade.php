@@ -43,10 +43,10 @@
                     </td>
                     <td width="33%">
                       <select name="privacy_select" id="drop_down2" style="width: 100%;" class="form-control">
-                        <option value="0">Only me</option>
-                        <option value="1">Friends</option>
-                        <option value="2">Specific Friends</option>
-                        <option value="3">Public</option>     
+                        <option value="0" @if($diary->id_privacy==0) selected="true" @endif>Only me</option>
+                        <option value="1" @if($diary->id_privacy==1) selected="true" @endif>Friends</option>
+                        <option value="2" @if($diary->id_privacy==2) selected="true" @endif>Specific Friends</option>
+                        <option value="3" @if($diary->id_privacy==3) selected="true" @endif>Public</option>     
                       </select>
                     </td>
                   </tr>
@@ -98,20 +98,20 @@
   </div>
 </div>
 <!-- Modal edit-->
+    <!-- Modal edit-->
     <div class="modal fade" id="eventEdit" role="dialog">
       <div class="modal-dialog">
     
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header modal-edit-head">
-            <center><h4 class="modal-title">Specific Friends</h4></center>
+            <center><h4 class="modal-title">Specific Friends </h4></center>
           </div>
           <div class="modal-body">
-          <form name="MyForm">
+          <form name="myform">
             <div class="container-fluid edit-event-form">
               <div class="row">
                 <div class="col-sm-12 edit-event-1">
-                  <input type="text" class="form-control" placeholder="search friends">
                 </div>
               </div>
             <div style="height: 400px;    overflow: scroll;">
@@ -122,7 +122,7 @@
                 <td style="padding-right: 20px;padding-bottom: 10px;width: 70px;">
                   <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
-                <td >
+                <td align="left">
                   <a class="page-newsfeed-06" href="profile/{{$friend->friend_id}}">                  
                     {{$friend->userName($friend->friend_id)}}
                   </a>                  
@@ -142,14 +142,17 @@
           <script language="javascript">
             function checkstatus()
             {
+              var myform = document.getElementById('myform');
+              var inputTags = myform.getElementsByTagName('input');
               var res= "0";
-              for(count=0;count<4;count++)
+              for(count=0;count<inputTags.length;count++)
               {
                 if (MyForm.MyCheckbox[count].checked)
                   res=res + "-"+ MyForm.MyCheckbox[count].value;
                 
               }
-              form2.danhsach.value = res;
+              alert($(":MyCheckbox:checked").length);
+              form1.danhsach.value = res;
             }
           </script>
           </div>

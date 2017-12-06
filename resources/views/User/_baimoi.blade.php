@@ -106,7 +106,6 @@
             <div class="container-fluid edit-event-form">
               <div class="row">
                 <div class="col-sm-12 edit-event-1">
-                  <input type="text" class="form-control" placeholder="search friends">
                 </div>
               </div>
             <div style="height: 400px;    overflow: scroll;">

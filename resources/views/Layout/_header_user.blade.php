@@ -24,7 +24,9 @@
         <li>
           <div class="dropdown navbar-component" title="Friend Request">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="fa fa-users"></span><p class="flexible-show">Friend Request</p>
+              <span class="fa fa-users"></span>
+              <span class="button__badge">4</span>
+              <p class="flexible-show">Friend Request</p>
             </div>
             <ul class="dropdown-menu" aria-labelledby="friends">
               <li>
@@ -72,7 +74,9 @@
         {{-- notifications --}}
           <div class="dropdown navbar-component" title="Notification">
             <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="fa fa-bell"></span><p class="flexible-show">Notification</p>
+                <span class="fa fa-bell"></span>
+                <span class="button__badge">{{count($notifications)}}</span>
+                <p class="flexible-show">Notification</p>
             </div>
             <ul class="dropdown-menu noti-table" aria-labelledby="noti">
             @foreach($notifications as $notification)

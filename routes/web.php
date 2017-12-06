@@ -24,7 +24,7 @@ Route::get('register',function(){
 Route::post('register','loginController@register');
 Route::get('logout','loginController@logout');
 Route::group(['middleware'=>'user'],function(){
-	Route::get('home','User\PostController@home');
+	Route::get('home','User\PostController@home')->name('home');
 	Route::get('newPost','User\PostController@showNewPost');
 	Route::post('createPost','User\PostController@createPost');
 	Route::get('listPost','User\PostController@listPost');
@@ -47,6 +47,10 @@ Route::group(['middleware'=>'user'],function(){
 	Route::post('updateInfo/{user_id}',[
 		'uses' => 'User\InfoController@updateInfo',
 		'as' => 'update-info',
+	]);
+	Route::post('updateAvatar',[
+		'uses' => 'User\InfoController@updateAvatar',
+		'as' => 'update-avatar',
 	]);
 	Route::get('friendList','User\FriendController@friendList');
 	Route::get('searchPage','User\FriendController@showSearchPage');
@@ -71,7 +75,7 @@ Route::post('edit',[
 	'uses' => 'PostControler@postEditPost',
 	'as' => 'edit'
 ]);
-Route::get('/profile/{user_id}', 'HomeController@index')->name('home');
+Route::get('/profile/{user_id}', 'HomeController@index');
 });
 
 Route::post('taonhatki/{user_id}',[

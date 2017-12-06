@@ -1,6 +1,6 @@
 <div class="col-sm-10">
       <h2 class="page-schedule-title">My Schedule</h2>
-      <div class="table-responsive">          
+      <div class="table-responsive" style="background-color: #FFF">          
         <table class="table">
           <thead class="page-schedule-01">
             <tr>

@@ -375,6 +375,19 @@ nav {
 	.page-login-06{
 		text-align: left;
 	}
+	.button__badge {
+		display: inherit;
+		background-color: #fa3e3e;
+		border-radius: 2px;
+		color: white;
+		
+		padding: 1px 3px;
+		font-size: 10px;
+		
+		position: absolute; /* Position the badge within the relatively positioned button */
+		top: 7px;
+		right: 7px;
+	}
 	/*end login page*/
 
 	/* begin register page */

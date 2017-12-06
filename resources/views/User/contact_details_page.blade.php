@@ -1,20 +1,29 @@
-@extends('layouts.app')
+@extends('layout.index')
 @section('content')
 <div class="container bootstrap snippet">
-<div class="row ng-scope">
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-body text-center">
-                <div class="pv-lg"><img class="center-block img-responsive img-circle img-thumbnail thumb96" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Contact"></div>
-                <h3 class="m0 text-bold">{{$user->name}}</h3>
-                <div class="text-center">
-                   <input type="file" class="form-control">
-                </div>
+    <div class="row ng-scope">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">                    
+                    <h3 class="m0 text-bold">{{$user->name}}</h3>
+                    <form name="form1" action="{{route('update-avatar',['user_id' => $user->id])}}" method="POST" role="form" enctype="multipart/form-data">
+                       {{ csrf_field() }}
+                       <div class="text-center">
+                        <div id="clock">
+                            <img src="images/avatar{{Auth::user()->id}}.png" id ='image1' style="height: 250px;width: 250px;" class="img-circle"  >
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Image :</label>
+                            <input type="file" id='getval' name="image">
+                        </div>                        
+                        <input type="submit" value="Save">
+                    </div>
+                </form>
                 
             </div>
         </div>
         <div class="panel panel-default hidden-xs hidden-sm">
-           
+
         </div>
     </div>
     <div class="col-md-8">
@@ -39,31 +48,30 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="inputContact1" >Name</label>
                                 <div class="col-sm-10">
-                                    <input name="edit_name" class="form-control" id="inputContact1" type="text" placeholder="" value="{{$user->name}}">
+                                    <input name="name" class="form-control" id="inputContact1" type="text" placeholder="" value="{{$user->name}}">
+                                </div>
+                            </div>                            
+                            @foreach($user->info as $info)
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="inputContact4">Address</label>
+                                <div class="col-sm-10">
+                                    <input name="address" class="form-control" id="inputContact4" type="text" value="{{$info->address}}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputContact4">Mobile</label>
+                                <label class="col-sm-2 control-label" for="inputContact4">School</label>
                                 <div class="col-sm-10">
-                                    <input name="edit_mobile" class="form-control" id="inputContact4" type="text">
+                                    <input name="school" class="form-control" id="inputContact4" type="text" value="{{$info->school}}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputContact6">Address</label>
+                                <label class="col-sm-2 control-label" for="inputContact4">Hobby</label>
                                 <div class="col-sm-10">
-                                    <textarea name="edit_address" class="form-control" id="inputContact6" row="4"></textarea>
+                                    <input name="hobby" class="form-control" id="inputContact4" type="text" value="{{$info->hobby}}">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="inputContact8">Company</label>
-                                <div class="col-sm-10">
-                                    <input name="edit_company" class="form-control" id="inputContact8" type="text" placeholder="No Company">
-                                </div>
-                            </div>
-                            <div class="form-group pull-right">
-                                <input type="checkbox" name="vehicle" value="man"> Man
-                                <input type="checkbox" name="vehicle" value="girl" checked>Girl<br>
-                            </div>
+                            </div>                           
+                            
+                            @endforeach                          
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button  class="btn btn-info">Update</button>
@@ -71,7 +79,7 @@
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </form>
-                       
+
                     </div>
                 </div>
             </div>
@@ -79,4 +87,20 @@
     </div>
 </div>
 </div>
+<script>
+  $(document).ready(function () {
+    $('#image1').attr('src');
+    console.log($('#image1').attr('src'));
+    $('input[name=image]').on('change',function () {
+      if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#image1').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+      }
+    })
+  })
+</script>
+<br><br><br><br><br><br><br>
 @endsection

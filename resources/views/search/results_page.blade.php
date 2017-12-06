@@ -24,12 +24,12 @@
             <p class="search-results-count">About 94 700 000 (0.39 sec.) results</p>
         @foreach($users as $user)
             <section class="search-result-item">
-                <a class="image-link" href="#"><img class="image" src="https://vignette.wikia.nocookie.net/detectivconan/images/a/ae/Img_conan.png/revision/latest/scale-to-width-down/300?cb=20160430141904">
+                <a class="image-link" href="{{route('home',['user_id'=>$user->id])}}"><img class="image" src="https://vignette.wikia.nocookie.net/detectivconan/images/a/ae/Img_conan.png/revision/latest/scale-to-width-down/300?cb=20160430141904">
                 </a>
                 <div class="search-result-item-body">
                     <div class="row">
                         <div class="col-sm-9">
-                            <h4 class="search-result-item-heading"><a href="#">{{$user->name}}</a></h4>
+                            <h4 class="search-result-item-heading"><a href="{{route('home',['user_id'=>$user->id])}}">{{$user->name}}</a></h4>
                             <p class="info">HUST,{{$user->email}}</p>
                             <p class="description">Test</p>
                         </div>

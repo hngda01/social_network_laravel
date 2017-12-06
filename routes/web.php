@@ -75,6 +75,19 @@ Route::post('taonhatki/{user_id}',[
 	'as' => 'post.taonhatki'
 ]);
 
+Route::post('status/{statusId}/reply',[
+	'uses' => 'PostControler@postReply',
+	'as' => 'status.reply',
+	'middleware' => 'auth',
+]);
+
+Route::get('status/{statusId}/like',[
+	'uses' => 'PostControler@getLike',
+	'as' => 'status.like',
+	'middleware' => 'auth',
+
+]);
+
 Route::post('insertComment',[
 	'uses' => 'CommentController@createCommennt',
 	'as' => 'createcomment'
@@ -121,3 +134,5 @@ Route::get('friends/accept/{username}',[
 	'as' => 'friends.accept',
 	'middleware'=>'auth',
 ]);
+
+

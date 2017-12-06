@@ -48,4 +48,43 @@ class PostControler extends Controller
         return response()->json(['new_timelinePost' => $post->timelinePost], 200);
     }
 
+    public function postReply(Request $request,$statusId){
+       $this->validate($request,[
+            "write_comment" => 'required|max:1000',
+       ],[
+            'required'=> 'the reply body is required.'
+       ]);
+
+       $status = Post::notReply()->find($statusId);
+
+       if(!$status)
+        return redirect()->back();
+
+       if(!Auth::user()->isFriendWith($status->user) && Auth::user()->id !== $status->user->id)
+        return redirect()->back();
+
+        $reply = Post::create([
+            'timelinePost' => $request->input("write_comment"),
+            'user_id' => Auth::user()->id,
+
+        ])->user()->associate(Auth::user());
+
+        $status->replies()->save($reply);
+        return redirect()->back();
+    }
+
+    public function getLike($statusId){
+        $status = Post::find($statusId);
+
+        if(!$status){
+            return redirect()->back();
+        }
+
+        if(Auth::user()->hasLikedPost($status)){
+            return redirect()->back();
+        }
+        $like = $status->likes()->create([]);
+        Auth::user()->likes()->save($like);
+        return redirect()->back();
+    }
 }

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container bootstrap snippet" >
-    <div class="content-hero" ">
-      <img class="content-hero-embed" src="http://images6.fanpop.com/image/photos/39500000/Detective-Conan-detective-conan-39597749-500-268.jpg" alt="" >
-      <div class="content-hero-overlay bg-grd-red"></div>
+    <div class="content-hero" style="min-height: 300px;">
+      <img class="content-hero-embed" src="http://image.phimmoi.net/film/3518/preview.medium.jpg" alt="" >
+      <div class="content-hero-overlay "></div>
       <div class="content-hero-body">
         <div class="pull-right" role="group">
           <a  class="btn btn-icon btn-default"><span class="fa fa-user"></span></a>
@@ -11,7 +11,7 @@
       </div>
     </div>
     
-    <div class="content-hero content-hero-sm">
+    <div class="content-hero content-hero-sm" style="margin-bottom: 0px">
       <div class="row">
         <div class="col-md-6 col-xs-8">
           <div class="media">
@@ -63,7 +63,7 @@
     </div>
     <div class="content-body">
          @include('includes.message')
-        <ul class="timeline">
+        <ul class="timeline" style="padding: 0px 0;">
             <li class="" ></li>
             <li class="timeline-group">
               <a href="#" class="btn btn-default">Today</a>
@@ -85,7 +85,11 @@
                     <li class="active"><a data-toggle="tab" href="#" aria-expanded="true">Events</a></li>
                   </ul>
                   <div class="tab-content pt-1x">
-                    <textarea name="timelinePost" rows="6" class="form-control autogrow no-border no-resize" placeholder="Write in timeline" style="overflow: hidden; min-height: 6em; height: 52px;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; white-space: normal; padding: 6px 12px; width: 461px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">.<br>.</div>
+                    @if(Auth::user()->id === $user->id)
+                      <textarea name="timelinePost" rows="6" class="form-control autogrow no-border no-resize" placeholder="Write in timeline" style="overflow: hidden; min-height: 6em; height: 52px;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; white-space: normal; padding: 6px 12px; width: 461px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">.<br>.</div>
+                    @else
+                      <textarea name="timelinePost" rows="6" class="form-control autogrow no-border no-resize" placeholder="Write for {{$user->name}} " style="overflow: hidden; min-height: 6em; height: 52px;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; white-space: normal; padding: 6px 12px; width: 461px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">.<br>.</div>
+                    @endif
 
                   </div>
                 </div><!-- /.panel-body -->
@@ -126,9 +130,9 @@
                       <p class="media-heading"><strong>{{ $post->user->name }}</strong> <br><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
                     </div> 
                   </div>
-                  <div>
+                 
                      <p>{{$post->timelinePost}}</p>
-                  </div>  
+                  
                 </div><!-- /.panel-body -->
                 
                 <div class="panel-body timeline-resume"> 
@@ -139,7 +143,7 @@
                     <a href="#" class="btn btn-xs btn-default btn-circle">+4</a>
                   </div>
                   <div class="interaction">
-                      <a href="#" class="btn btn-bordered btn-default btn-sm">+33</a>
+                      <a href="{{route('status.like',['statusId'=>$post->id])}}" class="btn btn-bordered btn-default btn-sm">+{{$post->likes->count()}}</a>
                       <a href="#" class="btn btn-bordered btn-default btn-sm"><span class="fa fa-share fa-fw"></span> 7</a>
                       @if(Auth::user() == $post->user)
                          <a href="{{route('post.delete',['post_id' => $post->id])}}" class="btn btn-danger btn-sm">Delete</a>
@@ -147,6 +151,38 @@
                       @endif
                   </div>
                 </div><!-- /.panel-body -->
+               
+                <div class="panel-body timeline-livelines">
+                  <p><a href="#"><small><i class="fa fa-comment-o fa-fw"></i> View 4 more comments</small></a></p>
+                  @foreach($post->replies as $reply)
+                  <div class="media">
+                    <div class="media-left">
+                      <a class="kit-avatar kit-avatar-28" href="{{route('home',['user_id' => $reply->user->id])}}">
+                        <img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                      </a>
+                    </div>
+                    <div class="media-body bordered-bottom">
+                      <p class="media-heading"><strong>{{$reply->user->name}}</strong> {{$reply->timelinePost}} !</p>
+                      <p class="text-muted"><small>{{$reply->created_at->diffForHumans()}} </small> <a href="{{route('status.like',['statusId'=>$reply->id])}}"><small>Like</small></a> {{$reply->likes->count()}} </p>
+                    </div>
+                  </div><!-- /.media -->
+                 @endforeach
+                </div><!-- /.panel-body -->
+                <div class="panel-footer timeline-livelines">
+                  <form action="{{route('status.reply',['statusId' => $post->id ])}}" method="POST">
+                    <a class="kit-avatar kit-avatar-28 no-border pull-left" href="#">
+                      <img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                    </a>
+                    <div class=" input-group-in input-group{{$errors->has('write_comment') ? 'has-error' : ''}} no-border">
+                      <input placeholder="write comment..." name="write_comment" class="form-control">
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn"><i class="fa fa-chevron-circle-right"></i></button>
+                        <input type="hidden" name="_token" value="{{Session::token()}}">
+                      </div>
+                    </div>
+                  </form>
+                </div><!-- /.panel-footer -->
+              </div><!-- /.timeline-panel.panel -->
 
                 <div class="modal fade" tabindex="-1" role="dialog" id="EditModal">
                     <div class="modal-dialog">
@@ -180,38 +216,6 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-               
-                <div class="panel-body timeline-livelines">
-                  <p><a href="#"><small><i class="fa fa-comment-o fa-fw"></i> View 4 more comments</small></a></p>
-                  @foreach($comments as $comment)
-                  <div class="media">
-                    <div class="media-left">
-                      <a class="kit-avatar kit-avatar-28" href="#">
-                        <img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar6.png">
-                      </a>
-                    </div>
-                    <div class="media-body bordered-bottom">
-                      <p class="media-heading"><strong>Arina Rosetti</strong> {{$comment->content}} !</p>
-                      <p class="text-muted"><small>22 minutes</small> </p>
-                    </div>
-                  </div><!-- /.media -->
-                  @endforeach
-                </div><!-- /.panel-body -->
-                <div class="panel-footer timeline-livelines">
-                  <form action="{{route('createcomment')}}" method="POST">
-                    <a class="kit-avatar kit-avatar-28 no-border pull-left" href="#">
-                      <img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar3.png">
-                    </a>
-                    <div class="input-group input-group-in no-border">
-                      <input class="form-control" placeholder="write comment..." name="write_comment">
-                      <div class="input-group-btn">
-                        <button type="submit" class="btn"><i class="fa fa-chevron-circle-right"></i></button>
-                        <input type="hidden" name="_token" value="{{Session::token()}}">
-                      </div>
-                    </div>
-                  </form>
-                </div><!-- /.panel-footer -->
-              </div><!-- /.timeline-panel.panel -->
             </li>
              @endif
            @endforeach     

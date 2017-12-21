@@ -12,7 +12,12 @@ class Comment extends Model
 
     	return User::find($fid)->name;
     }
-    
+    public function userAvatar($fid)
+    {
+        $user= User::find($fid);
+        $info=$user->info;
+        return $info[0]->avatar;
+    }
     public function postcomment() {
     	return $this->belongsTo('App\Post');
     }

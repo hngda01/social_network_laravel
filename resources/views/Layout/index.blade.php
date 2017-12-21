@@ -31,6 +31,7 @@
        @endif
 
        <!-- Page Content -->
+       @include('includes.message')
        @yield('content')
        <br>
        <!-- /#page-wrapper -->

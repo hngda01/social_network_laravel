@@ -79,7 +79,7 @@ Route::post('edit',[
 	'uses' => 'PostControler@postEditPost',
 	'as' => 'edit'
 ]);
-Route::get('/profile/{user_id}', 'HomeController@index');
+Route::get('/profile/{user_id}', 'User\InfoController@viewInfo');
 });
 
 Route::post('taonhatki/{user_id}',[
@@ -95,7 +95,7 @@ Route::post('insertComment',[
 Auth::routes();
 
 
-Route::get('/profile/{user_id}', 'HomeController@index')->name('home');
+Route::get('/profile/{user_id}', 'User\InfoController@viewInfo');
 
 Route::get('delete-post/{post_id}',[
 	'uses' => 'PostControler@getDeletePost',

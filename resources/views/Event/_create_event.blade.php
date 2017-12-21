@@ -29,11 +29,11 @@
             </div>
             <div class="col-sm-6 create-event-1">
               <b>Time:</b> 
-              <div {{-- class="input-group clockpicker" --}}>
+              <div class="input-group clockpicker">
                 <input type="text" class="form-control" name="time">
-                {{-- <span class="input-group-addon">
+                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
-                </span> --}}
+                </span>
               </div>
             </div>
           </div>
@@ -49,11 +49,11 @@
             </div>
             <div class="col-sm-6 create-event-1">
               <b>Time:</b> 
-              <div {{-- class="input-group clockpicker" --}}>
+              <div class="input-group clockpicker">
                 <input type="text" class="form-control" name="end_time">
-                {{-- <span class="input-group-addon">
+                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
-                </span> --}}
+                </span>
               </div>
             </div>
           </div>
@@ -71,10 +71,9 @@
             <div class="col-sm-5 create-event-1">
               <b>Priority</b>
               <select class="form-control" name="priority">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option value="Very important">Very important</option>
+                <option value="important">important</option>
+                <option value="not important">not important</option>
               </select>
             </div>
           </div>
@@ -87,7 +86,6 @@
         </div>
         <input type="submit" class="btn btn-primary btn-event-confirm"  value="submit">
         </form>
-        <button type="button" class="btn btn-default btn-event-cancel" data-dismiss="modal">Cancel</button>
 
       </div>
     </div>      

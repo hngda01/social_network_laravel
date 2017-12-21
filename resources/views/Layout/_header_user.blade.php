@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#"><img src="./logo/logo.jpg" height="50"></a><!--click vào đây thì dẫn về trang chủ-->
+      <a href="home"><img src="./logo/logo.jpg" height="50"></a><!--click vào đây thì dẫn về trang chủ-->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><!--bắt đầu phần chỉ hiển thị khi đã đăng nhập thành công-->
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -35,7 +35,7 @@
               <li>
                 <div class="friend-request">
                   <a href="#">
-                    <img class="img-responsive img-circle add-friend-pic" src="img/avatar/ava1.jpg"> 
+                    <img class="img-responsive img-circle add-friend-pic" src="images/{{$friendRequest->userAvatar($friendRequest->user_id)}}.png"> 
                     <span class="friend-request-profile"> {{$friendRequest->userName($friendRequest->user_id)}}</span>
                   </a>
                   <span class="friend-request-buttons">
@@ -65,7 +65,7 @@
             @foreach($notifications as $notification)
               <li class="noti-comp">
                 <a href="viewPost/{{$notification->id_diary}}">
-                  <img class="img-responsive img-circle noti-pic" src="img/avatar/ava1.jpg">
+                  <img class="img-responsive img-circle noti-pic" src="images/{{$notification->diary->image}}.png">
                   <span>
                   @php
                     echo $notification->noti;
@@ -86,7 +86,7 @@
             </div>
             <ul class="dropdown-menu" aria-labelledby="acc">
               <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-              <li><a href="#"><span class="fa fa-sign-out"></span> Log Out</a></li>
+              <li><a href="{{ route('logout') }}"><span class="fa fa-sign-out"></span> Log Out</a></li>
             </ul>
           </div>
         </li>

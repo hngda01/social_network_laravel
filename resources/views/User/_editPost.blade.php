@@ -1,4 +1,3 @@
-
   <div class="modal fade" id="editPost" role="dialog">     
     <div class="modal-dialog">   
 
@@ -31,7 +30,7 @@
                         <option value="{{$diary->id_category}}"  onclick="hideOther();">{{$diary->categoryName($diary->id_category)}}</option> 
                         @foreach($category as $cat)
                         @if($cat->id!=$diary->id_category)
-                        	<option value="{{$cat->id}}" onclick="hideOther();">{{$cat->name}}</option>
+                          <option value="{{$cat->id}}" onclick="hideOther();">{{$cat->name}}</option>
                         @endif
                         
                         @endforeach  
@@ -43,10 +42,9 @@
                     </td>
                     <td width="33%">
                       <select name="privacy_select" id="drop_down2" style="width: 100%;" class="form-control">
-                        <option value="0" @if($diary->id_privacy==0) selected="true" @endif>Only me</option>
-                        <option value="1" @if($diary->id_privacy==1) selected="true" @endif>Friends</option>
-                        <option value="2" @if($diary->id_privacy==2) selected="true" @endif>Specific Friends</option>
-                        <option value="3" @if($diary->id_privacy==3) selected="true" @endif>Public</option>     
+                        <option value="0">Only me</option>
+                        <option value="1">Friends</option>
+                        <option value="3">Public</option>     
                       </select>
                     </td>
                   </tr>
@@ -57,10 +55,8 @@
               {{-- <button onclick="myFunction()">click</button> --}}
               <script>
                 var dropdown = document.getElementById('drop_down');
-
                 dropdown.onchange = function() {
                   var selected = dropdown.options[dropdown.selectedIndex].value;
-
                   switch(selected) {
                     case 'other':
                     document.getElementById('other').value = "";
@@ -75,11 +71,9 @@
                 }
               </script>
               <script>
-                var dropdown2 = document.getElementById('drop_down2');
-
-                dropdown2.onchange = function() {
-                  var selected = dropdown2.options[dropdown2.selectedIndex].value;
-
+                var dropdown = document.getElementById('drop_down2');
+                dropdown.onchange = function() {
+                  var selected = dropdown.options[dropdown.selectedIndex].value;
                   switch(selected) {
                     case "2":
                     $("#eventEdit").modal();
@@ -98,35 +92,30 @@
   </div>
 </div>
 <!-- Modal edit-->
-    <!-- Modal edit-->
     <div class="modal fade" id="eventEdit" role="dialog">
       <div class="modal-dialog">
     
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header modal-edit-head">
-            <center><h4 class="modal-title">Specific Friends </h4></center>
+            <center><h4 class="modal-title">Specific Friends</h4></center>
           </div>
           <div class="modal-body">
-          <form name="myform">
+          <form name="MyForm">
             <div class="container-fluid edit-event-form">
-              <div class="row">
-                <div class="col-sm-12 edit-event-1">
-                </div>
-              </div>
             <div style="height: 400px;    overflow: scroll;">
             <br>
              <table width="100%">
-             @foreach($user->friendList as $friend)
-              <tr >
+             @foreach($user->friendList->reverse() as $friend)
+              <tr valign="top">
                 <td style="padding-right: 20px;padding-bottom: 10px;width: 70px;">
-                  <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+                  <img src="images/{{$friend->userAvatar($friend->friend_id)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td align="left">
                   <a class="page-newsfeed-06" href="profile/{{$friend->friend_id}}">                  
                     {{$friend->userName($friend->friend_id)}}
                   </a>                  
-                  <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  <br> Dai hoc Bach Khoa
                 </td>
                 <td>
                   <input type="Checkbox" Name="MyCheckbox" value="{{$friend->friend_id}}" />
@@ -142,17 +131,14 @@
           <script language="javascript">
             function checkstatus()
             {
-              var myform = document.getElementById('myform');
-              var inputTags = myform.getElementsByTagName('input');
               var res= "0";
-              for(count=0;count<inputTags.length;count++)
+              for(count=0;count<4;count++)
               {
                 if (MyForm.MyCheckbox[count].checked)
                   res=res + "-"+ MyForm.MyCheckbox[count].value;
                 
               }
-              alert($(":MyCheckbox:checked").length);
-              form1.danhsach.value = res;
+              form2.danhsach.value = res;
             }
           </script>
           </div>
@@ -175,4 +161,3 @@
     })
   })
 </script>
-

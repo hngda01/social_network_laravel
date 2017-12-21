@@ -461,9 +461,7 @@ nav {
 	}
 }
 @media screen and (min-width: 1200px){
-	body{
-		background: url("../img/dairy-diary-background-scenery-birds-bird.jpg");
-	}
+	
 	/*begin login page*/
 	.page-login-02{
 		text-shadow: 0px 0px 5px #aaa;

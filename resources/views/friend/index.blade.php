@@ -12,7 +12,7 @@
                 @foreach($friends as $user)
                 <div class="member-entry pull-left" style="padding-right: 95px;" > 
                     <a href="/home/{{ $user->id}}" class="member-img"> 
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-rounded"> 
+                        <img src="images/{{$user->userAvatar($user->id)}}.png" class="img-rounded"> 
                         <i class="fa fa-forward"></i> 
                     </a> 
                     <div class="member-details"> 

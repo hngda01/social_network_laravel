@@ -48,6 +48,12 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany('App\Comment',"id_user","id");
     }
+    public function userAvatar($fid)
+    {
+        $user= User::find($fid);
+        $info=$user->info;
+        return $info[0]->avatar;
+    }
     public function notifications(){
         return $this->hasMany('App\Notification','id_user','id');
     }

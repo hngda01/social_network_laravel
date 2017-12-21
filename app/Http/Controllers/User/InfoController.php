@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Validator;
 use App\Friend;
 use App\UserInfo;
 use App\Notification;
@@ -37,8 +38,12 @@ class InfoController extends Controller
         $notifications= Notification::where('id_user',Auth::user()->id)
         ->where("seen",0)
         ->get();
+        $friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
     	$user= User::find($user_id);
         return view('User.contact_details_page',["user"=>$user,
+                                                'friendRequests'=>$friendRequests,
                                                 'notifications'=>$notifications
                                                     ]);	
     }
@@ -79,18 +84,26 @@ class InfoController extends Controller
         return redirect()->back();
     }
     public function updateInfo($user_id,Request $request){
+        $v = Validator::make($request->all(),[
+            'name' => 'required|max:50',
+            'address' => 'required|max:50',
+            'hobby' => 'required|max:50',
+            'school' => 'required'
+        ]);
+        if($v->fails())
+            return redirect()->back()->withErrors($v->errors());
     	$user= User::find($user_id);
     	$user->name = $request["name"];
         $user->save();
-        $info= UserInfo::find($user_id);
+        $info= UserInfo::where("id_user",$user_id)->first();
         $info->address= $request["address"];
         $info->hobby= $request["hobby"];
         $info->school= $request["school"];
         $info->save();
-        return redirect('home');
+        return redirect()->back();
     }
     public function updateAvatar(Request $request){
-        $info= UserInfo::find(Auth::user()->id);
+        $info= UserInfo::where("id_user",Auth::user()->id)->first();
         
         $image_name="avatar".Auth::user()->id;
         
@@ -104,6 +117,6 @@ class InfoController extends Controller
         }
         else echo "chua co file";
         
-        return redirect('home');
+        return redirect()->back();
     }
 }

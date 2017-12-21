@@ -17,12 +17,13 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" autofocus >
 
-                                @if ($errors->has('email'))
+                                
+                            </div>
+                            @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">

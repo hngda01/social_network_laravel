@@ -1,7 +1,7 @@
-<div class="col-xs-12 col-md-4 col-lg-3">
+<div class="col-xs-12 col-md-4 col-lg-3" style="margin-left: 20px;">
 	<div class="userProfileInfo">
 		<div class="image text-center">
-			<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="#" class="img-responsive">
+			<img  src="images/{{$user->userAvatar($user->id)}}.png" alt="#" class="img-responsive">
 		</div>
 		<div class="box">
 			<div class="name" style="size: 25px;"><center><strong>{{$user->name}}</strong>

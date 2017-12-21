@@ -3,8 +3,10 @@
       <div class="page-newsfeed-03">
       @php
         $allEvent=$user->events->reverse();
+        if(count($allEvent)!=0)
         $firstEvent= $allEvent[count($allEvent)-1];
       @endphp
+      @if(count($allEvent)!=0)
       <div class="thumbnail">
           <p><b>newest Event :</b></p>
           <img src="images/{{$firstEvent->image}}.png" alt="Paris" width="400" height="300">
@@ -13,6 +15,7 @@
           <p>{{$firstEvent->start_date."  ".$firstEvent->time}}</p>
           
         </div>
+        @endif
         <h3><img src="img/icon/calendar.png" height="20">Your Schedule</h3>
         <div align="left">        
           <table width="100%">

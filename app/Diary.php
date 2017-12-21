@@ -21,6 +21,12 @@ class Diary extends Model
 
         return User::find($fid)->name;
     }
+    public function userAvatar($fid)
+    {
+        $user= User::find($fid);
+        $info=$user->info;
+        return $info[0]->avatar;
+    }
     public function categoryName($id)
     {
         return Category::find($id)->name;
@@ -29,13 +35,20 @@ class Diary extends Model
         return $this->hasMany("App\SpecificFriend","diary_id","id");
     }
     public function checkPrivacy($userId,$diary){
-        if($userId== Auth::user()->id) return 1;
+        if($userId== $diary->id_user) return 1;
         switch($diary->id_privacy){
             case 0: {
                 return 0;
                 break;
             }
-            case 1:
+            case 1:{
+                $rela= Friend::where("user_id",$userId)
+                            ->where("friend_id",$diary->id_user)
+                            ->where("accepted",1)->get();
+                if(count($rela)==0) return 0;
+                else return 1;
+                break;
+            }
             case 3: {
                 return 1;
                 break;
@@ -48,6 +61,14 @@ class Diary extends Model
             }
 
         }
+    }
+    public function checkFriend($userId,$diary){
+        if($userId== $diary->id_user) return 1;
+        $rela= Friend::where("user_id",$userId)
+                            ->where("friend_id",$diary->id_user)
+                            ->where("accepted",1)->get();
+                if(count($rela)==0) return 0;
+                else return 1;
     }
 
 }

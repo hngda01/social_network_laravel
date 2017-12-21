@@ -10,7 +10,7 @@
                        {{ csrf_field() }}
                        <div class="text-center">
                         <div id="clock">
-                            <img src="images/avatar{{Auth::user()->id}}.png" id ='image1' style="height: 250px;width: 250px;" class="img-circle"  >
+                            <img src="images/{{$user->info[0]->avatar}}.png" id ='image1' style="height: 250px;width: 250px;" class="img-circle"  >
                         </div>
                         <div class="form-group">
                             <label for="telephone">Image :</label>

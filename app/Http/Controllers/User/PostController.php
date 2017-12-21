@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator;
 use App\User;
 use App\Event;
 use App\Category;
@@ -28,30 +29,47 @@ class PostController extends Controller
 		$diaries= Diary::all();
 		$friend= $user->friendList;
 		$category= $user->category;
-		return view('home',['notifications'=>$notifications,
+		return view('home',[
 			'friends'=>$friend,
 			'friendRequests'=>$friendRequests,
+			'notifications'=>$notifications,
 			'category'=>$category,
 			'diaries'=>$diaries,
 			'user'=>$user
 			]);
 	}
 	public function test(){
-		$d= Diary::find(7);
-		if(count($d->specificFriends->where("user_id",2))!=0) echo "co";
-		else echo "khong";
+		$f= Friend::find(5);
+		//echo $f->user_id;
+		echo $f->userAvatar($f->user_id);
 	}
 
 	public function showNewPost(){
+		$notifications= Notification::where('id_user',Auth::user()->id)
+		->where("seen",0)
+		->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
 		$user= User::where('id',Auth::user()->id)->first();
     	//echo $user;
 		$category= $user->category;
     	//echo $category;
 		return view('User.writePost',['category'=>$category,
+			'friendRequests'=>$friendRequests,
+			'notifications'=>$notifications,
 			'user'=>$user
 			]);
 	}
 	public function createPost(Request $request){
+		$v = Validator::make($request->all(),[
+    		'title' => 'required|max:50',
+    		'content' => 'required'
+    	]);
+
+    	if($v->fails())
+    		return redirect()->back()->withErrors($v->errors());
+
 		$user_id=Auth::user()->id;
 		$str="".$request['category'];
 		$id_category=0;
@@ -104,11 +122,23 @@ class PostController extends Controller
 		$notifications= Notification::where('id_user',Auth::user()->id)
 		->where("seen",0)
 		->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
+		
 		$user= User::where('id',Auth::user()->id)->first();
 		//echo $user->diary;
-		return view('User.listPost',['diary'=>$user->diary,'notifications'=>$notifications]);
+		return view('User.listPost',['diary'=>$user->diary,
+			'friendRequests'=>$friendRequests,
+			'notifications'=>$notifications]);
 	}
-	public function viewPost($id){		
+	public function viewPost($id){	
+		$notifications= Notification::where('id_user',Auth::user()->id)
+		->where("seen",0)
+		->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();	
 		$diary= Diary::where("id",$id)->first();
 		if($diary->checkPrivacy(Auth::user()->id,$diary)==1)
 		{
@@ -132,6 +162,7 @@ class PostController extends Controller
 
 			return view('User.postDetail',[
 				"diary"=>$diary,
+				'friendRequests'=>$friendRequests,
 				'notifications'=>$notifications,
 				'friends'=>$friend,
 				'category'=>$category,
@@ -142,6 +173,11 @@ class PostController extends Controller
 		else echo "<center><h4>You are no allowed to see this post</h4></center>";
 	}
 	public function writeComment(Request $request){
+		$v = Validator::make($request->all(),[
+    		'comment' => 'required'
+    	]);
+		if($v->fails())
+    		return redirect()->back()->withErrors($v->errors());
 		$diary= Diary::find($request['diary_id']);
 		$comment= new Comment();
 		$comment->id_diary= $request['diary_id'];
@@ -166,12 +202,16 @@ class PostController extends Controller
 		$notifications= Notification::where('id_user',Auth::user()->id)
 		->where("seen",0)
 		->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();	
 		$user= User::find(Auth::user()->id);
 		$diaries= Diary::all();
 		$friend= $user->friendList;
 		$category= $user->category;
 		return view('home',['notifications'=>$notifications,
 			'friends'=>$friend,
+			'friendRequests'=>$friendRequests,
 			'category'=>$category,
 			'diaries'=>$diaries,
 			'user'=>$user
@@ -185,6 +225,7 @@ class PostController extends Controller
 		$user= User::find(Auth::user()->id);
 		$friend= $user->friendList;
 		return view('User.editPost',[
+			'friendRequests'=>$friendRequests,
 			'notifications'=>$notifications,
 			'friends'=>$friend,
 			'diary'=>$diary,
@@ -193,6 +234,12 @@ class PostController extends Controller
 			]);
 	}
 	public function updatePost(Request $request){
+		$v = Validator::make($request->all(),[
+    		'title' => 'required|max:50',
+    		'content' => 'required'
+    	]);
+		if($v->fails())
+    		return redirect()->back()->withErrors($v->errors());
 		$user_id=Auth::user()->id;
 		$str="".$request['category'];
 		$id_category=0;

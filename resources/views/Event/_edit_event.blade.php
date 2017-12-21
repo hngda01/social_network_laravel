@@ -71,6 +71,5 @@
         </div>
         <input type="submit" value="Save changes">
         </form>
-        <button type="button" class="btn btn-default btn-event-cancel" data-dismiss="modal">Cancel</button>
 
       </div>

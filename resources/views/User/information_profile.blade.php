@@ -4,7 +4,7 @@
 <div class="row">
 	@include("Personal._left_col_info")
 
-	<div class="col-sm-7">
+	<div class="col-sm-6">
 		<div >
 			<!-- Tabs -->
 			<ul class="nav nav-tabs userProfileTabs" role="tablist">

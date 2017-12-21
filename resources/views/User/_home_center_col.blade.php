@@ -2,15 +2,15 @@
 
       
       
-      <div class="row">
+      <div class="row">        
         @foreach($diaries->reverse() as $diary) 
-        @if($diary->checkPrivacy(Auth::user()->id,$diary)==1)
+        @if($diary->checkPrivacy(Auth::user()->id,$diary)==1 && $diary->checkFriend(Auth::user()->id,$diary))
         <div class=" well" style="margin-left: 20px; margin-right: 20px">
           <div align="left">
             <table>
               <tr>
                 <td style="padding-right: 20px">
-                  <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+                  <img src="images/{{$diary->userAvatar($diary->id_user)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td >
                   <a class="page-newsfeed-06" href="profile/{{$diary->id_user}}">
@@ -29,14 +29,14 @@
                   @endif
                   &nbsp;&nbsp;&nbsp;
                   <i class="fa fa-tag" aria-hidden="true"></i>
-                  Topic: <a href="/tags/nodejs" class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
+                  Topic: <a  class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
 
                 </td>
               </tr>
             </table>
           </div>
           <table>
-            <tr>
+            <tr valign="top">
               <td style="padding-top: 10px">
                 <img src="images/{{$diary->image}}.png" alt="Paris" width="150" height="100">
               </td>
@@ -45,7 +45,7 @@
                 </a> 
                 <p>
                 @php
-                  $maxLen=300;
+                  $maxLen=200;
                   if(strlen($diary->content)< $maxLen)
                     echo $diary->content;
                   else {
@@ -61,9 +61,6 @@
           <div class="page-newsfeed-06">
           <table>
             <tr>
-              <td width="70px">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 100
-              </td>
               <td width="50%">
                 <i class="fa fa-comments-o" aria-hidden="true"></i> 
                 {{count($diary->comment)}}

@@ -5,7 +5,7 @@
         <table>
           <tr>
             <td style="padding-right: 20px">
-              <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+              <img src="images/{{$diary->userAvatar($diary->id_user)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
             </td>
             <td>
               <span class="page-newsfeed-06">
@@ -24,7 +24,7 @@
 
               &nbsp;&nbsp;&nbsp;
               <i class="fa fa-tag" ></i>
-              Topic: <a href="/tags/nodejs" class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
+              Topic: <a class="tag badge badge-default overflow-hidden" data-v-2d5c6a76>{{$diary->category->name}}</a>
               &nbsp;&nbsp;&nbsp;
               @if($diary->id_user== Auth::user()->id)
               <a href="editPost/{{$diary->id}}" class="fa fa-pencil" data-toggle="modal" data-target="#editPost">edit</a>
@@ -57,11 +57,11 @@
       <div style="background-color: #f6f7f1">
       @foreach($comment as $cmt)
       <table style="width: 100%;">
-        <tr>
+        <tr >
           <td style="padding-right: 20px" width="100">
-            <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+            <img src="images/{{$cmt->userAvatar($cmt->id_user)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
           </td>
-          <td align="left">
+          <td align="left" valign="top">
             <span class="page-newsfeed-06">
               <a href="profile/{{$cmt->id_user}}" title="" >{{$cmt->userName($cmt->id_user)}}</a>
             </span>
@@ -70,9 +70,9 @@
             </span>               
           </td>
         </tr>
-        <tr>
+        <tr >
           <td></td>
-          <td align="left">
+          <td align="left" valign="top">
             {{-- comment --}}
             {{$cmt->content}}
           </td>
@@ -86,7 +86,7 @@
         <table style="width: 100%;">
           <tr>
             <td style="padding-right: 20px" width="100">
-              <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+              <img src="images/{{$user->userAvatar($user->id)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
             </td>
             <td align="left">
             <a href="profile/{{Auth::user()->id}} title="" class="page-newsfeed-06">{{$user->name}} </a>  

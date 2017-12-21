@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Event;
 use App\Notification;
 use App\User;
+use App\Friend;
+use Validator;
 
 class EventController extends Controller
 {
@@ -14,6 +16,19 @@ class EventController extends Controller
     	return view("User.newEvent");
     }
     public function createEvent(Request $request){
+    	$v = Validator::make($request->all(),[
+    		'title' => 'required|max:50',
+    		'address' => 'required|max:50',
+    		'start_date' => 'required',
+    		'end_date' => 'required',
+    		'time' => 'required',
+    		'end_time' => 'required',
+    		'priority' => 'required',
+    		'content' => 'required'
+    	]);
+
+    	if($v->fails())
+    		return redirect()->back()->withErrors($v->errors());
     	$user_id=Auth::user()->id;
 		
 		
@@ -39,8 +54,10 @@ class EventController extends Controller
 			$event->save();
 		}
 		else echo "chua co file";
+		return redirect()->back();
     }
     public function editEvent($id){
+    	
     	$event= Event::find($id);
     	return view("Event._edit_event",["event"=>$event,
     								  "eventId"=>$id
@@ -49,7 +66,7 @@ class EventController extends Controller
     public function deleteEvent($id){
 		$diary= Event::find($id);
 		$diary->delete();
-		return "delete successful";
+		return redirect()->back();
 	}
     public function showEvent($id){
     	$event= Event::find($id);
@@ -57,6 +74,19 @@ class EventController extends Controller
     								  ]);
     }
     public function postEventEdit(Request $request){
+    	$v = Validator::make($request->all(),[
+    		'title' => 'required|max:50',
+    		'address' => 'required|max:50',
+    		'start_date' => 'required',
+    		'end_date' => 'required',
+    		'time' => 'required',
+    		'end_time' => 'required',
+    		'priority' => 'required',
+    		'content' => 'required'
+    	]);
+
+    	if($v->fails())
+    		return redirect()->back()->withErrors($v->errors());
     	$user_id=Auth::user()->id;
 		
 		
@@ -73,16 +103,20 @@ class EventController extends Controller
 		$image_name="id".$event->id."user".$user_id;
 		$event->image=$image_name;
 		$event->save();
-		
+		return redirect()->back();
     }
     public function listEvent(){
     	$notifications= Notification::where('id_user',Auth::user()->id)
 										->where("seen",0)
 										->get();
+		$friendRequests= Friend::where("friend_id",Auth::user()->id)
+                            ->where("accepted",0)
+                            ->get();
 		$user= User::find(Auth::user()->id);
 		$friend= $user->friendList;
 		$category= $user->category;
 		return view('User.listEvent',['notifications'=>$notifications,
+							'friendRequests'=>$friendRequests,
 							'friends'=>$friend,
 							'category'=>$category,
 							'user'=>$user

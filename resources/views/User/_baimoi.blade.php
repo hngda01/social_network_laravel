@@ -112,15 +112,15 @@
             <br>
              <table width="100%">
              @foreach($user->friendList as $friend)
-              <tr >
+              <tr valign="top">
                 <td style="padding-right: 20px;padding-bottom: 10px;width: 70px;">
-                  <img src="img/avatar/ava5.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+                  <img src="images/{{$friend->userAvatar($friend->friend_id)}}.png" class="img-circle" height="55" width="55" alt="Avatar">
                 </td>
                 <td >
                   <a class="page-newsfeed-06" href="profile/{{$friend->friend_id}}">                  
                     {{$friend->userName($friend->friend_id)}}
-                  </a>                  
-                  <br> 3 hours ago &nbsp;&nbsp;&nbsp;
+                  </a>                 
+                  
                 </td>
                 <td>
                   <input type="Checkbox" Name="MyCheckbox" value="{{$friend->friend_id}}" />

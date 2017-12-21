@@ -59,29 +59,5 @@ class User extends Authenticatable
     public function friends() {
         return $this->friendofMine()->wherePivot('accepted',true)->get()->merge($this->friendOf()->wherePivot('accepted',true)->get());
     } 
-    public function friendRequests() {
-        return $this->friendofMine()->wherePivot('accepted',false)->get();
-    }
-    public function friendRequestsPending() {
-        return $this->friendOf()->wherePivot('accepted',false)->get();
-    }
-    public function hasFriendRequestsPending(User $user){
-        return (bool)$this->friendRequestsPending()->where('id',$user->id)->count();
-    }
-    public function hasFriendRequestsReceived(User $user){
-        return $this->friendRequests()->where('id',$user->id)->count();
-    }
-    public function addFriend (User $user){
-        $this->friendOf()->attach($user->id);
-    }
-
-    public function acceptFriendRequest(User $user){
-        $this->friendRequests()->where('id',$user->id)->first()->pivot->update([
-            'accepted' => true,
-        ]);
-    }
-    public function isFriendWith(User $user){
-        return (bool) $this->friends()->where('id',$user->id)->count();
-    }
 
 }

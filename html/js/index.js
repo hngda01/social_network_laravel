@@ -20,6 +20,8 @@
    *	Calender
    */
   $(document).ready(function() {
+    $('.clockpicker').clockpicker();
+    $('.input-group.date').datepicker();
     var $cal = $('.responsive-calendar');
     $cal.responsiveCalendar({
       events : {
@@ -65,8 +67,6 @@
         
         },
     }); /* end $cal */
-    $('.clockpicker').clockpicker();
-    $('.input-group.date').datepicker();
   }); /* end $document */
 }(window.jQuery || window.$));
 /*!

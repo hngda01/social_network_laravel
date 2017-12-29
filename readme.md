@@ -1,1 +1,2 @@
-![resize()](image/a.jpeg)
+# dictionary
+![resize()](image/a.jpg)
